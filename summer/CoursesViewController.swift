@@ -1,23 +1,21 @@
 import UIKit
-import Kingfisher
 
 class CoursesViewController: UIViewController, DocumentStoreDelegate {
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var springSummerSegmentedControl: UISegmentedControl!
     
-    var documentStore: DocumentStore?
+    var documentStore: DocumentStore!
     
     var coursesBySegment: [CourseViewModel] {
         switch springSummerSegmentedControl.selectedSegmentIndex {
         case 0:
-            return documentStore!.allCourses().filter { $0.season == Seasons.Spring }
+            return documentStore.getCoursesBy(season: Seasons.Spring)
         case 1:
-            return documentStore!.allCourses().filter { $0.season == Seasons.Summer }
+            return documentStore.getCoursesBy(season: Seasons.Summer)
         default:
-            return documentStore!.allCourses().filter { $0.season == Seasons.Spring }
+            return documentStore.getCoursesBy(season: Seasons.Spring)
         }
     }
-    
-    @IBOutlet var springSummerSegmentedControl: UISegmentedControl!
     
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
         self.tableView.reloadData()
@@ -51,12 +49,7 @@ class CoursesViewController: UIViewController, DocumentStoreDelegate {
                 let courseDetailViewController = navViewController.topViewController as? CourseDetailViewController {
                 let course = coursesBySegment[row]
                 courseDetailViewController.course = course
-                if let lecturer = documentStore?.allLecturers().first(where: { $0.id == course.lecturerId }) {
-                    courseDetailViewController.lecturer = lecturer
-                }
-                else {
-                    courseDetailViewController.lecturer = LecturerViewModel(lecturer: nil)
-                }
+                courseDetailViewController.lecturer = documentStore.getLecturerBy(id: course.lecturerId)
             }
         default:
             preconditionFailure("Unexpected segue identifer")
@@ -73,12 +66,7 @@ extension CoursesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell", for: indexPath) as? CourseCell {
             let course = coursesBySegment[indexPath.row]
-            guard let lecturer = documentStore!.allLecturers().first(where: { $0.id == course.lecturerId })
-                else {
-                    cell.configureWith(course: course, lecturer: LecturerViewModel(lecturer: nil))
-                    return cell
-            }
-            cell.configureWith(course: course, lecturer: lecturer)
+            cell.configureWith(course: course, lecturer: documentStore.getLecturerBy(id: course.lecturerId))
             return cell
         }
         

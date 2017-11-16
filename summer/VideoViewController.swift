@@ -4,6 +4,7 @@
 //
 //  Created by King, Gavin on 3/8/17.
 //  Copyright © 2017 CocoaPods. All rights reserved.
+//  Modified by Tucker, Cameron at various times
 //
 
 import UIKit

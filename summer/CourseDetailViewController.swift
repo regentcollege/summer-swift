@@ -24,8 +24,8 @@ class CourseDetailViewController: UIViewController {
 
         if let imageUrl = lecturer.imageUrl {
             lecturerImageView.kf.setImage(with: imageUrl)
-        } else {
-            lecturerImageView.image = UIImage(named: "lecturer_240")
+        } else if let placeholderImageName = lecturer.placeholderImageName {
+            lecturerImageView.image = UIImage(named: placeholderImageName)
         }
         
         if !lecturer.hasDetail {
@@ -46,7 +46,7 @@ class CourseDetailViewController: UIViewController {
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if lecturerNameLabel.text == "TBD" { return false }
+        if !lecturer.hasDetail { return false }
         
         return true
     }

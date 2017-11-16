@@ -7,7 +7,6 @@ protocol DocumentStoreDelegate: class {
 }
 
 class DocumentStore {
-    var db: Firestore!
     private var courses = [Course]()
     private var lecturers = [Lecturer]()
     
@@ -15,21 +14,31 @@ class DocumentStore {
     
     init() {
         FirebaseApp.configure()
-        db = Firestore.firestore()
         loadData()
         checkForUpdates()
     }
     
-    func allCourses() -> [CourseViewModel] {
+    func getCourses() -> [CourseViewModel] {
         return courses.map { CourseViewModel(course: $0) }
     }
     
-    func allLecturers() -> [LecturerViewModel] {
+    func getCoursesBy(season: Seasons) -> [CourseViewModel] {
+        return courses.filter { $0.season == season }.map { CourseViewModel(course: $0) }
+    }
+    
+    func getLecturers() -> [LecturerViewModel] {
         return lecturers.map { LecturerViewModel(lecturer: $0) }
     }
     
-    func loadData() {
-        db.collection("courses").getDocuments() {
+    func getLecturerBy(id: String?) -> LecturerViewModel {
+        if let id = id, let lecturer = lecturers.first(where: { $0.id == id }) {
+            return LecturerViewModel(lecturer: lecturer)
+        }
+        return LecturerViewModel(lecturer: nil)
+    }
+    
+    private func loadData() {
+        Firestore.firestore().collection("courses").getDocuments() {
             querySnapshot, error in
             if let error = error {
                 print("\(error.localizedDescription)")
@@ -44,7 +53,7 @@ class DocumentStore {
                 self.delegate?.documentsDidUpdate()
             }
         }
-        db.collection("lecturers").getDocuments() {
+        Firestore.firestore().collection("lecturers").getDocuments() {
             querySnapshot, error in
             if let error = error {
                 print("\(error.localizedDescription)")
@@ -70,8 +79,8 @@ class DocumentStore {
         }
     }
     
-    func checkForUpdates() {
-        db.collection("courses").addSnapshotListener {
+    private func checkForUpdates() {
+        Firestore.firestore().collection("courses").addSnapshotListener {
             querySnapshot, error in
             
             guard let snapshot = querySnapshot else { return }
@@ -86,6 +95,7 @@ class DocumentStore {
                             return
                         }
                         self.courses.append(course)
+                        self.delegate?.documentsDidUpdate()
                     }
                 case .modified:
                     return
@@ -93,9 +103,8 @@ class DocumentStore {
                     return
                 }
             }
-            //self.delegate?.documentsDidUpdate()
         }
-        db.collection("lecturers").addSnapshotListener {
+        Firestore.firestore().collection("lecturers").addSnapshotListener {
             querySnapshot, error in
             
             guard let snapshot = querySnapshot else { return }
@@ -110,6 +119,7 @@ class DocumentStore {
                             return
                         }
                         self.lecturers.append(lecturer)
+                        self.delegate?.documentsDidUpdate()
                     }
                 case .modified:
                     return
@@ -117,7 +127,6 @@ class DocumentStore {
                     return
                 }
             }
-            //self.delegate?.documentsDidUpdate()
         }
     }
 }

@@ -21,7 +21,7 @@
         <!--Courses-->
         <scene sceneID="G55-7g-1gd">
             <objects>
-                <splitViewController title="Courses" id="f1u-W9-wNs" customClass="GlobalSplitViewController" customModule="summer_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController title="Courses" id="f1u-W9-wNs" customClass="GlobalSplitViewController" customModule="summer" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Courses" image="icons8-course" selectedImage="icons8-course" id="BT7-m5-ZcM"/>
                     <connections>
                         <segue destination="4XX-9F-hoG" kind="relationship" relationship="masterViewController" id="42H-i6-TMf"/>
@@ -35,7 +35,7 @@
         <!--Courses-->
         <scene sceneID="SBs-yN-Fqp">
             <objects>
-                <viewController id="SXA-qk-czs" customClass="CoursesViewController" customModule="summer_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SXA-qk-czs" customClass="CoursesViewController" customModule="summer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="top" id="0Yz-yI-aob">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,7 +44,7 @@
                                 <rect key="frame" x="0.0" y="108" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="center" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CourseCell" rowHeight="130" id="0qj-SB-JbN" customClass="CourseCell" customModule="summer_ios" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="center" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CourseCell" rowHeight="130" id="0qj-SB-JbN" customClass="CourseCell" customModule="summer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0qj-SB-JbN" id="foq-h2-QZu">
@@ -136,7 +136,7 @@
         <!--Course Detail View Controller-->
         <scene sceneID="50g-tL-2gI">
             <objects>
-                <viewController id="BPe-f0-hhX" customClass="CourseDetailViewController" customModule="summer_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BPe-f0-hhX" customClass="CourseDetailViewController" customModule="summer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SOw-T2-vZi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -228,7 +228,7 @@
         <!--More Detail View Controller-->
         <scene sceneID="5tH-Jc-7ND">
             <objects>
-                <viewController id="qaE-hY-Fxp" customClass="MoreDetailViewController" customModule="summer_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qaE-hY-Fxp" customClass="MoreDetailViewController" customModule="summer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t51-Fd-vAh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -259,7 +259,7 @@
         <!--More Information-->
         <scene sceneID="Wo2-gz-052">
             <objects>
-                <tableViewController clearsSelectionOnViewWillAppear="NO" id="Qbs-jO-bPZ" customClass="MoreViewController" customModule="summer_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="Qbs-jO-bPZ" customClass="MoreViewController" customModule="summer" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wbl-5J-GWC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -316,7 +316,7 @@
         <!--More-->
         <scene sceneID="MYt-Ei-0IP">
             <objects>
-                <splitViewController title="More" id="BB4-oc-j8u" customClass="GlobalSplitViewController" customModule="summer_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController title="More" id="BB4-oc-j8u" customClass="GlobalSplitViewController" customModule="summer" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="more" id="srv-DP-0Sa"/>
                     <connections>
                         <segue destination="yX8-2Z-o4z" kind="relationship" relationship="masterViewController" id="rl2-4V-WwI"/>
@@ -330,7 +330,7 @@
         <!--Lecturer Detail View Controller-->
         <scene sceneID="YKg-Ex-HOV">
             <objects>
-                <viewController id="wkJ-1j-NuC" customClass="LecturerDetailViewController" customModule="summer_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wkJ-1j-NuC" customClass="LecturerDetailViewController" customModule="summer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iaE-8R-jEQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -415,6 +415,7 @@
                         <outlet property="lecturerBioTitleLabel" destination="7Db-R6-5KB" id="hRa-EA-27i"/>
                         <outlet property="lecturerImageView" destination="1zE-8E-GVm" id="KKD-QG-r8o"/>
                         <outlet property="lecturerNameLabel" destination="FrY-iq-4eO" id="Tah-Zy-0sR"/>
+                        <outlet property="lecturerShowVideoButton" destination="Pex-Sz-Eik" id="Nt3-an-VRQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wpe-bN-lFF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -424,7 +425,7 @@
         <!--Video View Controller-->
         <scene sceneID="QHj-eh-b3W">
             <objects>
-                <viewController id="MjD-ay-X7L" customClass="VideoViewController" customModule="summer_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MjD-ay-X7L" customClass="VideoViewController" customModule="summer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iHj-jR-ii7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -490,7 +491,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yc3-rV-rqt">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="oAz-NB-zwm" customClass="TabBarController" customModule="summer_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="oAz-NB-zwm" customClass="TabBarController" customModule="summer" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rTd-Mh-h9q">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

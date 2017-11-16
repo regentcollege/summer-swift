@@ -8,6 +8,7 @@ class LecturerDetailViewController: UIViewController {
     @IBOutlet var lecturerNameLabel: UILabel!
     @IBOutlet var lecturerBioTitleLabel: UILabel!
     @IBOutlet var lecturerBioTextView: UITextView!
+    @IBOutlet var lecturerShowVideoButton: UIButton!
     
     var lecturer: LecturerViewModel! {
         didSet {
@@ -19,10 +20,15 @@ class LecturerDetailViewController: UIViewController {
         super.viewWillAppear(animated)
 
         lecturerNameLabel.text = lecturer.name
-        if let imageUrl = lecturer.imageUrl  {
+        
+        if let imageUrl = lecturer.imageUrl {
             lecturerImageView.kf.setImage(with: imageUrl)
-        } else {
-            lecturerImageView.image = UIImage(named: "lecturer_240")
+        } else if let placeholderImageName = lecturer.placeholderImageName {
+            lecturerImageView.image = UIImage(named: placeholderImageName)
+        }
+        
+        if lecturer.videoUrl == nil {
+            lecturerShowVideoButton.isHidden = true
         }
         
         lecturerBioTitleLabel.text = "About"
