@@ -1,7 +1,7 @@
 import Mapper
 
 struct Lecturer: Mappable {
-    var id: String
+    let id: String
     let firstName: String
     let lastName: String
     let imageUrl: URL?

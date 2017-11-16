@@ -7,6 +7,7 @@ protocol DocumentStoreDelegate: class {
 }
 
 class DocumentStore {
+    private var db: Firestore!
     private var courses = [Course]()
     private var lecturers = [Lecturer]()
     
@@ -14,7 +15,10 @@ class DocumentStore {
     
     init() {
         FirebaseApp.configure()
-        loadData()
+        db = Firestore.firestore()
+        
+        // Is this required? Listening for updates pulls everything down anyway
+        //loadData()
         checkForUpdates()
     }
     
@@ -38,31 +42,33 @@ class DocumentStore {
     }
     
     private func loadData() {
-        Firestore.firestore().collection("courses").getDocuments() {
+        db.collection("courses").getDocuments() {
             querySnapshot, error in
             if let error = error {
                 print("\(error.localizedDescription)")
             } else {
                 self.courses = querySnapshot!.documents.flatMap({
-                    guard var course = Course.from($0.data() as NSDictionary) else {
+                    var courseDictionary = $0.data()
+                    courseDictionary["id"] = $0.documentID
+                    guard let course = Course.from(courseDictionary as NSDictionary) else {
                         return nil
                     }
-                    course.id = $0.documentID
                     return course
                 })
                 self.delegate?.documentsDidUpdate()
             }
         }
-        Firestore.firestore().collection("lecturers").getDocuments() {
+        db.collection("lecturers").getDocuments() {
             querySnapshot, error in
             if let error = error {
                 print("\(error.localizedDescription)")
             } else {
                 self.lecturers = querySnapshot!.documents.flatMap({
-                    guard var lecturer = Lecturer.from($0.data() as NSDictionary) else {
+                    var lecturerDictionary = $0.data()
+                    lecturerDictionary["id"] = $0.documentID
+                    guard let lecturer = Lecturer.from(lecturerDictionary as NSDictionary) else {
                         return nil
                     }
-                    lecturer.id = $0.documentID
                     return lecturer
                 })
                 
@@ -80,7 +86,7 @@ class DocumentStore {
     }
     
     private func checkForUpdates() {
-        Firestore.firestore().collection("courses").addSnapshotListener {
+        db.collection("courses").addSnapshotListener {
             querySnapshot, error in
             
             guard let snapshot = querySnapshot else { return }
@@ -90,7 +96,9 @@ class DocumentStore {
                 
                 switch diff.type {
                 case .added:
-                    if let course = Course.from(diff.document.data() as NSDictionary) {
+                    var courseDictionary = diff.document.data()
+                    courseDictionary["id"] = diff.document.documentID
+                    if let course = Course.from(courseDictionary as NSDictionary) {
                         if self.courses.first(where: { $0.id == course.id }) != nil {
                             return
                         }
@@ -104,7 +112,7 @@ class DocumentStore {
                 }
             }
         }
-        Firestore.firestore().collection("lecturers").addSnapshotListener {
+        db.collection("lecturers").addSnapshotListener {
             querySnapshot, error in
             
             guard let snapshot = querySnapshot else { return }
@@ -114,7 +122,9 @@ class DocumentStore {
                 
                 switch diff.type {
                 case .added:
-                    if let lecturer = Lecturer.from(diff.document.data() as NSDictionary) {
+                    var lecturerDictionary = diff.document.data()
+                    lecturerDictionary["id"] = diff.document.documentID
+                    if let lecturer = Lecturer.from(lecturerDictionary as NSDictionary) {
                         if self.lecturers.first(where: { $0.id == lecturer.id }) != nil {
                             return
                         }

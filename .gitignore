@@ -69,4 +69,8 @@ fastlane/test_output
 
 ## Google
 
-GoogleService-Info.*.plist
+GoogleService-Info.plist
+
+## Fonts
+
+*.otf

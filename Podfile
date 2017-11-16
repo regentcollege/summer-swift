@@ -9,8 +9,6 @@ target 'summer' do
     pod 'Firebase/Core'
     pod 'Firebase/Auth'
     pod 'Firebase/Firestore'
-    #pod 'Alamofire', '~> 4.5.0'
-    #pod 'AlamofireImage', '~> 3.3'
     pod 'Kingfisher'
     pod 'Atributika'
     pod 'Fabric', '~> 1.7.2'

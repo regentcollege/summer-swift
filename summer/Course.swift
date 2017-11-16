@@ -14,7 +14,7 @@ private func extractDate(object: Any?) throws -> Date {
 }
 
 struct Course: Mappable {
-    var id: String
+    let id: String
     let name: String
     let title: String
     let description: String?
