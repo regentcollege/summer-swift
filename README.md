@@ -33,8 +33,6 @@ Cam Tucker – ctucker@regent-college.edu
 
 Distributed under the MIT license. See [LICENSE][license-url] for more information.
 
-[https://github.com/yourname/github-link](https://github.com/dbader/)
-
 [swift-image]:https://img.shields.io/badge/swift-4.0-orange.svg
 [swift-url]: https://swift.org/
 [license-image]: https://img.shields.io/badge/License-MIT-blue.svg
