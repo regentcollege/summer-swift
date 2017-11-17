@@ -6,6 +6,16 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 ## Features
+- [x] Course and lecturer details
+- [x] FAQ
+- [ ] Events
+- [ ] Organize courses and events into My Plan
+- [ ] Directions
+- [ ] Announcements
+- [ ] Share to social media
+- [ ] Internationalization and localization
+
+## Architecture
 
 - Persistent and simple datastore via [Google Firestore][firestore-url]
 - Clear and simple mapping to objects via [Mapper][mapper-url]
