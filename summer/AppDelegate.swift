@@ -13,6 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             tabBarController.tabBar.tintColor = Color.red
         }
         
+        // DI is done in Services/SwinjectService.swift
+        
         return true
     }
 }

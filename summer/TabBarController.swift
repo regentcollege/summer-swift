@@ -5,7 +5,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         self.delegate = self
     }
     
-    // tapping the tab bar does not show the root view
+    // fix for tapping the tab bar does not show the root view
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         let splitViewController = tabBarController.viewControllers?[tabBarController.selectedIndex] as? GlobalSplitViewController
         if let navController = splitViewController?.viewControllers[0] as? UINavigationController {
