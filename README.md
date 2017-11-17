@@ -12,6 +12,8 @@
 - Clear separation of concern with MVVM
 - Dependency injection via [Swinject][swinject-url]
 - Embedded video via [PlayerKit][playerkit-url]
+- Rich text with markdown via [Atributika][atributika-url]
+- Async images via [Kingfisher][kingfisher-url]
 - Unified interface for iPad/iPhone with [SplitViews][splitview-url]
 
 ## Requirements
@@ -47,3 +49,5 @@ Distributed under the MIT license. See [LICENSE][license-url] for more informati
 [playerkit-url]: https://github.com/vimeo/PlayerKit
 [mapper-url]: https://github.com/lyft/mapper
 [splitview-url]: https://developer.apple.com/documentation/uikit/uisplitviewcontroller
+[kingfisher-url]: https://github.com/onevcat/Kingfisher
+[atributika-url]: https://github.com/psharanda/Atributika
