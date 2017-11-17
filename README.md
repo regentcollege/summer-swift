@@ -10,7 +10,7 @@
 - Persistent and simple datastore via [Google Firestore][firestore-url]
 - Clear and simple mapping to objects via [Mapper][mapper-url]
 - Clear separation of concern with MVVM
-- Dependency injection via [Swinject][swinject-url]
+- Dependency injection via [Swinject][swinject-url] and [SwinjectStoryboard][swinject-storyboard-url]
 - Embedded video via [PlayerKit][playerkit-url]
 - Rich text with markdown via [Atributika][atributika-url]
 - Async images via [Kingfisher][kingfisher-url]
@@ -46,6 +46,7 @@ Distributed under the MIT license. See [LICENSE](LICENSE) for more information.
 [firestore-url]: https://firebase.google.com/products/firestore/
 [firestore-setup-url]: https://firebase.google.com/docs/ios/setup
 [swinject-url]: https://github.com/Swinject/Swinject
+[swinject-storyboard-url]: https://github.com/Swinject/SwinjectStoryboard
 [playerkit-url]: https://github.com/vimeo/PlayerKit
 [mapper-url]: https://github.com/lyft/mapper
 [splitview-url]: https://developer.apple.com/documentation/uikit/uisplitviewcontroller
