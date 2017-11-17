@@ -2,7 +2,7 @@
 > Browse courses, faculty, events and plan your summer at Regent College
 
 [![Swift Version][swift-image]][swift-url]
-[![License][license-image]](LICENSE.md)
+[![License][license-image]](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 ## Features
@@ -27,18 +27,18 @@
 1. run 'pod install'
 1. Get a GoogleServices-Info.plist from the [Firestore Setup][firestore-setup-url]
 1. Populate Firestore with some courses and lecturers
-1. Customize [Constants.swift](Constants.swift)
+1. Customize [Constants.swift](summer/Constants.swift)
 1. Build
 
 ## Contribute
 
-We would love you for the contribution to **summer-swift**, check the [LICENSE](LICENSE.md) file for more info.
+We would love you for the contribution to **summer-swift**, check the [LICENSE](LICENSE) file for more info.
 
 ## Meta
 
 Cam Tucker – ctucker@regent-college.edu
 
-Distributed under the MIT license. See [LICENSE](LICENSE.md) for more information.
+Distributed under the MIT license. See [LICENSE](LICENSE) for more information.
 
 [swift-image]:https://img.shields.io/badge/swift-4.0-orange.svg
 [swift-url]: https://swift.org/
