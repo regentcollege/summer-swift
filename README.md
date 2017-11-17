@@ -2,7 +2,7 @@
 > Browse courses, faculty, events and plan your summer at Regent College
 
 [![Swift Version][swift-image]][swift-url]
-[![License][license-image]][license-url]
+[![License][license-image]](LICENSE.md)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 ## Features
@@ -24,25 +24,25 @@
 ## Installation
 
 1. Clone
-2. run 'pod install'
-3. Get a GoogleServices-Info.plist from the [Firestore Setup][firestore-setup-url]
-4. Populate Firestore with some courses and lecturers
-5. Build
+1. run 'pod install'
+1. Get a GoogleServices-Info.plist from the [Firestore Setup][firestore-setup-url]
+1. Populate Firestore with some courses and lecturers
+1. Customize [Constants.swift](Constants.swift)
+1. Build
 
 ## Contribute
 
-We would love you for the contribution to **summer-swift**, check the [LICENSE][license-url] file for more info.
+We would love you for the contribution to **summer-swift**, check the [LICENSE](LICENSE.md) file for more info.
 
 ## Meta
 
 Cam Tucker – ctucker@regent-college.edu
 
-Distributed under the MIT license. See [LICENSE][license-url] for more information.
+Distributed under the MIT license. See [LICENSE](LICENSE.md) for more information.
 
 [swift-image]:https://img.shields.io/badge/swift-4.0-orange.svg
 [swift-url]: https://swift.org/
 [license-image]: https://img.shields.io/badge/License-MIT-blue.svg
-[license-url]: https://github.com/RegentCollege/summer-swift/blob/master/LICENSE
 [firestore-url]: https://firebase.google.com/products/firestore/
 [firestore-setup-url]: https://firebase.google.com/docs/ios/setup
 [swinject-url]: https://github.com/Swinject/Swinject
