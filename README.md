@@ -24,7 +24,7 @@
 - Embedded video via [PlayerKit][playerkit-url]
 - Rich text with markdown via [Atributika][atributika-url]
 - Async images via [Kingfisher][kingfisher-url]
-- Unified interface for iPad/iPhone with [SplitViews][splitview-url]
+- Responsive interface for iPad/iPhone with [SplitViews][splitview-url]
 
 ## Requirements
 
