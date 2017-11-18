@@ -32,7 +32,7 @@ class CoursesViewController: UIViewController, DocumentStoreDelegate {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 130
         
-        springSummerSegmentedControl.tintColor = Color.red
+        springSummerSegmentedControl.tintColor = Settings.Color.red
     }
     
     func documentsDidUpdate() {

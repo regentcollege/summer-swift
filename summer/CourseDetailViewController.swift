@@ -34,10 +34,8 @@ class CourseDetailViewController: UIViewController {
         
         courseDescriptionTitleLabel.text = "Course Description"
 
-        let h1 = Style("h1").font(Config.headerFont)
-        let em = Style("em").font(Config.obliqueFont)
-        let str = course.description.style(tags: h1, em)
-            .styleAll(Style.font(Config.paragraphFont))
+        let str = course.description.style(tags: [Settings.Style.h1, Settings.Style.em])
+            .styleAll(Settings.Style.paragraph)
             .attributedString
         courseDescriptionLabel.attributedText = str
         

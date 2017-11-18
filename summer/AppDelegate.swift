@@ -10,7 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if window?.rootViewController as? UITabBarController != nil {
             let tabBarController = window!.rootViewController as! UITabBarController
             tabBarController.selectedIndex = 1 // Open the course tab
-            tabBarController.tabBar.tintColor = Color.red
+            tabBarController.tabBar.tintColor = Settings.Color.red
         }
         
         // DI is done in Services/SwinjectService.swift

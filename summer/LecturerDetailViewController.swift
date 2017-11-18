@@ -33,10 +33,8 @@ class LecturerDetailViewController: UIViewController {
         
         lecturerBioTitleLabel.text = "About"
         
-        let h1 = Style("h1").font(Config.headerFont)
-        let em = Style("em").font(Config.obliqueFont)
-        let str = lecturer.bio.style(tags: h1, em)
-            .styleAll(Style.font(Config.paragraphFont))
+        let str = lecturer.bio.style(tags: [Settings.Style.h1, Settings.Style.em])
+            .styleAll(Settings.Style.paragraph)
             .attributedString
         lecturerBioTextView.attributedText = str
         lecturerBioTextView.textContainer.lineFragmentPadding = 0

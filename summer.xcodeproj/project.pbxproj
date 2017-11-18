@@ -27,11 +27,12 @@
 		32672ED41FA20022005D7F26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 324DC7871FA0F4F0007F97BF /* GoogleService-Info.plist */; };
 		326CC5511FA6F85600E01CD9 /* Futura-LigObl.otf in Resources */ = {isa = PBXBuildFile; fileRef = 326CC5501FA6F85600E01CD9 /* Futura-LigObl.otf */; };
 		328653541FA3ADC6000494CC /* CourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328653531FA3ADC6000494CC /* CourseDetailViewController.swift */; };
-		329C9B6E1FB6A0D0003220C6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C9B6D1FB6A0D0003220C6 /* Constants.swift */; };
+		329C9B6E1FB6A0D0003220C6 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C9B6D1FB6A0D0003220C6 /* Settings.swift */; };
 		329C9B701FB6C9B9003220C6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C9B6F1FB6C9B9003220C6 /* TabBarController.swift */; };
 		32B7BB651FB4199300ECFFAE /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7BB641FB4199300ECFFAE /* VideoViewController.swift */; };
 		32B7BB6A1FB644FF00ECFFAE /* CourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7BB691FB644FF00ECFFAE /* CourseViewModel.swift */; };
 		32B7BB6F1FB6575900ECFFAE /* LecturerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7BB6E1FB6575900ECFFAE /* LecturerViewModel.swift */; };
+		32D2583A1FC0C81A007EBDC7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D258391FC0C81A007EBDC7 /* Extensions.swift */; };
 		32DDD0441FA1FE4D00FC3F68 /* summerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DDD0431FA1FE4D00FC3F68 /* summerTests.swift */; };
 		32E864851FA7E80F00ABBE96 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E864841FA7E80F00ABBE96 /* MoreViewController.swift */; };
 		32F9C1E61FA241A80084DB82 /* Lecturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F9C1E51FA241A80084DB82 /* Lecturer.swift */; };
@@ -75,11 +76,12 @@
 		3263874C1FA52CB500AC9C43 /* LecturerDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturerDetailViewController.swift; sourceTree = "<group>"; };
 		326CC5501FA6F85600E01CD9 /* Futura-LigObl.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura-LigObl.otf"; sourceTree = "<group>"; };
 		328653531FA3ADC6000494CC /* CourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewController.swift; sourceTree = "<group>"; };
-		329C9B6D1FB6A0D0003220C6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		329C9B6D1FB6A0D0003220C6 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		329C9B6F1FB6C9B9003220C6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		32B7BB641FB4199300ECFFAE /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		32B7BB691FB644FF00ECFFAE /* CourseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewModel.swift; sourceTree = "<group>"; };
 		32B7BB6E1FB6575900ECFFAE /* LecturerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturerViewModel.swift; sourceTree = "<group>"; };
+		32D258391FC0C81A007EBDC7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		32DDD0411FA1FE4D00FC3F68 /* summerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = summerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		32DDD0431FA1FE4D00FC3F68 /* summerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = summerTests.swift; sourceTree = "<group>"; };
 		32DDD0451FA1FE4D00FC3F68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -164,7 +166,8 @@
 				324DC77C1FA0F4D6007F97BF /* Assets.xcassets */,
 				324DC7891FA0FFAB007F97BF /* summer.entitlements */,
 				324DC7811FA0F4D6007F97BF /* Info.plist */,
-				329C9B6D1FB6A0D0003220C6 /* Constants.swift */,
+				329C9B6D1FB6A0D0003220C6 /* Settings.swift */,
+				32D258391FC0C81A007EBDC7 /* Extensions.swift */,
 				32B7BB6B1FB6521700ECFFAE /* Models */,
 				32B7BB6D1FB652BB00ECFFAE /* ViewModels */,
 				32B7BB6C1FB6527E00ECFFAE /* Views */,
@@ -527,6 +530,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				324DC78D1FA139F6007F97BF /* Course.swift in Sources */,
+				32D2583A1FC0C81A007EBDC7 /* Extensions.swift in Sources */,
 				324DC7761FA0F4D6007F97BF /* AppDelegate.swift in Sources */,
 				32B7BB6F1FB6575900ECFFAE /* LecturerViewModel.swift in Sources */,
 				3244AF8E1FB9730300E682C2 /* SwinjectService.swift in Sources */,
@@ -540,7 +544,7 @@
 				328653541FA3ADC6000494CC /* CourseDetailViewController.swift in Sources */,
 				324DC78B1FA1397D007F97BF /* CoursesViewController.swift in Sources */,
 				32B7BB6A1FB644FF00ECFFAE /* CourseViewModel.swift in Sources */,
-				329C9B6E1FB6A0D0003220C6 /* Constants.swift in Sources */,
+				329C9B6E1FB6A0D0003220C6 /* Settings.swift in Sources */,
 				321292AA1FAFAB0F00FFEB94 /* GlobalSplitViewController.swift in Sources */,
 				32F9C1E61FA241A80084DB82 /* Lecturer.swift in Sources */,
 			);

@@ -20,15 +20,3 @@ extension String {
         return UIColor(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
     }
 }
-
-struct Config {
-    static let baseURL = NSURL(string: "https://www.regent-college.edu/summer")!
-    static let headerFont = UIFont(name: "Futura-Bol", size: 14)!
-    static let paragraphFont = UIFont(name: "Futura-Lig", size: 12)!
-    static let obliqueFont = UIFont(name: "Futura-LigObl", size: 12)!
-}
-
-struct Color {
-    static let red = "fa3737".hexColor
-    static let orange = "ff690e".hexColor
-}
