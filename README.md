@@ -10,6 +10,7 @@
 - [x] FAQ
 - [ ] Events
 - [ ] Organize courses and events into My Plan
+- [ ] Search and filter
 - [ ] Directions
 - [ ] Announcements
 - [ ] Share to social media
@@ -22,7 +23,7 @@
 - Clear separation of concern with MVVM
 - Dependency injection via [Swinject][swinject-url] and [SwinjectStoryboard][swinject-storyboard-url]
 - Embedded video via [PlayerKit][playerkit-url]
-- Rich text with markdown via [Atributika][atributika-url]
+- Rich text with HTML via [Atributika][atributika-url]
 - Async images via [Kingfisher][kingfisher-url]
 - Responsive interface for iPad/iPhone with [SplitViews][splitview-url]
 
