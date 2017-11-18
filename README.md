@@ -18,13 +18,13 @@
 
 ## Architecture
 
-- Persistent and simple datastore via [Google Firestore][firestore-url]
-- Clear and simple mapping to objects via [Mapper][mapper-url]
+- Persistent and simple datastore with [Google Firestore][firestore-url]
+- Clear and simple mapping to objects with [Mapper][mapper-url]
 - Clear separation of concern with MVVM
-- Dependency injection via [Swinject][swinject-url] and [SwinjectStoryboard][swinject-storyboard-url]
-- Embedded video via [PlayerKit][playerkit-url]
-- Rich text with HTML via [Atributika][atributika-url]
-- Async images via [Kingfisher][kingfisher-url]
+- Dependency injection with [Swinject][swinject-url] and [SwinjectStoryboard][swinject-storyboard-url]
+- Embedded video with [PlayerKit][playerkit-url]
+- Rich text with HTML with [Atributika][atributika-url]
+- Async images with [Kingfisher][kingfisher-url]
 - Responsive interface for iPad/iPhone with [SplitViews][splitview-url]
 
 ## Requirements
@@ -38,7 +38,7 @@
 1. run 'pod install'
 1. Get a GoogleServices-Info.plist from the [Firestore Setup][firestore-setup-url]
 1. Populate Firestore with some courses and lecturers
-1. Customize [Constants.swift](summer/Constants.swift)
+1. Customize [Settings.swift](summer/Settings.swift)
 1. Build
 
 ## Contribute
