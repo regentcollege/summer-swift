@@ -20,7 +20,6 @@
 
 - Persistent and simple datastore with [Google Firestore][firestore-url]
 - Clear and simple mapping to objects with [Mapper][mapper-url]
-- Clear separation of concern with MVVM
 - Dependency injection with [Swinject][swinject-url] and [SwinjectStoryboard][swinject-storyboard-url]
 - Embedded video with [PlayerKit][playerkit-url]
 - Rich text with HTML with [Atributika][atributika-url]
