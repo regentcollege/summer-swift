@@ -27,6 +27,17 @@
 - Async images with [Kingfisher][kingfisher-url]
 - Responsive interface for iPad/iPhone with [SplitViews][splitview-url]
 
+### MVC/MVVM
+
+> "Isolate complexity" - Steve McConnell, *Code Complete*
+
+Here is how this project isolates complexity:
+- **Model**: Data, including the means to instantiate from source; in this case it is Firestore NSDictionary.
+- **ViewModel**: Data formed for specific view purposes. Only show data from the model that the view actually needs. Combine and massage fields with presentation logic.
+- **DocumentStore** (aka repository): Data CRUD (create, read, update, delete). This service is injected into the ViewControllers and tells them when it has updates.
+- **DetailViewControllers** and **TableViewCells**: A view with injected ViewModel(s).
+- **ViewController**: Everything else. Use extensions to separate concerns.
+
 ## Requirements
 
 - iOS 10.0+
