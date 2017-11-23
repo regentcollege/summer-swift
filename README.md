@@ -55,7 +55,7 @@ Here is how this project isolates complexity:
 
 ## Contribute
 
-We would love you for the contribution to **summer-swift**, check the [LICENSE](LICENSE) file for more info.
+Check the [LICENSE](LICENSE) file for more info on contributing to **summer-swift**.
 
 ## Meta
 
