@@ -1,5 +1,5 @@
 # Regent College Summer App
-> Browse courses, faculty, events and plan your summer at Regent College
+> Experience summer at Regent College
 
 [![Swift Version][swift-image]][swift-url]
 [![License][license-image]](LICENSE)
