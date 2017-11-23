@@ -9,11 +9,13 @@
 - [x] Course and lecturer details
 - [x] FAQ
 - [ ] Events
-- [ ] Organize courses and events into My Plan
+- [ ] What's happening today
 - [ ] Search and filter
 - [ ] Directions
 - [ ] Announcements
 - [ ] Share to social media
+- [ ] [Today extension](https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/Today.html) for lock screen
+- [ ] WatchKit
 - [ ] Internationalization and localization
 
 ## Architecture
