@@ -1,5 +1,5 @@
 # Regent College Summer App
-> Browse courses, faculty, events and plan your summer at Regent College
+> Experience summer at Regent College
 
 [![Swift Version][swift-image]][swift-url]
 [![License][license-image]](LICENSE)
@@ -9,23 +9,35 @@
 - [x] Course and lecturer details
 - [x] FAQ
 - [ ] Events
-- [ ] Organize courses and events into My Plan
+- [ ] What's happening today
 - [ ] Search and filter
 - [ ] Directions
 - [ ] Announcements
 - [ ] Share to social media
+- [ ] [Today extension](https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/Today.html) for lock screen
+- [ ] WatchKit
 - [ ] Internationalization and localization
 
 ## Architecture
 
-- Persistent and simple datastore via [Google Firestore][firestore-url]
-- Clear and simple mapping to objects via [Mapper][mapper-url]
-- Clear separation of concern with MVVM
-- Dependency injection via [Swinject][swinject-url] and [SwinjectStoryboard][swinject-storyboard-url]
-- Embedded video via [PlayerKit][playerkit-url]
-- Rich text with HTML via [Atributika][atributika-url]
-- Async images via [Kingfisher][kingfisher-url]
+- Persistent and simple datastore with [Google Firestore][firestore-url]
+- Clear and simple mapping to objects with [Mapper][mapper-url]
+- Dependency injection with [Swinject][swinject-url] and [SwinjectStoryboard][swinject-storyboard-url]
+- Embedded video with [PlayerKit][playerkit-url]
+- Rich text with HTML with [Atributika][atributika-url]
+- Async images with [Kingfisher][kingfisher-url]
 - Responsive interface for iPad/iPhone with [SplitViews][splitview-url]
+
+### MVC/MVVM
+
+> "Isolate complexity" - Steve McConnell, *Code Complete*
+
+Here is how this project isolates complexity:
+- **Model**: Data, including the means to instantiate from source; in this case it is Firestore NSDictionary.
+- **ViewModel**: Data formed for specific view purposes. Only show data from the model that the view actually needs. Combine and massage fields with presentation logic.
+- **DocumentStore** (aka repository): Data CRUD (create, read, update, delete). This service is injected into the ViewControllers, sets them as its delegate, and tells them when it has updates with documentsDidUpdate().
+- **DetailViewControllers** and **TableViewCells**: A view with injected ViewModel(s).
+- **ViewController**: Everything else. Use extensions to separate concerns.
 
 ## Requirements
 
@@ -38,12 +50,12 @@
 1. run 'pod install'
 1. Get a GoogleServices-Info.plist from the [Firestore Setup][firestore-setup-url]
 1. Populate Firestore with some courses and lecturers
-1. Customize [Constants.swift](summer/Constants.swift)
+1. Customize [Settings.swift](summer/Settings.swift)
 1. Build
 
 ## Contribute
 
-We would love you for the contribution to **summer-swift**, check the [LICENSE](LICENSE) file for more info.
+Check the [LICENSE](LICENSE) file for more info on contributing to **summer-swift**.
 
 ## Meta
 
