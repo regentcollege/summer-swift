@@ -8,7 +8,7 @@
 ## Features
 - [x] Course and lecturer details
 - [x] FAQ
-- [ ] Events
+- [x] Events
 - [ ] What's happening today
 - [ ] Search and filter
 - [ ] Directions
