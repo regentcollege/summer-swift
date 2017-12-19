@@ -17,6 +17,7 @@ target 'summer' do
     pod 'ModelMapper'
     pod 'Swinject', '~> 2.1.0'
     pod 'SwinjectStoryboard', '~> 1.0'
+    pod 'AFDateHelper'
     
     target 'summerTests' do
         inherit! :search_paths
@@ -27,12 +28,5 @@ end
 post_install do |installer|
     installer.pods_project.targets.each do |target|
         puts target.name
-        if
-            target.name == 'PlayerKit'
-            
-            target.build_configurations.each do |config|
-                config.build_settings['SWIFT_VERSION'] = '3.2'
-            end
-        end
     end
 end

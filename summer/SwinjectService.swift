@@ -8,6 +8,10 @@ extension SwinjectStoryboard {
         defaultContainer.storyboardInitCompleted(CoursesViewController.self) { r, c in
             c.documentStore = r.resolve(DocumentStore.self)
         }
-        defaultContainer.register(DocumentStore.self) { _ in DocumentStore() }
+        defaultContainer.storyboardInitCompleted(EventsViewController.self) { r, c in
+            c.documentStore = r.resolve(DocumentStore.self)
+        }
+        let documentStoreSingleton = DocumentStore()
+        defaultContainer.register(DocumentStore.self) { _ in documentStoreSingleton }
     }
 }

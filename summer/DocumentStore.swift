@@ -10,6 +10,7 @@ class DocumentStore {
     private var db: Firestore!
     private var courses = [Course]()
     private var lecturers = [Lecturer]()
+    private var events = [Event]()
     
     var delegate: DocumentStoreDelegate?
     
@@ -17,9 +18,12 @@ class DocumentStore {
         FirebaseApp.configure()
         db = Firestore.firestore()
         
-        // Is this required? Listening for updates pulls everything down anyway
-        //loadData()
+        loadData()
         checkForUpdates()
+    }
+
+    func getEvents() -> [EventViewModel] {
+        return events.map { EventViewModel(event: $0) }
     }
     
     func getCourses() -> [CourseViewModel] {
@@ -42,6 +46,30 @@ class DocumentStore {
     }
     
     private func loadData() {
+        db.collection("events").getDocuments() {
+            querySnapshot, error in
+            if let error = error {
+                print("\(error.localizedDescription)")
+            } else {
+                var eventsToSort = [Event]()
+                eventsToSort = querySnapshot!.documents.flatMap({
+                    var eventDictionary = $0.data()
+                    eventDictionary["id"] = $0.documentID
+                    guard let event = Event.from(eventDictionary as NSDictionary) else {
+                        return nil
+                    }
+                    return event
+                })
+                
+                let eventsWithoutStartDates = eventsToSort.filter {$0.startDate == nil }
+                let eventsWithStartDates = eventsToSort.filter { $0.startDate != nil }.sorted(by: { $0.startDate! < $1.startDate! })
+                self.events = eventsWithoutStartDates + eventsWithStartDates
+                
+                self.prefetchImageUrls(urls: self.events.filter({ $0.imageUrl != nil }).map({ $0.imageUrl! }))
+                
+                self.delegate?.documentsDidUpdate()
+            }
+        }
         db.collection("courses").getDocuments() {
             querySnapshot, error in
             if let error = error {
@@ -72,20 +100,48 @@ class DocumentStore {
                     return lecturer
                 })
                 
-                let urls = self.lecturers
-                    .map { $0.imageUrl! }
-                let prefetcher = ImagePrefetcher(urls: urls) {
-                    skippedResources, failedResources, completedResources in
-                    print("These resources are prefetched: \(completedResources)")
-                }
-                prefetcher.start()
+                self.prefetchImageUrls(urls: self.lecturers.map { $0.imageUrl! })
                 
                 self.delegate?.documentsDidUpdate()
             }
         }
     }
     
+    private func prefetchImageUrls(urls: [URL]) {
+        let prefetcher = ImagePrefetcher(urls: urls) {
+            skippedResources, failedResources, completedResources in
+            print("These resources are prefetched: \(completedResources)")
+        }
+        prefetcher.start()
+    }
+    
     private func checkForUpdates() {
+        db.collection("events").addSnapshotListener {
+            querySnapshot, error in
+            
+            guard let snapshot = querySnapshot else { return }
+            
+            snapshot.documentChanges.forEach {
+                diff in
+                
+                switch diff.type {
+                case .added:
+                    var eventDictionary = diff.document.data()
+                    eventDictionary["id"] = diff.document.documentID
+                    if let event = Event.from(eventDictionary as NSDictionary) {
+                        if self.events.first(where: { $0.id == event.id }) != nil {
+                            return
+                        }
+                        self.events.append(event)
+                        self.delegate?.documentsDidUpdate()
+                    }
+                case .modified:
+                    return
+                case .removed:
+                    return
+                }
+            }
+        }
         db.collection("courses").addSnapshotListener {
             querySnapshot, error in
             

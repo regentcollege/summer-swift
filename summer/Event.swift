@@ -1,40 +1,43 @@
 import Mapper
 
-enum Seasons: String {
-    case Spring = "spring"
-    case Summer = "summer"
-}
-
-struct Course: Mappable {
+struct Event: Mappable {
     let id: String
-    let name: String
     let title: String
     let description: String?
+    let imageUrl: URL?
     let lecturerId: String?
-    let auditHours: Double?
-    let creditHours: Double?
     let room: String?
-    let term: String?
-    let reportingTerm: String?
     let season: Seasons?
+    let schedule: [EventSchedule]
     
-    // extending Mappable to let us extract dates requires mutable var
     var startDate: Date?
     var endDate: Date?
     
     init(map: Mapper) throws {
         id = try map.from("id")
-        name = try map.from("name")
         title = try map.from("title")
         description = map.optionalFrom("description")
+        imageUrl = map.optionalFrom("imageUrl")
         lecturerId = map.optionalFrom("lecturerId")
-        auditHours = map.optionalFrom("auditHours")
-        creditHours = map.optionalFrom("creditHours")
         room = map.optionalFrom("room")
-        term = map.optionalFrom("term")
-        reportingTerm = map.optionalFrom("reportingTerm")
         season = map.optionalFrom("season")
+        schedule = map.optionalFrom("schedule") ?? []
+        
         startDate = map.optionalFrom("startDate", transformation: extractDate)
         endDate = map.optionalFrom("endDate", transformation: extractDate)
+    }
+}
+
+struct EventSchedule: Mappable {
+    let id: String
+    let name: String
+    var start: Date?
+    var end: Date?
+    
+    init(map: Mapper) throws {
+        id = try map.from("id")
+        name = try map.from("name")
+        start = map.optionalFrom("start", transformation: extractDate)
+        end = map.optionalFrom("end", transformation: extractDate)
     }
 }

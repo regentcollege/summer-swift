@@ -1,4 +1,5 @@
 import UIKit
+import Mapper
 
 // https://gist.github.com/arshad/de147c42d7b3063ef7bc
 extension String {
@@ -18,5 +19,15 @@ extension String {
             return .clear
         }
         return UIColor(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
+    }
+}
+
+// Mapper does not have String to Date OOB
+extension Mappable {
+    func extractDate(object: Any?) throws -> Date {
+        guard let date = object as? Date else {
+            throw MapperError.convertibleError(value: object, type: Date.self)
+        }
+        return date
     }
 }

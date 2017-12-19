@@ -32,6 +32,11 @@
 		32B7BB651FB4199300ECFFAE /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7BB641FB4199300ECFFAE /* VideoViewController.swift */; };
 		32B7BB6A1FB644FF00ECFFAE /* CourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7BB691FB644FF00ECFFAE /* CourseViewModel.swift */; };
 		32B7BB6F1FB6575900ECFFAE /* LecturerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7BB6E1FB6575900ECFFAE /* LecturerViewModel.swift */; };
+		32C6AF0D1FDB1B4D0037BAE8 /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C6AF0C1FDB1B4D0037BAE8 /* EventViewModel.swift */; };
+		32C6AF0F1FDB2CDD0037BAE8 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C6AF0E1FDB2CDD0037BAE8 /* EventsViewController.swift */; };
+		32C6AF111FDB2D8D0037BAE8 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C6AF101FDB2D8D0037BAE8 /* EventDetailViewController.swift */; };
+		32D1A8FA1FDA3F2E007C2302 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D1A8F91FDA3F2E007C2302 /* Event.swift */; };
+		32D1A8FC1FDA4565007C2302 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D1A8FB1FDA4565007C2302 /* EventCell.swift */; };
 		32D2583A1FC0C81A007EBDC7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D258391FC0C81A007EBDC7 /* Extensions.swift */; };
 		32DDD0441FA1FE4D00FC3F68 /* summerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DDD0431FA1FE4D00FC3F68 /* summerTests.swift */; };
 		32E864851FA7E80F00ABBE96 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E864841FA7E80F00ABBE96 /* MoreViewController.swift */; };
@@ -81,6 +86,11 @@
 		32B7BB641FB4199300ECFFAE /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		32B7BB691FB644FF00ECFFAE /* CourseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewModel.swift; sourceTree = "<group>"; };
 		32B7BB6E1FB6575900ECFFAE /* LecturerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturerViewModel.swift; sourceTree = "<group>"; };
+		32C6AF0C1FDB1B4D0037BAE8 /* EventViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
+		32C6AF0E1FDB2CDD0037BAE8 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		32C6AF101FDB2D8D0037BAE8 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		32D1A8F91FDA3F2E007C2302 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		32D1A8FB1FDA4565007C2302 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		32D258391FC0C81A007EBDC7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		32DDD0411FA1FE4D00FC3F68 /* summerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = summerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		32DDD0431FA1FE4D00FC3F68 /* summerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = summerTests.swift; sourceTree = "<group>"; };
@@ -193,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				324DC78C1FA139F6007F97BF /* Course.swift */,
+				32D1A8F91FDA3F2E007C2302 /* Event.swift */,
 				32F9C1E51FA241A80084DB82 /* Lecturer.swift */,
 			);
 			name = Models;
@@ -205,6 +216,9 @@
 				324DC78A1FA1397D007F97BF /* CoursesViewController.swift */,
 				328653531FA3ADC6000494CC /* CourseDetailViewController.swift */,
 				32F9C1E71FA24D230084DB82 /* CourseCell.swift */,
+				32C6AF0E1FDB2CDD0037BAE8 /* EventsViewController.swift */,
+				32C6AF101FDB2D8D0037BAE8 /* EventDetailViewController.swift */,
+				32D1A8FB1FDA4565007C2302 /* EventCell.swift */,
 				3263874C1FA52CB500AC9C43 /* LecturerDetailViewController.swift */,
 				32E864841FA7E80F00ABBE96 /* MoreViewController.swift */,
 				321292AB1FAFB31000FFEB94 /* MoreDetailViewController.swift */,
@@ -219,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				32B7BB691FB644FF00ECFFAE /* CourseViewModel.swift */,
+				32C6AF0C1FDB1B4D0037BAE8 /* EventViewModel.swift */,
 				32B7BB6E1FB6575900ECFFAE /* LecturerViewModel.swift */,
 			);
 			name = ViewModels;
@@ -448,6 +463,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-summer/Pods-summer-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFDateHelper/AFDateHelper.framework",
 				"${BUILT_PRODUCTS_DIR}/Atributika/Atributika.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
@@ -467,6 +483,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFDateHelper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Atributika.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
@@ -535,17 +552,22 @@
 				32B7BB6F1FB6575900ECFFAE /* LecturerViewModel.swift in Sources */,
 				3244AF8E1FB9730300E682C2 /* SwinjectService.swift in Sources */,
 				329C9B701FB6C9B9003220C6 /* TabBarController.swift in Sources */,
+				32D1A8FA1FDA3F2E007C2302 /* Event.swift in Sources */,
 				32F9C1E81FA24D230084DB82 /* CourseCell.swift in Sources */,
 				32E864851FA7E80F00ABBE96 /* MoreViewController.swift in Sources */,
 				3244AF911FB973C000E682C2 /* DocumentStore.swift in Sources */,
 				32B7BB651FB4199300ECFFAE /* VideoViewController.swift in Sources */,
+				32C6AF0F1FDB2CDD0037BAE8 /* EventsViewController.swift in Sources */,
 				3263874D1FA52CB500AC9C43 /* LecturerDetailViewController.swift in Sources */,
+				32C6AF111FDB2D8D0037BAE8 /* EventDetailViewController.swift in Sources */,
+				32D1A8FC1FDA4565007C2302 /* EventCell.swift in Sources */,
 				321292AC1FAFB31000FFEB94 /* MoreDetailViewController.swift in Sources */,
 				328653541FA3ADC6000494CC /* CourseDetailViewController.swift in Sources */,
 				324DC78B1FA1397D007F97BF /* CoursesViewController.swift in Sources */,
 				32B7BB6A1FB644FF00ECFFAE /* CourseViewModel.swift in Sources */,
 				329C9B6E1FB6A0D0003220C6 /* Settings.swift in Sources */,
 				321292AA1FAFAB0F00FFEB94 /* GlobalSplitViewController.swift in Sources */,
+				32C6AF0D1FDB1B4D0037BAE8 /* EventViewModel.swift in Sources */,
 				32F9C1E61FA241A80084DB82 /* Lecturer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

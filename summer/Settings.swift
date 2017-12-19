@@ -7,9 +7,9 @@ class Settings {
     }
 
     struct Font {
-        static let headerFont = UIFont(name: "Futura-Bol", size: 14)!
-        static let paragraphFont = UIFont(name: "Futura-Lig", size: 12)!
-        static let obliqueFont = UIFont(name: "Futura-LigObl", size: 12)!
+        static let headerFont = UIFont(name: "Futura-Bol", size: 18)!
+        static let paragraphFont = UIFont(name: "Futura-Lig", size: 16)!
+        static let obliqueFont = UIFont(name: "Futura-LigObl", size: 16)!
     }
     
     struct Style {
