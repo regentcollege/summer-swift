@@ -30,6 +30,10 @@ class EventDetailViewController: UIViewController {
 //            }
 //        }
         
+        if event == nil {
+            return
+        }
+        
         if let eventImageUrl = event.imageUrl {
             eventImageView.kf.setImage(with: eventImageUrl)
         }

@@ -20,6 +20,10 @@ class CourseDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        if course == nil || lecturer == nil {
+            return
+        }
+        
         lecturerNameLabel.text = lecturer.name
 
         if let imageUrl = lecturer.imageUrl {

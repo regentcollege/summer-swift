@@ -106,7 +106,8 @@ extension EventsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionTitlesDate[section].toString(format: .custom("EEEE MMMM d"))
+        return nil
+        //return sectionTitlesDate[section].toString(format: .custom("EEEE MMMM d"))
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
