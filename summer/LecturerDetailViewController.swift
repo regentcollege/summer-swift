@@ -6,7 +6,6 @@ class LecturerDetailViewController: UIViewController {
     
     @IBOutlet var lecturerImageView: UIImageView!
     @IBOutlet var lecturerNameLabel: UILabel!
-    @IBOutlet var lecturerBioTitleLabel: UILabel!
     @IBOutlet var lecturerBioTextView: UITextView!
     @IBOutlet var lecturerShowVideoButton: UIButton!
     
@@ -31,11 +30,14 @@ class LecturerDetailViewController: UIViewController {
             lecturerShowVideoButton.isHidden = true
         }
         
-        lecturerBioTitleLabel.text = "About"
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .justified
         
-        let str = lecturer.bio.style(tags: [Settings.Style.h1, Settings.Style.em])
+        let str = lecturer.bio.style(tags: [Settings.Style.h1, Settings.Style.em, Settings.Style.strong], transformers: Settings.Style.transformers)
             .styleAll(Settings.Style.paragraph)
+            .styleAll(Style.paragraphStyle(paragraphStyle))
             .attributedString
+        
         lecturerBioTextView.attributedText = str
         lecturerBioTextView.textContainer.lineFragmentPadding = 0
     }

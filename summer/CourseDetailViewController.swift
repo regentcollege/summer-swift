@@ -36,9 +36,9 @@ class CourseDetailViewController: UIViewController {
             detailChevronImage.isHidden = true
         }
         
-        courseDescriptionTitleLabel.text = "Course Description"
+        courseDescriptionTitleLabel.text = course.title
 
-        let str = course.description.style(tags: [Settings.Style.h1, Settings.Style.em])
+        let str = course.description.style(tags: [Settings.Style.h1, Settings.Style.em, Settings.Style.strong])
             .styleAll(Settings.Style.paragraph)
             .attributedString
         courseDescriptionLabel.attributedText = str

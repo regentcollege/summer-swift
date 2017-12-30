@@ -14,8 +14,15 @@ class Settings {
     
     struct Style {
         static let h1 = Atributika.Style("h1").font(Settings.Font.headerFont)
-        static let em = Atributika.Style("em").font(Settings.Font.obliqueFont)
-        static let paragraph = Atributika.Style.font(Settings.Font.paragraphFont)
+        static let em = Atributika.Style("em").font(.italicSystemFont(ofSize: 16))
+        static let strong = Atributika.Style("strong").font(.boldSystemFont(ofSize: 16))
+        static let paragraph = Atributika.Style.font(.systemFont(ofSize: 16))
+        static let transformers: [TagTransformer] = [
+            //TagTransformer(tagName: "br", tagType: .start, replaceValue: "\n"),
+            TagTransformer(tagName: "p", tagType: .end, replaceValue: "\n"),
+            TagTransformer(tagName: "li", tagType: .start, replaceValue: "- "),
+            TagTransformer(tagName: "li", tagType: .end, replaceValue: "\n")
+        ]
     }
     
     struct Color {

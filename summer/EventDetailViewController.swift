@@ -9,6 +9,8 @@ class EventDetailViewController: UIViewController {
     @IBOutlet var eventTitleLabel: UILabel!
     @IBOutlet var eventDateLabel: UILabel!
     @IBOutlet var eventDescriptionLabel: UILabel!
+    @IBOutlet var descriptionToImageConstraint: NSLayoutConstraint!
+    @IBOutlet var descriptionToDateConstraint: NSLayoutConstraint!
     
     var event: EventViewModel! {
         didSet {
@@ -37,12 +39,17 @@ class EventDetailViewController: UIViewController {
         if let eventImageUrl = event.imageUrl {
             eventImageView.kf.setImage(with: eventImageUrl)
         }
+        else {
+            eventImageView.isHidden = true
+            descriptionToImageConstraint.priority = UILayoutPriority(rawValue: 500)
+            descriptionToDateConstraint.priority = UILayoutPriority(rawValue: 999)
+        }
         
         eventTitleLabel.text = event.title
-        eventDateLabel.text = event.dateDescription
+        eventDateLabel.text = event.dateDescriptionFullMonth
         eventDescriptionLabel.text = "Event Description"
 
-        let str = event.description.style(tags: [Settings.Style.h1, Settings.Style.em])
+        let str = event.description.style(tags: [Settings.Style.h1, Settings.Style.em, Settings.Style.strong], transformers: Settings.Style.transformers)
             .styleAll(Settings.Style.paragraph)
             .attributedString
         eventDescriptionLabel.attributedText = str
