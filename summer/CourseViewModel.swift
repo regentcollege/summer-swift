@@ -5,6 +5,7 @@ class CourseViewModel {
     let description: String
     let season: Seasons
     var lecturerId: String?
+    var startDate: Date?
     
     init(course: Course?) {
         if let course = course {
@@ -22,6 +23,7 @@ class CourseViewModel {
                 self.season = Seasons.Spring
             }
             self.lecturerId = course.lecturerId
+            self.startDate = course.startDate
         }
         else {
             self.title = "TBD"

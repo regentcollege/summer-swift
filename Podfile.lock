@@ -68,7 +68,7 @@ PODS:
     - gRPC-Core (= 1.8.0)
     - gRPC-RxLibrary (= 1.8.0)
   - GTMSessionFetcher/Core (1.1.12)
-  - Kingfisher (4.5.0)
+  - Kingfisher (4.6.1)
   - leveldb-library (1.20)
   - ModelMapper (7.4.0)
   - nanopb (0.3.8):
@@ -114,7 +114,7 @@ SPEC CHECKSUMS:
   gRPC-ProtoRPC: 5b934b29a95b94b0f871d4fc361ff52269476765
   gRPC-RxLibrary: 7c57a1b2ff2f9cafb0face35bbfa0a326281295d
   GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
-  Kingfisher: 26ae0473102b77b575da51960c932431e3745407
+  Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   ModelMapper: 467f49f6f187b4e6cde2599e7cc5968cefa3f19b
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3

@@ -14,8 +14,6 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
     var sectionTitles = [String]()
     var sectionTitlesDate = [Date]()
     
-    let collation = UILocalizedIndexedCollation.current()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

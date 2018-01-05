@@ -26,12 +26,43 @@ class DocumentStore {
         return events.map { EventViewModel(event: $0) }
     }
     
+    func getEventsHappening(now: Date) -> [EventViewModel] {
+        let eventsWithDates = events.filter { $0.startDate != nil && $0.endDate != nil }
+        return eventsWithDates.filter { $0.startDate!.compare(.isSameDay(as: now)) ||
+            $0.endDate!.compare(.isSameDay(as: now)) ||
+            $0.startDate!.compare(.isEarlier(than: now)) && $0.endDate!.compare(.isLater(than: now)) }.map { EventViewModel(event: $0) }
+    }
+    
+    func getNextEvent(from: Date) -> EventViewModel? {
+        let eventsWithDates = events.filter { $0.startDate != nil }
+        let nextEvents = eventsWithDates.filter { $0.startDate!.compare(.isSameDay(as: from)) ||
+            $0.startDate!.compare(.isLater(than: from)) }.map { EventViewModel(event: $0) }.sorted(by: { $0.startDate! < $1.startDate! })
+        
+        if nextEvents.count > 0 {
+            return nextEvents.first
+        }
+        
+        return nil
+    }
+    
     func getCourses() -> [CourseViewModel] {
         return courses.map { CourseViewModel(course: $0) }
     }
     
     func getCoursesBy(season: Seasons) -> [CourseViewModel] {
         return courses.filter { $0.season == season }.map { CourseViewModel(course: $0) }
+    }
+    
+    func getNextCourse(from: Date) -> CourseViewModel? {
+        let coursesWithDates = courses.filter { $0.startDate != nil }
+        let nextCourses = coursesWithDates.filter { $0.startDate!.compare(.isSameDay(as: from)) ||
+            $0.startDate!.compare(.isLater(than: from)) }.map { CourseViewModel(course: $0) }.sorted(by: { $0.startDate! < $1.startDate! })
+        
+        if nextCourses.count > 0 {
+            return nextCourses.first
+        }
+        
+        return nil
     }
     
     func getLecturers() -> [LecturerViewModel] {

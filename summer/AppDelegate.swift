@@ -6,10 +6,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        // TODO: launch the plan tab if there is anything planned (and hasn't passed)
         if window?.rootViewController as? UITabBarController != nil {
             let tabBarController = window!.rootViewController as! UITabBarController
-            tabBarController.selectedIndex = 1 // Open the course tab
+            tabBarController.selectedIndex = 0 // Open today
             tabBarController.tabBar.tintColor = Settings.Color.red
         }
         

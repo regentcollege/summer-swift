@@ -10,6 +10,7 @@
 		0F3776164D18E804B73A3CDF /* Pods_summerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B603E64B8E4F8ECD7004DC2 /* Pods_summerTests.framework */; };
 		321292AA1FAFAB0F00FFEB94 /* GlobalSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321292A91FAFAB0F00FFEB94 /* GlobalSplitViewController.swift */; };
 		321292AC1FAFB31000FFEB94 /* MoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321292AB1FAFB31000FFEB94 /* MoreDetailViewController.swift */; };
+		322B448A1FFA8732008EB396 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322B44891FFA8732008EB396 /* TodayViewController.swift */; };
 		3244AF8E1FB9730300E682C2 /* SwinjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3244AF8D1FB9730300E682C2 /* SwinjectService.swift */; };
 		3244AF911FB973C000E682C2 /* DocumentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3244AF901FB973C000E682C2 /* DocumentStore.swift */; };
 		324DC7761FA0F4D6007F97BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DC7751FA0F4D6007F97BF /* AppDelegate.swift */; };
@@ -29,6 +30,7 @@
 		328653541FA3ADC6000494CC /* CourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328653531FA3ADC6000494CC /* CourseDetailViewController.swift */; };
 		329C9B6E1FB6A0D0003220C6 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C9B6D1FB6A0D0003220C6 /* Settings.swift */; };
 		329C9B701FB6C9B9003220C6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C9B6F1FB6C9B9003220C6 /* TabBarController.swift */; };
+		32B71BC61FFFE9200080164A /* PromoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B71BC51FFFE9200080164A /* PromoCell.swift */; };
 		32B7BB651FB4199300ECFFAE /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7BB641FB4199300ECFFAE /* VideoViewController.swift */; };
 		32B7BB6A1FB644FF00ECFFAE /* CourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7BB691FB644FF00ECFFAE /* CourseViewModel.swift */; };
 		32B7BB6F1FB6575900ECFFAE /* LecturerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7BB6E1FB6575900ECFFAE /* LecturerViewModel.swift */; };
@@ -62,6 +64,7 @@
 		0786E0D05E89968F35513F15 /* Pods-summer.iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-summer.iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-summer.iosTests/Pods-summer.iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		321292A91FAFAB0F00FFEB94 /* GlobalSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSplitViewController.swift; sourceTree = "<group>"; };
 		321292AB1FAFB31000FFEB94 /* MoreDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreDetailViewController.swift; sourceTree = "<group>"; };
+		322B44891FFA8732008EB396 /* TodayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		3244AF8D1FB9730300E682C2 /* SwinjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwinjectService.swift; sourceTree = "<group>"; };
 		3244AF901FB973C000E682C2 /* DocumentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentStore.swift; sourceTree = "<group>"; };
 		324DC7721FA0F4D6007F97BF /* summer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = summer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +86,7 @@
 		328653531FA3ADC6000494CC /* CourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewController.swift; sourceTree = "<group>"; };
 		329C9B6D1FB6A0D0003220C6 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		329C9B6F1FB6C9B9003220C6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		32B71BC51FFFE9200080164A /* PromoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromoCell.swift; sourceTree = "<group>"; };
 		32B7BB641FB4199300ECFFAE /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		32B7BB691FB644FF00ECFFAE /* CourseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewModel.swift; sourceTree = "<group>"; };
 		32B7BB6E1FB6575900ECFFAE /* LecturerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturerViewModel.swift; sourceTree = "<group>"; };
@@ -217,8 +221,10 @@
 				328653531FA3ADC6000494CC /* CourseDetailViewController.swift */,
 				32F9C1E71FA24D230084DB82 /* CourseCell.swift */,
 				32C6AF0E1FDB2CDD0037BAE8 /* EventsViewController.swift */,
+				322B44891FFA8732008EB396 /* TodayViewController.swift */,
 				32C6AF101FDB2D8D0037BAE8 /* EventDetailViewController.swift */,
 				32D1A8FB1FDA4565007C2302 /* EventCell.swift */,
+				32B71BC51FFFE9200080164A /* PromoCell.swift */,
 				3263874C1FA52CB500AC9C43 /* LecturerDetailViewController.swift */,
 				32E864841FA7E80F00ABBE96 /* MoreViewController.swift */,
 				321292AB1FAFB31000FFEB94 /* MoreDetailViewController.swift */,
@@ -546,6 +552,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32B71BC61FFFE9200080164A /* PromoCell.swift in Sources */,
 				324DC78D1FA139F6007F97BF /* Course.swift in Sources */,
 				32D2583A1FC0C81A007EBDC7 /* Extensions.swift in Sources */,
 				324DC7761FA0F4D6007F97BF /* AppDelegate.swift in Sources */,
@@ -566,6 +573,7 @@
 				324DC78B1FA1397D007F97BF /* CoursesViewController.swift in Sources */,
 				32B7BB6A1FB644FF00ECFFAE /* CourseViewModel.swift in Sources */,
 				329C9B6E1FB6A0D0003220C6 /* Settings.swift in Sources */,
+				322B448A1FFA8732008EB396 /* TodayViewController.swift in Sources */,
 				321292AA1FAFAB0F00FFEB94 /* GlobalSplitViewController.swift in Sources */,
 				32C6AF0D1FDB1B4D0037BAE8 /* EventViewModel.swift in Sources */,
 				32F9C1E61FA241A80084DB82 /* Lecturer.swift in Sources */,
