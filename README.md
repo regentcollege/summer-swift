@@ -9,7 +9,7 @@
 - [x] Course and lecturer details
 - [x] FAQ
 - [x] Events
-- [ ] What's happening today
+- [x] What's happening today
 - [ ] Search and filter
 - [ ] Directions
 - [ ] Announcements
