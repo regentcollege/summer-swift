@@ -42,7 +42,7 @@ class TodayViewController: UIViewController, DocumentStoreDelegate {
             if let row = tableView.indexPathForSelectedRow?.row,
                 let navViewController = segue.destination as? UINavigationController,
                 let eventDetailViewController = navViewController.topViewController as? EventDetailViewController {
-                let event = eventsForToday[row - 1]
+                let event = eventsForToday[row]
                 eventDetailViewController.event = event
                 eventDetailViewController.lecturer = documentStore.getLecturerBy(id: event.lecturerId)
             }
@@ -54,31 +54,25 @@ class TodayViewController: UIViewController, DocumentStoreDelegate {
 
 // MARK: - UITableViewDataSource
 extension TodayViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
+        if eventsForToday.count == 0 {
             return 1
         }
         
         return eventsForToday.count
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return nil
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
+        if eventsForToday.count == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "PromoCell", for: indexPath) as? PromoCell {
                 cell.configureWith(event: nextEvent, course: nextCourse)
                 return cell
             }
+            return UITableViewCell()
         }
+        
         if let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as? EventCell {
-            let event = eventsForToday[indexPath.row - 1]
+            let event = eventsForToday[indexPath.row]
             
             cell.configureWith(event: event, lecturer: documentStore.getLecturerBy(id: event.lecturerId))
             return cell

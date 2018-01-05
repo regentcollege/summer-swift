@@ -6,10 +6,36 @@ class PromoCell: UITableViewCell {
     
     func configureWith(event: EventViewModel?, course: CourseViewModel?) {
         if let event = event, let eventStartDate = event.startDate {
-            startDateLabel?.text = "\(eventStartDate.since(Date(), in: .week)) weeks until our first event"
+            let daysUntilNextEvent = eventStartDate.since(Date(), in: .day)
+            if daysUntilNextEvent <= 1 {
+                startDateLabel?.text = "Our next event starts tomorrow"
+            }
+            else if daysUntilNextEvent < 7 {
+                startDateLabel?.text = "\(daysUntilNextEvent) days until our next event"
+            }
+            else if eventStartDate.compare(.isNextWeek) {
+                startDateLabel?.text = "One week until our next event"
+            }
+            else {
+                startDateLabel?.text = "\(eventStartDate.since(Date(), in: .week)) weeks until our next event"
+            }
         }
         if let course = course, let courseStartDate = course.startDate {
-            var courseStartDateLabel = "\(courseStartDate.since(Date(), in: .week)) weeks until our first course"
+            let daysUntilNextCourse = courseStartDate.since(Date(), in: .day)
+            var courseStartDateLabel = ""
+            if daysUntilNextCourse <= 1 {
+                courseStartDateLabel = "Our next course starts tomorrow"
+            }
+            else if daysUntilNextCourse < 7 {
+                courseStartDateLabel = "\(daysUntilNextCourse) days until our next course"
+            }
+            else if courseStartDate.compare(.isNextWeek) {
+                courseStartDateLabel = "One week until our next course"
+            }
+            else {
+                courseStartDateLabel = "\(courseStartDate.since(Date(), in: .week)) weeks until our next course"
+            }
+            
             if startDateLabel?.text != nil {
                 courseStartDateLabel = "\n" + courseStartDateLabel
             }
