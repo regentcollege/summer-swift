@@ -33,6 +33,7 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
     
     func documentsDidUpdate() {
         DispatchQueue.main.async {
+            self.groupEvents()
             self.tableView.reloadData()
         }
     }
@@ -54,8 +55,11 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
     }
     
     private func groupEvents() {
-        var sectionTitle = ""
+        sectionTitles.removeAll()
+        sectionTitlesDate.removeAll()
+        eventsWithSections.removeAll()
         
+        var sectionTitle = ""
         for event in events {
             if let startDate = event.startDate {
                 let thisSectionTitle = startDate.toString(format: .custom("MMM d"))

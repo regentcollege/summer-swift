@@ -49,9 +49,13 @@ class EventDetailViewController: UIViewController {
         eventDateLabel.text = event.dateDescriptionFullMonth
         eventDescriptionLabel.text = "Event Description"
 
-        let str = event.description.style(tags: [Settings.Style.h1, Settings.Style.em, Settings.Style.strong], transformers: Settings.Style.transformers)
+        let str = event.description
+            .replacingOccurrences(of: "&nbsp;", with: " ")
+            .style(tags: [Settings.Style.h1, Settings.Style.h3, Settings.Style.em, Settings.Style.strong], transformers: Settings.Style.transformers)
+            .styleLinks(Style.foregroundColor(.blue))
             .styleAll(Settings.Style.paragraph)
             .attributedString
+        
         eventDescriptionLabel.attributedText = str
         
         self.navigationItem.leftItemsSupplementBackButton = true

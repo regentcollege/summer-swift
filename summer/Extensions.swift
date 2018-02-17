@@ -50,8 +50,8 @@ class GradientView: UIView {
             return;
         }
         
-        theLayer.colors = [UIColor.black.withAlphaComponent(0.1).cgColor, UIColor.black.withAlphaComponent(0.4).cgColor]
-        theLayer.locations = [0.3, 1.0]
+        theLayer.colors = [UIColor.black.withAlphaComponent(0.1).cgColor, UIColor.black.withAlphaComponent(0.4).cgColor, UIColor.black.cgColor]
+        theLayer.locations = [0.3, 0.9, 1.0]
         theLayer.frame = self.bounds
     }
     

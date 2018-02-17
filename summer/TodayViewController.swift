@@ -28,6 +28,11 @@ class TodayViewController: UIViewController, DocumentStoreDelegate {
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 130
+        
+        if eventsForToday.count == 0 {
+            self.tableView.backgroundColor = UIColor.black
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        }
     }
     
     func documentsDidUpdate() {

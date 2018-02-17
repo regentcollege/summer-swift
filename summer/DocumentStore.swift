@@ -76,25 +76,26 @@ class DocumentStore {
         return LecturerViewModel(lecturer: nil)
     }
     
+    private func sort(events: [Event]) -> [Event] {
+        let eventsWithoutStartDates = events.filter {$0.startDate == nil }
+        let eventsWithStartDates = events.filter { $0.startDate != nil }.sorted(by: { $0.startDate! < $1.startDate! })
+        return eventsWithoutStartDates + eventsWithStartDates
+    }
+    
     private func loadData() {
         db.collection("events").getDocuments() {
             querySnapshot, error in
             if let error = error {
                 print("\(error.localizedDescription)")
             } else {
-                var eventsToSort = [Event]()
-                eventsToSort = querySnapshot!.documents.flatMap({
+                self.events = self.sort(events: querySnapshot!.documents.flatMap({
                     var eventDictionary = $0.data()
                     eventDictionary["id"] = $0.documentID
                     guard let event = Event.from(eventDictionary as NSDictionary) else {
                         return nil
                     }
                     return event
-                })
-                
-                let eventsWithoutStartDates = eventsToSort.filter {$0.startDate == nil }
-                let eventsWithStartDates = eventsToSort.filter { $0.startDate != nil }.sorted(by: { $0.startDate! < $1.startDate! })
-                self.events = eventsWithoutStartDates + eventsWithStartDates
+                }))
                 
                 self.prefetchImageUrls(urls: self.events.filter({ $0.imageUrl != nil }).map({ $0.imageUrl! }))
                 
@@ -155,6 +156,7 @@ class DocumentStore {
             snapshot.documentChanges.forEach {
                 diff in
                 
+                //TODO DRY depending on how similar the added, modified, and removed response are
                 switch diff.type {
                 case .added:
                     var eventDictionary = diff.document.data()
@@ -164,12 +166,32 @@ class DocumentStore {
                             return
                         }
                         self.events.append(event)
+                        self.events = self.sort(events: self.events)
                         self.delegate?.documentsDidUpdate()
                     }
                 case .modified:
-                    return
+                    var eventDictionary = diff.document.data()
+                    eventDictionary["id"] = diff.document.documentID
+                    if let event = Event.from(eventDictionary as NSDictionary) {
+                        if let updatedEventIndex = self.events.index(where: { $0.id == event.id }) {
+                            self.events[updatedEventIndex] = event
+                        }
+                        else {
+                            self.events.append(event)
+                        }
+                        self.events = self.sort(events: self.events)
+                        self.delegate?.documentsDidUpdate()
+                    }
                 case .removed:
-                    return
+                    var eventDictionary = diff.document.data()
+                    eventDictionary["id"] = diff.document.documentID
+                    if let event = Event.from(eventDictionary as NSDictionary) {
+                        if let updatedEventIndex = self.events.index(where: { $0.id == event.id }) {
+                            self.events.remove(at: updatedEventIndex)
+                            self.events = self.sort(events: self.events)
+                            self.delegate?.documentsDidUpdate()
+                        }
+                    }
                 }
             }
         }
