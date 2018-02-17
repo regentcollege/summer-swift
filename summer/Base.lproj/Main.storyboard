@@ -798,6 +798,9 @@
                                                         </mask>
                                                     </variation>
                                                 </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9AF-pD-CiV" userLabel="gradientView" customClass="GradientView" customModule="summer" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="504"/>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summer Programs 2018" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrR-Tx-aYV">
                                                     <rect key="frame" x="15" y="19" width="243" height="72.5"/>
                                                     <constraints>
@@ -829,6 +832,7 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="9AF-pD-CiV" firstAttribute="top" secondItem="1er-lm-NlP" secondAttribute="top" id="1mZ-hc-Bj6"/>
                                                 <constraint firstAttribute="bottom" secondItem="akk-9p-3HB" secondAttribute="bottom" id="2tb-1b-6GQ"/>
                                                 <constraint firstItem="9MO-QQ-MIn" firstAttribute="top" secondItem="aey-hT-q21" secondAttribute="bottom" constant="4.5" id="5bO-YT-WL9"/>
                                                 <constraint firstItem="9MO-QQ-MIn" firstAttribute="leading" secondItem="aey-hT-q21" secondAttribute="leading" id="6gB-pn-BQI"/>
@@ -836,15 +840,18 @@
                                                 <constraint firstItem="9XE-D1-gDx" firstAttribute="top" secondItem="9MO-QQ-MIn" secondAttribute="bottom" constant="10" id="8i3-7U-P8k"/>
                                                 <constraint firstItem="9XE-D1-gDx" firstAttribute="leading" secondItem="9MO-QQ-MIn" secondAttribute="leading" id="CMz-hv-qhk"/>
                                                 <constraint firstItem="aey-hT-q21" firstAttribute="leading" secondItem="wrR-Tx-aYV" secondAttribute="leading" id="IgX-vn-4hT"/>
+                                                <constraint firstItem="9AF-pD-CiV" firstAttribute="leading" secondItem="1er-lm-NlP" secondAttribute="leading" id="Int-Gu-NHM"/>
                                                 <constraint firstAttribute="trailing" secondItem="aey-hT-q21" secondAttribute="trailing" constant="39" id="Lbj-tc-eN1"/>
                                                 <constraint firstItem="akk-9p-3HB" firstAttribute="leading" secondItem="1er-lm-NlP" secondAttribute="leading" id="PDh-lN-g6f"/>
                                                 <constraint firstItem="9MO-QQ-MIn" firstAttribute="width" secondItem="1er-lm-NlP" secondAttribute="width" multiplier="0.9" id="Qco-8H-SXN"/>
                                                 <constraint firstAttribute="bottom" secondItem="9XE-D1-gDx" secondAttribute="bottom" constant="10" id="Zxs-ia-bte"/>
                                                 <constraint firstAttribute="trailing" secondItem="akk-9p-3HB" secondAttribute="trailing" id="aOA-8R-lmG"/>
+                                                <constraint firstItem="9AF-pD-CiV" firstAttribute="height" secondItem="akk-9p-3HB" secondAttribute="height" id="gFj-ir-Bdt"/>
                                                 <constraint firstItem="akk-9p-3HB" firstAttribute="width" secondItem="1er-lm-NlP" secondAttribute="width" id="ogZ-eQ-2u2"/>
                                                 <constraint firstItem="wrR-Tx-aYV" firstAttribute="top" secondItem="1er-lm-NlP" secondAttribute="topMargin" constant="8" id="pmG-T4-Qlz"/>
                                                 <constraint firstItem="aey-hT-q21" firstAttribute="top" secondItem="wrR-Tx-aYV" secondAttribute="bottom" constant="10" id="qTt-5F-8in"/>
                                                 <constraint firstItem="wrR-Tx-aYV" firstAttribute="leading" secondItem="1er-lm-NlP" secondAttribute="leadingMargin" id="qnj-4o-D5I"/>
+                                                <constraint firstItem="9AF-pD-CiV" firstAttribute="width" secondItem="akk-9p-3HB" secondAttribute="width" id="rHu-pg-oqR"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -864,6 +871,8 @@
                                         </accessibility>
                                         <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="8" right="0.0"/>
                                         <connections>
+                                            <outlet property="gradientView" destination="9AF-pD-CiV" id="p5a-Hi-T0z"/>
+                                            <outlet property="promoImage" destination="akk-9p-3HB" id="VgL-UO-zLn"/>
                                             <outlet property="startDateLabel" destination="9XE-D1-gDx" id="Guw-Ke-IXz"/>
                                         </connections>
                                     </tableViewCell>

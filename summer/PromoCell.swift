@@ -3,7 +3,9 @@ import AFDateHelper
 
 class PromoCell: UITableViewCell {
     @IBOutlet var startDateLabel: UILabel!
+    @IBOutlet var promoImage: UIImageView!
     
+    @IBOutlet var gradientView: UIView!
     func configureWith(event: EventViewModel?, course: CourseViewModel?) {
         if let event = event, let eventStartDate = event.startDate {
             let daysUntilNextEvent = eventStartDate.since(Date(), in: .day)
@@ -41,5 +43,8 @@ class PromoCell: UITableViewCell {
             }
             startDateLabel?.text = startDateLabel.text! + courseStartDateLabel
         }
+        let gradient = GradientView(frame: self.bounds)
+        gradientView.insertSubview(gradient, at: 0)
+        //gradientView.addGradient(colors: [.clear,.black], locations: [0,1])
     }
 }
