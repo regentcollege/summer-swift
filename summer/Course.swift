@@ -11,8 +11,9 @@ struct Course: Mappable {
     let title: String
     let description: String?
     let lecturerId: String?
-    let auditHours: Double?
-    let creditHours: Double?
+    let auditHours: String?
+    let creditHours: String?
+    let meetingTime: String?
     let room: String?
     let term: String?
     let reportingTerm: String?
@@ -30,6 +31,7 @@ struct Course: Mappable {
         lecturerId = map.optionalFrom("lecturerId")
         auditHours = map.optionalFrom("auditHours")
         creditHours = map.optionalFrom("creditHours")
+        meetingTime = map.optionalFrom("meetingTime")
         room = map.optionalFrom("room")
         term = map.optionalFrom("term")
         reportingTerm = map.optionalFrom("reportingTerm")

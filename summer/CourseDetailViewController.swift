@@ -8,6 +8,8 @@ class CourseDetailViewController: UIViewController {
     @IBOutlet var lecturerNameLabel: UILabel!
     @IBOutlet var courseDescriptionTitleLabel: UILabel!
     @IBOutlet var courseDescriptionLabel: UILabel!
+    @IBOutlet var courseDateLabel: UILabel!
+    @IBOutlet var courseTimeLabel: UILabel!
     @IBOutlet var detailChevronImage: UIImageView!
     
     var course: CourseViewModel! {
@@ -42,6 +44,9 @@ class CourseDetailViewController: UIViewController {
             .styleAll(Settings.Style.paragraph)
             .attributedString
         courseDescriptionLabel.attributedText = str
+        
+        courseDateLabel.text = course.dates
+        courseTimeLabel.text = course.meetingTime
         
         self.navigationItem.leftItemsSupplementBackButton = true
         self.navigationItem.leftBarButtonItem = self.splitViewController!.displayModeButtonItem

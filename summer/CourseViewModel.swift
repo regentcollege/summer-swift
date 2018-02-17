@@ -5,7 +5,10 @@ class CourseViewModel {
     let description: String
     let season: Seasons
     var lecturerId: String?
+    var dates: String
     var startDate: Date?
+    var endDate: Date?
+    var meetingTime: String
     
     init(course: Course?) {
         if let course = course {
@@ -23,11 +26,28 @@ class CourseViewModel {
                 self.season = Seasons.Spring
             }
             self.lecturerId = course.lecturerId
+            
             self.startDate = course.startDate
+            self.endDate = course.endDate
+            
+            self.dates = "Dates TBD"
+            if let startDate = course.startDate {
+                var dateText = startDate.toString(format: .custom("MMM d"))
+                if let endDate = course.endDate {
+                    dateText += "-"+endDate.toString(format: .custom("MMM d"))
+                }
+                self.dates = dateText
+            }
+            self.meetingTime = ""
+            if let meetingTime = course.meetingTime {
+                self.meetingTime = meetingTime
+            }
         }
         else {
             self.title = "TBD"
             self.description = "Stay tuned!"
+            self.dates = "Dates TBD"
+            self.meetingTime = ""
             self.season = Seasons.Spring
         }
     }

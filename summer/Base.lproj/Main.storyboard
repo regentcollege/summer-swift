@@ -59,7 +59,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sXF-K2-2cE">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sXF-K2-2cE">
                                                     <rect key="frame" x="20" y="40.5" width="85.5" height="85.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="85.5" id="qNl-oI-ChZ"/>
@@ -67,25 +67,45 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lecturerNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hX-OH-GmR">
-                                                    <rect key="frame" x="124" y="73" width="138.5" height="21"/>
-                                                    <fontDescription key="fontDescription" name="Futura-Lig" family="Futura" pointSize="16"/>
+                                                    <rect key="frame" x="124" y="48.5" width="153" height="20.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <color key="textColor" red="0.40631071891191706" green="0.40631071891191706" blue="0.40631071891191706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="courseDateLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1dp-Cp-mUF" userLabel="Course Date Label">
+                                                    <rect key="frame" x="124" y="73" width="130" height="20.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <color key="textColor" red="0.40784313725490196" green="0.40784313725490196" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="courseTimeLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9No-5I-vA2" userLabel="Course Time Label">
+                                                    <rect key="frame" x="124" y="97" width="130" height="21"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <color key="textColor" red="0.40631071889999998" green="0.40631071889999998" blue="0.40631071889999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="9No-5I-vA2" secondAttribute="trailing" constant="88" id="0dW-od-LsN"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="3x5-im-hXE" secondAttribute="trailing" constant="8" id="KJX-pb-b2X"/>
                                                 <constraint firstAttribute="bottom" secondItem="sXF-K2-2cE" secondAttribute="bottom" constant="3.5" id="QLI-Vo-yOb"/>
                                                 <constraint firstItem="3x5-im-hXE" firstAttribute="top" secondItem="foq-h2-QZu" secondAttribute="topMargin" constant="2" id="SNl-Kz-P94"/>
-                                                <constraint firstItem="6hX-OH-GmR" firstAttribute="centerY" secondItem="sXF-K2-2cE" secondAttribute="centerY" id="VHX-V9-9A5"/>
                                                 <constraint firstItem="sXF-K2-2cE" firstAttribute="leading" secondItem="foq-h2-QZu" secondAttribute="leading" constant="20" id="Vpt-M3-7t2"/>
+                                                <constraint firstItem="9No-5I-vA2" firstAttribute="leading" secondItem="6hX-OH-GmR" secondAttribute="leading" id="WIP-mM-a0O"/>
                                                 <constraint firstItem="sXF-K2-2cE" firstAttribute="top" secondItem="3x5-im-hXE" secondAttribute="bottom" constant="5" id="YBy-10-Dz4"/>
+                                                <constraint firstItem="1dp-Cp-mUF" firstAttribute="leading" secondItem="6hX-OH-GmR" secondAttribute="leading" id="Zej-Xx-uB5"/>
+                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="1dp-Cp-mUF" secondAttribute="trailing" constant="88" id="bxK-Eq-7OR"/>
                                                 <constraint firstItem="3x5-im-hXE" firstAttribute="leading" secondItem="foq-h2-QZu" secondAttribute="leadingMargin" constant="8" id="fHl-LV-EcO"/>
+                                                <constraint firstItem="9No-5I-vA2" firstAttribute="top" secondItem="1dp-Cp-mUF" secondAttribute="bottom" constant="4" id="fkt-5t-jld"/>
                                                 <constraint firstItem="6hX-OH-GmR" firstAttribute="leading" secondItem="sXF-K2-2cE" secondAttribute="trailing" constant="18.5" id="kDP-tt-Qvy"/>
                                                 <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="6hX-OH-GmR" secondAttribute="trailing" constant="127" id="mBc-J5-ZTc"/>
+                                                <constraint firstItem="6hX-OH-GmR" firstAttribute="top" secondItem="sXF-K2-2cE" secondAttribute="top" constant="8" id="qFw-2H-lfK"/>
+                                                <constraint firstItem="1dp-Cp-mUF" firstAttribute="top" secondItem="6hX-OH-GmR" secondAttribute="bottom" constant="4" id="qjc-Bk-XbI"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="courseDateLabel" destination="1dp-Cp-mUF" id="7pg-0M-qcu"/>
+                                            <outlet property="courseTimeLabel" destination="9No-5I-vA2" id="mJn-Uo-hLE"/>
                                             <outlet property="courseTitleLabel" destination="3x5-im-hXE" id="dqp-g2-xT9"/>
                                             <outlet property="lecturerImageView" destination="sXF-K2-2cE" id="YqS-nL-5DQ"/>
                                             <outlet property="lecturerNameLabel" destination="6hX-OH-GmR" id="tFx-6M-eyZ"/>
@@ -147,7 +167,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W4F-51-1U7">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="167.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="224.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="MtU-D1-Ukg">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
@@ -196,17 +216,33 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="courseDateLabel" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sB-gd-0qy" userLabel="Course Date Label">
+                                                <rect key="frame" x="8" y="167.5" width="135.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="courseTimeLabel" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3t-yh-zGY" userLabel="Course Time Label">
+                                                <rect key="frame" x="8" y="196" width="136" height="20.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="R3t-yh-zGY" firstAttribute="leading" secondItem="aov-go-zRW" secondAttribute="leading" id="0A9-1e-6lX"/>
                                             <constraint firstItem="5Rl-js-eVm" firstAttribute="leading" secondItem="aov-go-zRW" secondAttribute="leading" id="2qd-bZ-2uR"/>
                                             <constraint firstItem="MtU-D1-Ukg" firstAttribute="top" secondItem="W4F-51-1U7" secondAttribute="top" id="GMZ-E2-iru"/>
                                             <constraint firstItem="aov-go-zRW" firstAttribute="leading" secondItem="W4F-51-1U7" secondAttribute="leading" constant="8" id="IGX-1A-YEx"/>
                                             <constraint firstItem="MtU-D1-Ukg" firstAttribute="leading" secondItem="W4F-51-1U7" secondAttribute="leading" id="MgB-MV-deG"/>
                                             <constraint firstItem="5Rl-js-eVm" firstAttribute="top" secondItem="aov-go-zRW" secondAttribute="bottom" constant="8" id="Oje-DU-b2M"/>
-                                            <constraint firstAttribute="bottom" secondItem="5Rl-js-eVm" secondAttribute="bottom" constant="8" id="WtP-ZX-rRa"/>
                                             <constraint firstAttribute="trailing" secondItem="5Rl-js-eVm" secondAttribute="trailing" constant="8" id="nWz-go-LIL"/>
+                                            <constraint firstAttribute="bottom" secondItem="R3t-yh-zGY" secondAttribute="bottom" constant="8" id="olz-Ub-khS"/>
                                             <constraint firstAttribute="trailing" secondItem="MtU-D1-Ukg" secondAttribute="trailing" id="pJe-Ue-6mG"/>
+                                            <constraint firstItem="0sB-gd-0qy" firstAttribute="top" secondItem="5Rl-js-eVm" secondAttribute="bottom" constant="8" id="pVN-xC-qDk"/>
+                                            <constraint firstItem="0sB-gd-0qy" firstAttribute="leading" secondItem="5Rl-js-eVm" secondAttribute="leading" id="u9Q-NG-jUZ"/>
+                                            <constraint firstItem="R3t-yh-zGY" firstAttribute="top" secondItem="0sB-gd-0qy" secondAttribute="bottom" constant="8" id="uz9-QS-jTU"/>
                                             <constraint firstItem="aov-go-zRW" firstAttribute="top" secondItem="MtU-D1-Ukg" secondAttribute="bottom" constant="8" id="yik-gq-1lE"/>
                                         </constraints>
                                     </view>
@@ -232,8 +268,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="MOz-W7-HX8"/>
                     <connections>
+                        <outlet property="courseDateLabel" destination="0sB-gd-0qy" id="md6-iC-Ct9"/>
                         <outlet property="courseDescriptionLabel" destination="5Rl-js-eVm" id="4Nr-xc-Nln"/>
                         <outlet property="courseDescriptionTitleLabel" destination="aov-go-zRW" id="Wfx-wN-90b"/>
+                        <outlet property="courseTimeLabel" destination="R3t-yh-zGY" id="eVW-Cg-Xmr"/>
                         <outlet property="detailChevronImage" destination="BdQ-SG-0JS" id="gPu-Fy-CDG"/>
                         <outlet property="lecturerImageView" destination="hlH-Ca-YqD" id="xQB-ps-U7k"/>
                         <outlet property="lecturerNameLabel" destination="Esa-oP-Ox1" id="pwl-w6-srf"/>
@@ -668,22 +706,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="212.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="heC-Q1-T4t">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="heC-Q1-T4t">
                                                     <rect key="frame" x="8" y="8" width="367" height="186"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="eventTitleLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0St-QX-ZaX">
-                                                            <rect key="frame" x="0.0" y="0.0" width="367" height="37"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="367" height="21"/>
                                                             <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eventDateLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uSR-5Z-8vX">
-                                                            <rect key="frame" x="0.0" y="37" width="367" height="19"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eventDateLabel" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uSR-5Z-8vX">
+                                                            <rect key="frame" x="0.0" y="29" width="367" height="19"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="19" id="cda-Bc-CkA"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="14"/>
-                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                            <color key="textColor" red="0.40784313729999999" green="0.40784313729999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="W8F-iG-lL8" userLabel="Event Image View">
@@ -799,7 +837,7 @@
                                                     </variation>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9AF-pD-CiV" userLabel="gradientView" customClass="GradientView" customModule="summer" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="504"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="503.5"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summer Programs 2018" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrR-Tx-aYV">
                                                     <rect key="frame" x="15" y="19" width="243" height="72.5"/>
@@ -1035,7 +1073,7 @@
         <image name="promoWide" width="1146" height="585"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="J2X-6V-7Uv"/>
+        <segue reference="siY-cu-I8T"/>
         <segue reference="q0f-dx-IGf"/>
         <segue reference="Feh-8Y-KsY"/>
     </inferredMetricsTieBreakers>

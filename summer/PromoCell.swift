@@ -45,6 +45,5 @@ class PromoCell: UITableViewCell {
         }
         let gradient = GradientView(frame: self.bounds)
         gradientView.insertSubview(gradient, at: 0)
-        //gradientView.addGradient(colors: [.clear,.black], locations: [0,1])
     }
 }

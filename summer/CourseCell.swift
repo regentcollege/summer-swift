@@ -2,6 +2,8 @@ import UIKit
 
 class CourseCell: UITableViewCell {
     @IBOutlet var courseTitleLabel: UILabel!
+    @IBOutlet var courseDateLabel: UILabel!
+    @IBOutlet var courseTimeLabel: UILabel!
     @IBOutlet var lecturerNameLabel: UILabel!
     @IBOutlet var lecturerImageView: UIImageView!
     
@@ -14,5 +16,8 @@ class CourseCell: UITableViewCell {
         } else if let placeholderImageName = lecturer.placeholderImageName {
             lecturerImageView.image = UIImage(named: placeholderImageName)
         }
+        
+        courseDateLabel.text = course.dates
+        courseTimeLabel.text = course.meetingTime
     }
 }
