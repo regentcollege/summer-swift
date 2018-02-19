@@ -74,12 +74,30 @@ class MoreViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let moreViewController = MoreViewController()
-        performSegue(withIdentifier: "showDetail", sender: moreViewController)
+        tableView.deselectRow(at: indexPath, animated: true)
+        switch sections[indexPath.section].items[indexPath.row] {
+        case .Payment:
+            performSegue(withIdentifier: "showDetail", sender: moreViewController)
+        case .Transportation:
+            performSegue(withIdentifier: "showDetail", sender: moreViewController)
+        case .Wifi:
+            performSegue(withIdentifier: "showDetail", sender: moreViewController)
+        case .Settings:
+            performSegue(withIdentifier: "showDetail", sender: moreViewController)
+        case .About:
+            performSegue(withIdentifier: "showAboutDetail", sender: moreViewController)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "showDetail"?:
+            if let row = tableView.indexPathForSelectedRow?.row {
+                //let moreDetailViewController = segue.destination as! MoreDetailViewController
+                
+                // inject item
+            }
+        case "showAboutDetail"?:
             if let row = tableView.indexPathForSelectedRow?.row {
                 //let moreDetailViewController = segue.destination as! MoreDetailViewController
                 
