@@ -10,6 +10,7 @@
 - [x] FAQ
 - [x] Events
 - [x] What's happening today
+- [ ] Multiple sessions per event/course
 - [ ] Search and filter
 - [ ] Directions
 - [ ] Announcements
