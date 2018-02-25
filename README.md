@@ -6,7 +6,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 ## Screenshots
-![Today](/../raw/screenshots/Summer 2018 Today.png?raw=true)
+![Today](/../screenshots/Summer%202018%20Today.png?raw=true)
 
 ## Features
 - [x] Course and lecturer details
