@@ -39,10 +39,13 @@ class CourseDetailViewController: UIViewController {
         }
         
         courseDescriptionTitleLabel.text = course.title
-
-        let str = course.description.style(tags: [Settings.Style.h1, Settings.Style.em, Settings.Style.strong])
+        
+        let str = course.description
+            .replacingOccurrences(of: "&nbsp;", with: " ")
+            .style(tags: [Settings.Style.h1, Settings.Style.h3, Settings.Style.em, Settings.Style.strong], transformers: Settings.Style.transformers)
             .styleAll(Settings.Style.paragraph)
             .attributedString
+        
         courseDescriptionLabel.attributedText = str
         
         courseDateLabel.text = course.dates

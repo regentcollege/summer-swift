@@ -30,14 +30,12 @@ class LecturerDetailViewController: UIViewController {
             lecturerShowVideoButton.isHidden = true
         }
         
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .justified
-        
-        let str = lecturer.bio.style(tags: [Settings.Style.h1, Settings.Style.em, Settings.Style.strong], transformers: Settings.Style.transformers)
+        let str = lecturer.bio
+            .replacingOccurrences(of: "&nbsp;", with: " ")
+            .style(tags: [Settings.Style.h1, Settings.Style.h3, Settings.Style.em, Settings.Style.strong], transformers: Settings.Style.transformers)
             .styleAll(Settings.Style.paragraph)
-            .styleAll(Style.paragraphStyle(paragraphStyle))
             .attributedString
-        
+
         lecturerBioTextView.attributedText = str
         lecturerBioTextView.textContainer.lineFragmentPadding = 0
     }

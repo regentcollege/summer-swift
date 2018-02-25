@@ -32,6 +32,7 @@ class TodayViewController: UIViewController, DocumentStoreDelegate {
         if eventsForToday.count == 0 {
             self.tableView.backgroundColor = UIColor.black
             self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+            self.tableView.isScrollEnabled = false
         }
     }
     
