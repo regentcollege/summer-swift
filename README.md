@@ -7,6 +7,10 @@
 
 ## Screenshots
 ![Today](/../screenshots/Summer2018Today.png?raw=true)
+![Courses](/../screenshots/Summer2018Courses.png?raw=true)
+![Events](/../screenshots/Summer2018Events.png?raw=true)
+![EventsDetail](/../screenshots/Summer2018EventsDetail.png?raw=true)
+![More](/../screenshots/Summer2018More.png?raw=true)
 
 ## Features
 - [x] Course and lecturer details
