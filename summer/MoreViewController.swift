@@ -77,34 +77,15 @@ class MoreViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         switch sections[indexPath.section].items[indexPath.row] {
         case .Payment:
-            performSegue(withIdentifier: "showDetail", sender: moreViewController)
+            UIApplication.shared.open(URL(string: "https://www.regent-college.edu/current-students/pay-your-tuition-and-fees")!)
         case .Transportation:
-            performSegue(withIdentifier: "showDetail", sender: moreViewController)
+            UIApplication.shared.open(URL(string: "https://www.regent-college.edu/current-students/living-in-vancouver/transit")!)
         case .Wifi:
-            performSegue(withIdentifier: "showDetail", sender: moreViewController)
+            performSegue(withIdentifier: "showWifiDetail", sender: moreViewController)
         case .Settings:
             performSegue(withIdentifier: "showDetail", sender: moreViewController)
         case .About:
             performSegue(withIdentifier: "showAboutDetail", sender: moreViewController)
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case "showDetail"?:
-            if let row = tableView.indexPathForSelectedRow?.row {
-                //let moreDetailViewController = segue.destination as! MoreDetailViewController
-                
-                // inject item
-            }
-        case "showAboutDetail"?:
-            if let row = tableView.indexPathForSelectedRow?.row {
-                //let moreDetailViewController = segue.destination as! MoreDetailViewController
-                
-                // inject item
-            }
-        default:
-            preconditionFailure("Unexpected segue identifer")
         }
     }
 }

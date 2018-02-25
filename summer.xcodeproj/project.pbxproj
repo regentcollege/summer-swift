@@ -27,6 +27,7 @@
 		3263874D1FA52CB500AC9C43 /* LecturerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3263874C1FA52CB500AC9C43 /* LecturerDetailViewController.swift */; };
 		32672ED41FA20022005D7F26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 324DC7871FA0F4F0007F97BF /* GoogleService-Info.plist */; };
 		326CC5511FA6F85600E01CD9 /* Futura-LigObl.otf in Resources */ = {isa = PBXBuildFile; fileRef = 326CC5501FA6F85600E01CD9 /* Futura-LigObl.otf */; };
+		32700C8020422BCE00B08F41 /* AboutDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32700C7F20422BCE00B08F41 /* AboutDetailViewController.swift */; };
 		328653541FA3ADC6000494CC /* CourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328653531FA3ADC6000494CC /* CourseDetailViewController.swift */; };
 		329C9B6E1FB6A0D0003220C6 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C9B6D1FB6A0D0003220C6 /* Settings.swift */; };
 		329C9B701FB6C9B9003220C6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C9B6F1FB6C9B9003220C6 /* TabBarController.swift */; };
@@ -83,6 +84,7 @@
 		3263873D1FA523AD00AC9C43 /* Futura-Med.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura-Med.otf"; sourceTree = "<group>"; };
 		3263874C1FA52CB500AC9C43 /* LecturerDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturerDetailViewController.swift; sourceTree = "<group>"; };
 		326CC5501FA6F85600E01CD9 /* Futura-LigObl.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura-LigObl.otf"; sourceTree = "<group>"; };
+		32700C7F20422BCE00B08F41 /* AboutDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDetailViewController.swift; sourceTree = "<group>"; };
 		328653531FA3ADC6000494CC /* CourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewController.swift; sourceTree = "<group>"; };
 		329C9B6D1FB6A0D0003220C6 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		329C9B6F1FB6C9B9003220C6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				324DC7791FA0F4D6007F97BF /* Main.storyboard */,
+				32700C7F20422BCE00B08F41 /* AboutDetailViewController.swift */,
 				324DC78A1FA1397D007F97BF /* CoursesViewController.swift */,
 				328653531FA3ADC6000494CC /* CourseDetailViewController.swift */,
 				32F9C1E71FA24D230084DB82 /* CourseCell.swift */,
@@ -557,6 +560,7 @@
 				32D2583A1FC0C81A007EBDC7 /* Extensions.swift in Sources */,
 				324DC7761FA0F4D6007F97BF /* AppDelegate.swift in Sources */,
 				32B7BB6F1FB6575900ECFFAE /* LecturerViewModel.swift in Sources */,
+				32700C8020422BCE00B08F41 /* AboutDetailViewController.swift in Sources */,
 				3244AF8E1FB9730300E682C2 /* SwinjectService.swift in Sources */,
 				329C9B701FB6C9B9003220C6 /* TabBarController.swift in Sources */,
 				32D1A8FA1FDA3F2E007C2302 /* Event.swift in Sources */,
