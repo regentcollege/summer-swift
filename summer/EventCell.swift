@@ -8,6 +8,7 @@ class EventCell: UITableViewCell {
     func configureWith(event: EventViewModel, lecturer: LecturerViewModel?) {
         eventTitleLabel?.text = event.title
         eventDateLabel?.text = event.dateDescription
+        eventDateLabel?.textColor = Settings.Color.blue
         if let imageUrl = event.imageUrl {
             eventImageView.kf.setImage(with: imageUrl)
             eventImageView.isHidden = false

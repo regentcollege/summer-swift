@@ -8,6 +8,7 @@ class Settings {
 
     struct Font {
         static let headerFont = UIFont(name: "Futura-Bol", size: 18)!
+        static let subHeaderFont = UIFont(name: "Futura-Bol", size: 16)!
         static let paragraphFont = UIFont(name: "Futura-Lig", size: 16)!
         static let obliqueFont = UIFont(name: "Futura-LigObl", size: 16)!
     }
@@ -30,5 +31,7 @@ class Settings {
     struct Color {
         static let red = "fa3737".hexColor
         static let orange = "ff690e".hexColor
+        static let blue = "00b3d4".hexColor
+        static let purple = "64006b".hexColor
     }
 }

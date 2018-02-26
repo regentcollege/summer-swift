@@ -29,6 +29,7 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
         
         tableView.sectionIndexTrackingBackgroundColor = .clear
         tableView.sectionIndexBackgroundColor = .clear
+        tableView.sectionIndexColor = Settings.Color.blue
     }
     
     func documentsDidUpdate() {

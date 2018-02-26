@@ -39,6 +39,7 @@ class CourseDetailViewController: UIViewController {
         }
         
         courseDescriptionTitleLabel.text = course.title
+        courseDescriptionTitleLabel.textColor = Settings.Color.blue
         
         let str = course.description
             .replacingOccurrences(of: "&nbsp;", with: " ")

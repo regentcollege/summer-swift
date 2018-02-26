@@ -1,14 +1,18 @@
 import UIKit
 
 class AboutDetailViewController: UIViewController {
+    @IBOutlet var headerLabel: UILabel!
+    @IBOutlet var subTitleLabel: UILabel!
+    var detailTableViewController: UITableViewController?
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.navigationItem.leftItemsSupplementBackButton = true
         self.navigationItem.leftBarButtonItem = self.splitViewController!.displayModeButtonItem
+        
+        subTitleLabel.textColor = Settings.Color.blue
     }
-    
-    var detailTableViewController: UITableViewController?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "aboutDetailTableSegue" {

@@ -119,7 +119,7 @@
                                 <items>
                                     <barButtonItem title="Item" style="plain" id="SJS-b9-6do">
                                         <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="0sA-83-NXE">
-                                            <rect key="frame" x="16" y="7.5" width="343" height="29"/>
+                                            <rect key="frame" x="16" y="7" width="343" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
                                                 <segment title="Spring"/>
@@ -348,7 +348,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQw-la-X2a">
-                                <rect key="frame" x="8" y="202.5" width="359" height="262.5"/>
+                                <rect key="frame" x="8" y="210.5" width="359" height="262.5"/>
                                 <string key="text">Regent College has never been much into taking summers off.
 
 If you’ve been to Regent before, you know that summer is the College’s most dynamic season. This is when Regent’s faculty team up with other top-notch scholars from around the world to throw all their expertise into 1–2 week blocks of engaged learning. It’s also when our student community grows even richer as all kinds of people who can’t commit to a regular semester join us to seek, learn, and fellowship.</string>
@@ -357,13 +357,13 @@ If you’ve been to Regent before, you know that summer is the College’s most 
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite God to deepen your faith, broaden your mind, and transform your heart." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7d8-38-BmF">
-                                <rect key="frame" x="8" y="108.5" width="359" height="78"/>
-                                <fontDescription key="fontDescription" name="Futura-Lig" family="Futura" pointSize="20"/>
+                                <rect key="frame" x="8" y="108.5" width="359" height="86"/>
+                                <fontDescription key="fontDescription" name="Futura-Lig" family="Futura" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jzl-kw-jhj">
-                                <rect key="frame" x="0.0" y="481" width="375" height="137"/>
+                                <rect key="frame" x="0.0" y="489" width="375" height="129"/>
                                 <connections>
                                     <segue destination="asd-CA-QzK" kind="embed" identifier="aboutDetailTableSegue" id="vb8-Ig-wj9"/>
                                 </connections>
@@ -387,6 +387,10 @@ If you’ve been to Regent before, you know that summer is the College’s most 
                         <viewLayoutGuide key="safeArea" id="jk7-JL-1W9"/>
                     </view>
                     <navigationItem key="navigationItem" id="Vvo-ne-iWf"/>
+                    <connections>
+                        <outlet property="headerLabel" destination="u2B-hB-4ld" id="IeF-CR-7WT"/>
+                        <outlet property="subTitleLabel" destination="7d8-38-BmF" id="lvE-VT-V5J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26k-Cv-vkc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -455,7 +459,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
             <objects>
                 <tableViewController id="asd-CA-QzK" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="J3p-TK-55S">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="137"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="129"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>

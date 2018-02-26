@@ -9,8 +9,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if window?.rootViewController as? UITabBarController != nil {
             let tabBarController = window!.rootViewController as! UITabBarController
             tabBarController.selectedIndex = 0 // Open today
-            tabBarController.tabBar.tintColor = Settings.Color.red
+            tabBarController.tabBar.tintColor = Settings.Color.blue
         }
+        
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: Settings.Color.blue,NSAttributedStringKey.font : Settings.Font.headerFont]
         
         // DI is done in Services/SwinjectService.swift
         

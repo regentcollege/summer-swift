@@ -10,6 +10,7 @@ class CourseCell: UITableViewCell {
     func configureWith(course: CourseViewModel, lecturer: LecturerViewModel) {
         courseTitleLabel?.text = course.title
         lecturerNameLabel?.text = lecturer.name
+        lecturerNameLabel?.textColor = Settings.Color.blue
         
         if let imageUrl = lecturer.imageUrl {
             lecturerImageView.kf.setImage(with: imageUrl)

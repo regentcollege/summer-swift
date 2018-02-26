@@ -36,7 +36,8 @@ class EventDetailViewController: UIViewController {
         
         eventTitleLabel.text = event.title
         eventDateLabel.text = event.dateDescriptionFullMonth
-
+        eventDateLabel.textColor = Settings.Color.blue
+        
         let link = Style
             .foregroundColor(.blue, .normal)
             .foregroundColor(.brown, .highlighted)

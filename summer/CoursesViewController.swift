@@ -32,7 +32,9 @@ class CoursesViewController: UIViewController, DocumentStoreDelegate {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 130
         
-        springSummerSegmentedControl.tintColor = Settings.Color.red
+        springSummerSegmentedControl.tintColor = Settings.Color.blue
+        let font: [AnyHashable : Any] = [NSAttributedStringKey.font : Settings.Font.subHeaderFont]
+        springSummerSegmentedControl.setTitleTextAttributes(font, for: .normal)
     }
     
     func documentsDidUpdate() {
