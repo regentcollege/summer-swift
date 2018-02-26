@@ -8,7 +8,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -217,13 +216,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="courseDateLabel" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sB-gd-0qy" userLabel="Course Date Label">
-                                                <rect key="frame" x="8" y="167.5" width="135.5" height="20.5"/>
+                                                <rect key="frame" x="8" y="167.5" width="359" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="courseTimeLabel" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3t-yh-zGY" userLabel="Course Time Label">
-                                                <rect key="frame" x="8" y="196" width="136" height="20.5"/>
+                                                <rect key="frame" x="8" y="196" width="359" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -237,6 +236,8 @@
                                             <constraint firstItem="aov-go-zRW" firstAttribute="leading" secondItem="W4F-51-1U7" secondAttribute="leading" constant="8" id="IGX-1A-YEx"/>
                                             <constraint firstItem="MtU-D1-Ukg" firstAttribute="leading" secondItem="W4F-51-1U7" secondAttribute="leading" id="MgB-MV-deG"/>
                                             <constraint firstItem="5Rl-js-eVm" firstAttribute="top" secondItem="aov-go-zRW" secondAttribute="bottom" constant="8" id="Oje-DU-b2M"/>
+                                            <constraint firstAttribute="trailing" secondItem="R3t-yh-zGY" secondAttribute="trailing" constant="8" id="bNL-er-l7w"/>
+                                            <constraint firstAttribute="trailing" secondItem="0sB-gd-0qy" secondAttribute="trailing" constant="8" id="hSH-xC-rR1"/>
                                             <constraint firstAttribute="trailing" secondItem="5Rl-js-eVm" secondAttribute="trailing" constant="8" id="nWz-go-LIL"/>
                                             <constraint firstAttribute="bottom" secondItem="R3t-yh-zGY" secondAttribute="bottom" constant="8" id="olz-Ub-khS"/>
                                             <constraint firstAttribute="trailing" secondItem="MtU-D1-Ukg" secondAttribute="trailing" id="pJe-Ue-6mG"/>
@@ -468,18 +469,18 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="75" id="DIZ-Bn-vwO">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DIZ-Bn-vwO" id="LH6-dg-2nC">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DIZ-Bn-vwO" id="LH6-dg-2nC">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="GitHub-Mark" translatesAutoresizingMaskIntoConstraints="NO" id="hYW-UM-U6D">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GitHub-Mark" translatesAutoresizingMaskIntoConstraints="NO" id="hYW-UM-U6D">
                                                     <rect key="frame" x="8" y="8" width="60" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="Oe7-c8-K8i"/>
                                                         <constraint firstAttribute="width" constant="60" id="hBN-AU-Yvj"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Contribute on GitHub" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOV-qA-QzQ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contribute on GitHub" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOV-qA-QzQ">
                                                     <rect key="frame" x="82" y="27.5" width="163" height="21"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
@@ -491,7 +492,6 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                                 <constraint firstItem="qOV-qA-QzQ" firstAttribute="centerY" secondItem="LH6-dg-2nC" secondAttribute="centerY" id="Hdc-fa-i9E"/>
                                                 <constraint firstItem="qOV-qA-QzQ" firstAttribute="leading" secondItem="hYW-UM-U6D" secondAttribute="trailing" constant="14" id="mX4-cW-pJT"/>
                                                 <constraint firstItem="qOV-qA-QzQ" firstAttribute="centerY" secondItem="hYW-UM-U6D" secondAttribute="centerY" id="oln-Hs-qyZ"/>
-                                                <constraint firstAttribute="bottom" secondItem="hYW-UM-U6D" secondAttribute="bottom" constant="8" id="vaw-Xo-MKa"/>
                                                 <constraint firstItem="hYW-UM-U6D" firstAttribute="top" secondItem="LH6-dg-2nC" secondAttribute="top" constant="8" id="vb3-tq-Pbb"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -499,18 +499,18 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="75" id="MUb-U0-uh2">
                                         <rect key="frame" x="0.0" y="75" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MUb-U0-uh2" id="4Sl-l6-j5d">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MUb-U0-uh2" id="4Sl-l6-j5d">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Request Features on UserVoice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nci-oi-lkR">
-                                                    <rect key="frame" x="82.5" y="27" width="240.5" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request Features on UserVoice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nci-oi-lkR">
+                                                    <rect key="frame" x="82.5" y="27.5" width="240.5" height="21"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="userVoice" translatesAutoresizingMaskIntoConstraints="NO" id="uRV-yf-aTb">
-                                                    <rect key="frame" x="14" y="11" width="48.5" height="50"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userVoice" translatesAutoresizingMaskIntoConstraints="NO" id="uRV-yf-aTb">
+                                                    <rect key="frame" x="14" y="8" width="48.5" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="XlN-o0-eta"/>
                                                         <constraint firstAttribute="width" constant="48.5" id="hb4-Hw-0zP"/>
@@ -522,7 +522,6 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                                 <constraint firstItem="Nci-oi-lkR" firstAttribute="leading" secondItem="uRV-yf-aTb" secondAttribute="trailing" constant="20" id="gkb-dC-DGQ"/>
                                                 <constraint firstItem="uRV-yf-aTb" firstAttribute="top" secondItem="4Sl-l6-j5d" secondAttribute="top" constant="8" id="gvl-rS-CUe"/>
                                                 <constraint firstItem="uRV-yf-aTb" firstAttribute="leading" secondItem="4Sl-l6-j5d" secondAttribute="leading" constant="14" id="ikV-C9-kJX"/>
-                                                <constraint firstAttribute="bottom" secondItem="uRV-yf-aTb" secondAttribute="bottom" constant="8" id="tjP-JE-f2h"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1065,7 +1064,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9MO-QQ-MIn">
-                                                    <rect key="frame" x="15" y="128.5" width="337.5" height="20.5"/>
+                                                    <rect key="frame" x="15" y="128.5" width="337" height="20.5"/>
                                                     <string key="text">Summer Programs present the best of what Regent has to offer, in our most user-friendly format. Our one- and two-week courses allow you to dive deep, combining a condensed, focused lecture schedule with the luxury of time to prepare and respond.</string>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1090,7 +1089,6 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                                 <constraint firstItem="9AF-pD-CiV" firstAttribute="leading" secondItem="1er-lm-NlP" secondAttribute="leading" id="Int-Gu-NHM"/>
                                                 <constraint firstAttribute="trailing" secondItem="aey-hT-q21" secondAttribute="trailing" constant="39" id="Lbj-tc-eN1"/>
                                                 <constraint firstItem="akk-9p-3HB" firstAttribute="leading" secondItem="1er-lm-NlP" secondAttribute="leading" id="PDh-lN-g6f"/>
-                                                <constraint firstItem="9MO-QQ-MIn" firstAttribute="width" secondItem="1er-lm-NlP" secondAttribute="width" multiplier="0.9" id="Qco-8H-SXN"/>
                                                 <constraint firstAttribute="bottom" secondItem="9XE-D1-gDx" secondAttribute="bottom" constant="10" id="Zxs-ia-bte"/>
                                                 <constraint firstAttribute="trailing" secondItem="akk-9p-3HB" secondAttribute="trailing" id="aOA-8R-lmG"/>
                                                 <constraint firstItem="9AF-pD-CiV" firstAttribute="height" secondItem="akk-9p-3HB" secondAttribute="height" id="gFj-ir-Bdt"/>
@@ -1099,6 +1097,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                                 <constraint firstItem="aey-hT-q21" firstAttribute="top" secondItem="wrR-Tx-aYV" secondAttribute="bottom" constant="10" id="qTt-5F-8in"/>
                                                 <constraint firstItem="wrR-Tx-aYV" firstAttribute="leading" secondItem="1er-lm-NlP" secondAttribute="leadingMargin" id="qnj-4o-D5I"/>
                                                 <constraint firstItem="9AF-pD-CiV" firstAttribute="width" secondItem="akk-9p-3HB" secondAttribute="width" id="rHu-pg-oqR"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="9MO-QQ-MIn" secondAttribute="trailing" constant="8" id="zEK-yr-5DS"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
