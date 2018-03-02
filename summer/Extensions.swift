@@ -1,5 +1,7 @@
 import UIKit
 import Mapper
+import AFDateHelper
+import Atributika
 
 // https://gist.github.com/arshad/de147c42d7b3063ef7bc
 extension String {
@@ -22,13 +24,55 @@ extension String {
     }
 }
 
+extension String {
+    func toAttributedLabel() -> AttributedLabel {
+        let link = Style
+            .foregroundColor(Settings.Color.blue, .normal)
+            .foregroundColor(.brown, .highlighted)
+        
+        let attributedLabel = AttributedLabel()
+        attributedLabel.attributedText = self
+            .replacingOccurrences(of: "&nbsp;", with: " ")
+            .style(tags: [Settings.Style.h1, Settings.Style.h3, Settings.Style.em, Settings.Style.strong], transformers: Settings.Style.transformers)
+            .styleHashtags(link)
+            .styleMentions(link)
+            .styleLinks(link)
+            .styleAll(Settings.Style.paragraph)
+        
+        attributedLabel.onClick = { label, detection in
+            switch detection.type {
+            case .hashtag(let tag):
+                if let url = URL(string: "https://twitter.com/hashtag/\(tag)") {
+                    UIApplication.shared.open(url)
+                }
+            case .mention(let name):
+                if let url = URL(string: "https://twitter.com/\(name)") {
+                    UIApplication.shared.open(url)
+                }
+            case .link(let url):
+                UIApplication.shared.open(url)
+            default:
+                break
+            }
+        }
+        
+        return attributedLabel
+    }
+}
+
 // Mapper does not have String to Date OOB
 extension Mappable {
     func extractDate(object: Any?) throws -> Date {
-        guard let date = object as? Date else {
-            throw MapperError.convertibleError(value: object, type: Date.self)
+        if let date = object as? Date {
+            return date
         }
-        return date
+        if let dateString = object as? String,
+            !dateString.isEmpty,
+            let extractedDate = Date(fromString: dateString, format: .isoDate)
+            {
+                return extractedDate
+        }
+        throw MapperError.convertibleError(value: object, type: Date.self)
     }
 }
 

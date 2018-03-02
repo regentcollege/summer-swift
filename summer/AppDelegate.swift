@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: Settings.Color.blue,NSAttributedStringKey.font : Settings.Font.headerFont]
         
+        UINavigationBar.appearance().tintColor = Settings.Color.blue
+
         // DI is done in Services/SwinjectService.swift
         
         return true

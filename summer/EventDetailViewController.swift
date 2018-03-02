@@ -38,25 +38,7 @@ class EventDetailViewController: UIViewController {
         eventDateLabel.text = event.dateDescriptionFullMonth
         eventDateLabel.textColor = Settings.Color.blue
         
-        let link = Style
-            .foregroundColor(.blue, .normal)
-            .foregroundColor(.brown, .highlighted)
-        
-        let eventDescription = AttributedLabel()
-        eventDescription.attributedText = event.description
-            .replacingOccurrences(of: "&nbsp;", with: " ")
-            .style(tags: [Settings.Style.h1, Settings.Style.h3, Settings.Style.em, Settings.Style.strong], transformers: Settings.Style.transformers)
-            .styleLinks(link)
-            .styleAll(Settings.Style.paragraph)
-        
-        eventDescription.onClick = { label, detection in
-            switch detection.type {
-            case .link(let url):
-                UIApplication.shared.open(url)
-            default:
-                break
-            }
-        }
+        let eventDescription = event.description.toAttributedLabel()
         
         eventDescription.textAlignment = NSTextAlignment.natural
         

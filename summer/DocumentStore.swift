@@ -82,6 +82,12 @@ class DocumentStore {
         return eventsWithoutStartDates + eventsWithStartDates
     }
     
+    private func sort(courses: [Course]) -> [Course] {
+        let coursesWithoutDates = courses.filter {$0.startDate == nil || $0.endDate == nil}
+        let coursesWithDates = courses.filter { $0.startDate != nil && $0.endDate != nil}.sorted(by: { $0.startDate! < $1.startDate! || ($0.startDate! == $1.startDate! && $0.endDate! < $1.endDate!)})
+        return coursesWithoutDates + coursesWithDates
+    }
+    
     private func loadData() {
         db.collection("events").getDocuments() {
             querySnapshot, error in
@@ -107,14 +113,14 @@ class DocumentStore {
             if let error = error {
                 print("\(error.localizedDescription)")
             } else {
-                self.courses = querySnapshot!.documents.flatMap({
+                self.courses = self.sort(courses: querySnapshot!.documents.flatMap({
                     var courseDictionary = $0.data()
                     courseDictionary["id"] = $0.documentID
                     guard let course = Course.from(courseDictionary as NSDictionary) else {
                         return nil
                     }
                     return course
-                })
+                }))
                 self.delegate?.documentsDidUpdate()
             }
         }
@@ -203,6 +209,7 @@ class DocumentStore {
             snapshot.documentChanges.forEach {
                 diff in
                 
+                //TODO DRY depending on how similar the added, modified, and removed response are
                 switch diff.type {
                 case .added:
                     var courseDictionary = diff.document.data()
@@ -212,12 +219,32 @@ class DocumentStore {
                             return
                         }
                         self.courses.append(course)
+                        self.courses = self.sort(courses: self.courses)
                         self.delegate?.documentsDidUpdate()
                     }
                 case .modified:
-                    return
+                    var courseDictionary = diff.document.data()
+                    courseDictionary["id"] = diff.document.documentID
+                    if let course = Course.from(courseDictionary as NSDictionary) {
+                        if let updatedCourseIndex = self.courses.index(where: { $0.id == course.id }) {
+                            self.courses[updatedCourseIndex] = course
+                        }
+                        else {
+                            self.courses.append(course)
+                        }
+                        self.courses = self.sort(courses: self.courses)
+                        self.delegate?.documentsDidUpdate()
+                    }
                 case .removed:
-                    return
+                    var courseDictionary = diff.document.data()
+                    courseDictionary["id"] = diff.document.documentID
+                    if let course = Course.from(courseDictionary as NSDictionary) {
+                        if let updatedCourseIndex = self.courses.index(where: { $0.id == course.id }) {
+                            self.courses.remove(at: updatedCourseIndex)
+                            self.courses = self.sort(courses: self.courses)
+                            self.delegate?.documentsDidUpdate()
+                        }
+                    }
                 }
             }
         }
@@ -229,6 +256,7 @@ class DocumentStore {
             snapshot.documentChanges.forEach {
                 diff in
                 
+                //TODO DRY depending on how similar the added, modified, and removed response are
                 switch diff.type {
                 case .added:
                     var lecturerDictionary = diff.document.data()
@@ -241,9 +269,26 @@ class DocumentStore {
                         self.delegate?.documentsDidUpdate()
                     }
                 case .modified:
-                    return
+                    var lecturerDictionary = diff.document.data()
+                    lecturerDictionary["id"] = diff.document.documentID
+                    if let lecturer = Lecturer.from(lecturerDictionary as NSDictionary) {
+                        if let updatedLecturerIndex = self.lecturers.index(where: { $0.id == lecturer.id }) {
+                            self.lecturers[updatedLecturerIndex] = lecturer
+                        }
+                        else {
+                            self.lecturers.append(lecturer)
+                        }
+                        self.delegate?.documentsDidUpdate()
+                    }
                 case .removed:
-                    return
+                    var lecturerDictionary = diff.document.data()
+                    lecturerDictionary["id"] = diff.document.documentID
+                    if let lecturer = Lecturer.from(lecturerDictionary as NSDictionary) {
+                        if let updatedLecturerIndex = self.lecturers.index(where: { $0.id == lecturer.id }) {
+                            self.lecturers.remove(at: updatedLecturerIndex)
+                            self.delegate?.documentsDidUpdate()
+                        }
+                    }
                 }
             }
         }

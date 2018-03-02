@@ -52,7 +52,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="129.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="courseTitleLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3x5-im-hXE">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="courseTitleLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3x5-im-hXE">
                                                     <rect key="frame" x="23" y="13" width="303" height="22.5"/>
                                                     <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -203,8 +203,8 @@
                                                     <outletCollection property="gestureRecognizers" destination="CEn-D1-Fdx" appends="YES" id="JXU-oB-nvz"/>
                                                 </connections>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="courseDescriptionTitleLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aov-go-zRW">
-                                                <rect key="frame" x="8" y="108" width="247" height="22.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="courseDescriptionTitleLabel" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aov-go-zRW">
+                                                <rect key="frame" x="8" y="108" width="359" height="22.5"/>
                                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -249,7 +249,7 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="aov-go-zRW" secondAttribute="trailing" constant="150" id="CA2-0N-YVy"/>
+                                    <constraint firstAttribute="trailing" secondItem="aov-go-zRW" secondAttribute="trailing" constant="8" id="CA2-0N-YVy"/>
                                     <constraint firstItem="W4F-51-1U7" firstAttribute="leading" secondItem="URN-NB-C8P" secondAttribute="leading" id="Zoh-hu-J64"/>
                                     <constraint firstItem="W4F-51-1U7" firstAttribute="top" secondItem="URN-NB-C8P" secondAttribute="top" id="iRQ-6R-MZ9"/>
                                     <constraint firstItem="W4F-51-1U7" firstAttribute="width" secondItem="URN-NB-C8P" secondAttribute="width" id="pIm-IE-ZQ6"/>
@@ -621,70 +621,84 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIv-om-y5p" userLabel="Banner Stack View">
-                                <rect key="frame" x="8" y="72" width="359" height="100"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFs-nR-jAS">
+                                <rect key="frame" x="0.0" y="313" width="375" height="128"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1zE-8E-GVm">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                        <gestureRecognizers/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="H8o-Fg-YGu"/>
-                                        </constraints>
-                                    </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="67A-RF-cd4">
-                                        <rect key="frame" x="100" y="0.0" width="259" height="100"/>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L5v-hQ-xFA">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lecturerNameLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FrY-iq-4eO">
-                                                <rect key="frame" x="8" y="8" width="243" height="54"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIv-om-y5p" userLabel="Banner Stack View">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1zE-8E-GVm">
+                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                        <gestureRecognizers/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="100" id="H8o-Fg-YGu"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="67A-RF-cd4">
+                                                        <rect key="frame" x="100" y="0.0" width="275" height="100"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lecturerNameLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FrY-iq-4eO">
+                                                                <rect key="frame" x="8" y="8" width="259" height="54"/>
+                                                                <gestureRecognizers/>
+                                                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pex-Sz-Eik">
+                                                                <rect key="frame" x="8" y="62" width="259" height="30"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="30" id="UyP-P1-atL"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Watch Video"/>
+                                                                <connections>
+                                                                    <segue destination="MjD-ay-X7L" kind="presentation" identifier="showVideo" id="h2m-CL-huA"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                                    </stackView>
+                                                </subviews>
                                                 <gestureRecognizers/>
-                                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pex-Sz-Eik">
-                                                <rect key="frame" x="8" y="62" width="243" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="UyP-P1-atL"/>
+                                                    <constraint firstAttribute="height" constant="100" id="fDh-pd-5X6"/>
                                                 </constraints>
-                                                <state key="normal" title="Watch Video"/>
-                                                <connections>
-                                                    <segue destination="MjD-ay-X7L" kind="presentation" identifier="showVideo" id="h2m-CL-huA"/>
-                                                </connections>
-                                            </button>
+                                            </stackView>
                                         </subviews>
-                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                    </stackView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="dIv-om-y5p" secondAttribute="trailing" id="DnA-aa-NA8"/>
+                                            <constraint firstItem="dIv-om-y5p" firstAttribute="leading" secondItem="L5v-hQ-xFA" secondAttribute="leading" id="YCU-MD-32A"/>
+                                            <constraint firstItem="dIv-om-y5p" firstAttribute="top" secondItem="L5v-hQ-xFA" secondAttribute="top" id="hSP-Bo-2H2"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="fDh-pd-5X6"/>
+                                    <constraint firstItem="L5v-hQ-xFA" firstAttribute="top" secondItem="dFs-nR-jAS" secondAttribute="top" id="Icv-m8-HK1"/>
+                                    <constraint firstItem="L5v-hQ-xFA" firstAttribute="width" secondItem="dFs-nR-jAS" secondAttribute="width" id="KJv-5h-NRc"/>
+                                    <constraint firstAttribute="bottom" secondItem="L5v-hQ-xFA" secondAttribute="bottom" id="am3-zz-ElZ"/>
+                                    <constraint firstItem="L5v-hQ-xFA" firstAttribute="leading" secondItem="dFs-nR-jAS" secondAttribute="leading" id="jE0-Rr-jll"/>
+                                    <constraint firstAttribute="trailing" secondItem="L5v-hQ-xFA" secondAttribute="trailing" id="klQ-8a-wwN"/>
                                 </constraints>
-                            </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4R-0P-v5S" userLabel="Lecturer Bio Text View">
-                                <rect key="frame" x="8" y="180" width="351" height="422"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="e4R-0P-v5S" firstAttribute="leading" secondItem="EA4-ly-zdG" secondAttribute="leading" constant="8" id="Kmo-aj-EIr"/>
-                            <constraint firstItem="e4R-0P-v5S" firstAttribute="top" secondItem="dIv-om-y5p" secondAttribute="bottom" constant="8" id="LXz-sp-rS9"/>
-                            <constraint firstItem="dIv-om-y5p" firstAttribute="leading" secondItem="EA4-ly-zdG" secondAttribute="leading" constant="8" id="Z0P-p4-QRW"/>
-                            <constraint firstItem="EA4-ly-zdG" firstAttribute="bottom" secondItem="e4R-0P-v5S" secondAttribute="bottom" constant="16" id="ZZf-PV-f53"/>
-                            <constraint firstItem="EA4-ly-zdG" firstAttribute="trailing" secondItem="dIv-om-y5p" secondAttribute="trailing" constant="8" id="abl-qi-nwa"/>
-                            <constraint firstItem="dIv-om-y5p" firstAttribute="top" secondItem="EA4-ly-zdG" secondAttribute="top" constant="8" id="ldF-Aq-tX2"/>
-                            <constraint firstItem="e4R-0P-v5S" firstAttribute="trailing" secondItem="iaE-8R-jEQ" secondAttribute="trailingMargin" id="mqR-vG-NF8"/>
+                            <constraint firstItem="EA4-ly-zdG" firstAttribute="trailing" secondItem="dFs-nR-jAS" secondAttribute="trailing" id="9L2-wd-v3S"/>
+                            <constraint firstItem="EA4-ly-zdG" firstAttribute="bottom" secondItem="dFs-nR-jAS" secondAttribute="bottom" id="SJD-ao-Kdl"/>
+                            <constraint firstItem="dFs-nR-jAS" firstAttribute="top" secondItem="EA4-ly-zdG" secondAttribute="top" id="TJn-n6-eVu"/>
+                            <constraint firstItem="dFs-nR-jAS" firstAttribute="leading" secondItem="EA4-ly-zdG" secondAttribute="leading" id="iHt-2z-6Ns"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EA4-ly-zdG"/>
                     </view>
                     <connections>
-                        <outlet property="lecturerBioTextView" destination="e4R-0P-v5S" id="QS1-2N-mse"/>
+                        <outlet property="contentView" destination="L5v-hQ-xFA" id="pMq-YO-PqF"/>
                         <outlet property="lecturerImageView" destination="1zE-8E-GVm" id="KKD-QG-r8o"/>
                         <outlet property="lecturerNameLabel" destination="FrY-iq-4eO" id="Tah-Zy-0sR"/>
                         <outlet property="lecturerShowVideoButton" destination="Pex-Sz-Eik" id="Nt3-an-VRQ"/>
+                        <outlet property="stackView" destination="dIv-om-y5p" id="mXr-jg-GdH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wpe-bN-lFF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1007,7 +1021,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
             </objects>
             <point key="canvasLocation" x="-607" y="2566"/>
         </scene>
-        <!--Today-->
+        <!--Today at Regent College-->
         <scene sceneID="WfT-gG-5r2">
             <objects>
                 <viewController id="4G5-vH-RCm" customClass="TodayViewController" customModule="summer" customModuleProvider="target" sceneMemberID="viewController">
@@ -1182,7 +1196,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XRC-8n-lQj"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Today" id="XKn-JQ-f3n"/>
+                    <navigationItem key="navigationItem" title="Today at Regent College" id="XKn-JQ-f3n"/>
                     <connections>
                         <outlet property="tableView" destination="rpy-DO-CgS" id="UkK-aY-IZu"/>
                     </connections>
@@ -1283,7 +1297,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
         <image name="userVoice" width="194" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KJ5-tk-FbQ"/>
+        <segue reference="J2X-6V-7Uv"/>
         <segue reference="q0f-dx-IGf"/>
         <segue reference="Feh-8Y-KsY"/>
     </inferredMetricsTieBreakers>

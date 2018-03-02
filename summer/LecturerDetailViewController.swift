@@ -6,9 +6,10 @@ class LecturerDetailViewController: UIViewController {
     
     @IBOutlet var lecturerImageView: UIImageView!
     @IBOutlet var lecturerNameLabel: UILabel!
-    @IBOutlet var lecturerBioTextView: UITextView!
     @IBOutlet var lecturerShowVideoButton: UIButton!
+    @IBOutlet var contentView: UIView!
     
+    @IBOutlet var stackView: UIStackView!
     var lecturer: LecturerViewModel! {
         didSet {
             navigationItem.title = lecturer.name
@@ -29,19 +30,22 @@ class LecturerDetailViewController: UIViewController {
         if lecturer.videoUrl == nil {
             lecturerShowVideoButton.isHidden = true
         }
-        
-        let str = lecturer.bio
-            .replacingOccurrences(of: "&nbsp;", with: " ")
-            .style(tags: [Settings.Style.h1, Settings.Style.h3, Settings.Style.em, Settings.Style.strong], transformers: Settings.Style.transformers)
-            .styleAll(Settings.Style.paragraph)
-            .attributedString
 
-        lecturerBioTextView.attributedText = str
-        lecturerBioTextView.textContainer.lineFragmentPadding = 0
-    }
-    
-    override func viewDidLayoutSubviews() {
-        self.lecturerBioTextView.setContentOffset(.zero, animated: false)
+        let lecturerBio = lecturer.bio.toAttributedLabel()
+        
+        lecturerBio.textAlignment = NSTextAlignment.natural
+        
+        contentView.addSubview(lecturerBio)
+        
+        let marginGuide = contentView.layoutMarginsGuide
+        
+        lecturerBio.translatesAutoresizingMaskIntoConstraints = false
+        lecturerBio.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
+        lecturerBio.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
+        lecturerBio.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
+        lecturerBio.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 8).isActive = true
+        
+        lecturerBio.numberOfLines = 0
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

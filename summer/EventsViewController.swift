@@ -63,7 +63,7 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
         var sectionTitle = ""
         for event in events {
             if let startDate = event.startDate {
-                let thisSectionTitle = startDate.toString(format: .custom("MMM d"))
+                let thisSectionTitle = startDate.toString(format: .custom("Mdd"))
                 if thisSectionTitle != sectionTitle {
                     sectionTitle = thisSectionTitle
                     eventsWithSections[sectionTitle] = [EventViewModel]()
