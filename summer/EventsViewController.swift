@@ -30,6 +30,19 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
         tableView.sectionIndexTrackingBackgroundColor = .clear
         tableView.sectionIndexBackgroundColor = .clear
         tableView.sectionIndexColor = Settings.Color.blue
+        
+        var eventIndexToShow = IndexPath(row: 0, section: 0)
+        var sectionPosition = 0
+        for events in eventsWithSections {
+            sectionPosition += 1
+            if let startDate = Date(fromString: events.key, format: .isoDate) {
+            if(Date().compare(.isLater(than: startDate))) {
+                eventIndexToShow = IndexPath(row: 0, section: sectionPosition)
+                break
+                }
+            }
+        }
+        self.tableView.scrollToRow(at: eventIndexToShow, at: .middle, animated: false)
     }
     
     func documentsDidUpdate() {
@@ -63,7 +76,7 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
         var sectionTitle = ""
         for event in events {
             if let startDate = event.startDate {
-                let thisSectionTitle = startDate.toString(format: .custom("Mdd"))
+                let thisSectionTitle = startDate.toString(format: .isoDate)
                 if thisSectionTitle != sectionTitle {
                     sectionTitle = thisSectionTitle
                     eventsWithSections[sectionTitle] = [EventViewModel]()
@@ -106,15 +119,6 @@ extension EventsViewController: UITableViewDataSource {
         }
         
         return UITableViewCell()
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return nil
-        //return sectionTitlesDate[section].toString(format: .custom("EEEE MMMM d"))
-    }
-    
-    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return sectionTitles
     }
     
     func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
