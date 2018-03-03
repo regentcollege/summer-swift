@@ -11,6 +11,7 @@ class EventViewModel {
     var lecturerId: String?
     
     @objc var startDate: Date?
+    @objc var endDate: Date?
     
     init(event: Event?) {
         if let event = event {
@@ -32,6 +33,7 @@ class EventViewModel {
             }
             if let startDate = event.startDate, let endDate = event.endDate {
                 self.startDate = startDate
+                self.endDate = endDate
                 self.dateDescription = format(startDate: startDate, endDate: endDate)
                 self.dateDescriptionFullMonth = format(startDate: startDate, endDate: endDate, fullMonth: true)
             } else if let startDate = event.startDate {

@@ -10,6 +10,9 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
         return documentStore.getEvents()
     }
     
+    var eventsFiltered = [EventViewModel]()
+    var eventsFiltering = false
+    var eventCategories = [String: [EventViewModel]]()
     var eventsWithSections = [String : [EventViewModel]]()
     var sectionTitles = [String]()
     var sectionTitlesDate = [Date]()
@@ -19,6 +22,7 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
         
         documentStore?.delegate = self
         
+        categorizeEvents()
         groupEvents()
         
         tableView.dataSource = self
@@ -43,6 +47,20 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
             }
         }
         self.tableView.scrollToRow(at: eventIndexToShow, at: .middle, animated: false)
+        
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.placeholder = "Search events"
+        searchController.searchBar.scopeButtonTitles = ["All", "May", "June", "July", "EPL"]
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.delegate = self
+        definesPresentationContext = true
+        
+        if #available(iOS 11.0, *) {
+            self.navigationItem.searchController = searchController
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     func documentsDidUpdate() {
@@ -68,13 +86,47 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
         }
     }
     
+    private func categorizeEvents() {
+        eventCategories.removeAll()
+        
+        for event in events {
+            if let startDate = event.startDate {
+                let startMonth = startDate.toString(style: .month)
+                
+                // You must initialize the array at that key if it doesn't exist yet
+                var existingItems = eventCategories[startMonth] ?? [EventViewModel]()
+                existingItems.append(event)
+                eventCategories[startMonth] = existingItems
+                
+                if let endDate = event.endDate {
+                    let endMonth = endDate.toString(style: .month)
+                    if(startMonth != endMonth) {
+                        var existingItems = eventCategories[endMonth] ?? [EventViewModel]()
+                        existingItems.append(event)
+                        eventCategories[endMonth] = existingItems
+                    }
+                }
+            }
+            
+            if(event.title.lowercased().contains("evening")) {
+                var existingItems = eventCategories["EPL"] ?? [EventViewModel]()
+                existingItems.append(event)
+                eventCategories["EPL"] = existingItems
+            }
+        }
+    }
+    
     private func groupEvents() {
         sectionTitles.removeAll()
         sectionTitlesDate.removeAll()
         eventsWithSections.removeAll()
         
+        var eventsToGroup = events
+        if(eventsFiltering) {
+            eventsToGroup = eventsFiltered
+        }
         var sectionTitle = ""
-        for event in events {
+        for event in eventsToGroup {
             if let startDate = event.startDate {
                 let thisSectionTitle = startDate.toString(format: .isoDate)
                 if thisSectionTitle != sectionTitle {
@@ -86,7 +138,9 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
                 eventsWithSections[thisSectionTitle]?.append(event)
             }
             else {
-                eventsWithSections["_"]?.append(event)
+                var existingItems = eventsWithSections["_"] ?? [EventViewModel]()
+                existingItems.append(event)
+                eventsWithSections["_"] = existingItems
             }
         }
     }
@@ -131,5 +185,57 @@ extension EventsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "showEvent", sender: EventsViewController())
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+// MARK: - UISearchResultsUpdating
+extension EventsViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+        filterEvents(forSearch: searchController.searchBar.text!, scope: scope)
+    }
+    func filterEvents(forSearch: String, scope: String = "All") {
+        if scope == "All" {
+            self.eventsFiltering = false
+            self.eventsFiltered = self.events
+        }
+        else {
+            self.eventsFiltering = true
+            if let eventsInCategory = self.eventCategories[scope] {
+                self.eventsFiltered = eventsInCategory
+            }
+            else {
+                self.eventsFiltered = [EventViewModel]()
+            }
+        }
+        
+        if !forSearch.isEmpty {
+            self.eventsFiltered = self.eventsFiltered.filter({ $0.title.lowercased().contains(forSearch.lowercased()) })
+            self.eventsFiltering = true
+        }
+        
+        self.groupEvents()
+        self.tableView.reloadData()
+    }
+}
+
+// MARK: - UISearchBarDelegate
+extension EventsViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        searchBar.resignFirstResponder()
+        filterEvents(forSearch: searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        searchBar.endEditing(true)
+        searchBar.selectedScopeButtonIndex = 0
+        
+        if self.eventsFiltering {
+            self.eventsFiltering = false
+            self.groupEvents()
+            self.tableView.reloadData()
+        }
     }
 }
