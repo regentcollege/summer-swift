@@ -616,27 +616,28 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIv-om-y5p" userLabel="Banner Stack View">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="112.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1zE-8E-GVm">
-                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="90" height="112.5"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="100" id="H8o-Fg-YGu"/>
+                                                            <constraint firstAttribute="height" constant="112.5" id="5I1-IU-1Ow"/>
+                                                            <constraint firstAttribute="width" constant="90" id="H8o-Fg-YGu"/>
                                                         </constraints>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="67A-RF-cd4">
-                                                        <rect key="frame" x="100" y="0.0" width="275" height="100"/>
+                                                        <rect key="frame" x="90" y="0.0" width="285" height="112.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lecturerNameLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FrY-iq-4eO">
-                                                                <rect key="frame" x="8" y="8" width="259" height="54"/>
+                                                                <rect key="frame" x="8" y="8" width="269" height="66.5"/>
                                                                 <gestureRecognizers/>
                                                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pex-Sz-Eik">
-                                                                <rect key="frame" x="8" y="62" width="259" height="30"/>
+                                                                <rect key="frame" x="8" y="74.5" width="269" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="UyP-P1-atL"/>
                                                                 </constraints>
@@ -650,9 +651,6 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                                     </stackView>
                                                 </subviews>
                                                 <gestureRecognizers/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="fDh-pd-5X6"/>
-                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
