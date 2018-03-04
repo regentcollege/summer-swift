@@ -29,7 +29,8 @@ class CourseDetailViewController: UIViewController {
         lecturerNameLabel.text = lecturer.name
 
         if let imageUrl = lecturer.imageUrl {
-            lecturerImageView.kf.setImage(with: imageUrl)
+            let cropProcessor = CroppingImageProcessor(size: CGSize(width: 240, height: 300), anchor: CGPoint(x: 0, y: 0))
+            lecturerImageView.kf.setImage(with: imageUrl, options: [.processor(cropProcessor)])
         } else if let placeholderImageName = lecturer.placeholderImageName {
             lecturerImageView.image = UIImage(named: placeholderImageName)
         }
