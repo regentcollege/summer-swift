@@ -442,10 +442,10 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
             </objects>
             <point key="canvasLocation" x="6800.8000000000002" y="1060.1199400299852"/>
         </scene>
-        <!--Table View Controller-->
+        <!--About Detail Table View-->
         <scene sceneID="Va6-Pz-YcO">
             <objects>
-                <tableViewController id="asd-CA-QzK" sceneMemberID="viewController">
+                <tableViewController title="About Detail Table View" id="asd-CA-QzK" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="J3p-TK-55S">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="448.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -827,7 +827,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                 <rect key="frame" x="12" y="64" width="355" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TPB-th-qc2">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="231.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="81.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eventTitleLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J79-Q9-v76">
                                                 <rect key="frame" x="0.0" y="8" width="355" height="31.5"/>
@@ -847,17 +847,25 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                                     <constraint firstAttribute="height" constant="150" id="7Cu-St-StA"/>
                                                 </constraints>
                                             </imageView>
+                                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H7l-JE-0j8">
+                                                <rect key="frame" x="0.0" y="0.0" width="355" height="81.5"/>
+                                                <connections>
+                                                    <segue destination="JCG-VQ-Ha1" kind="embed" identifier="eventScheduleViewSegue" id="46s-SU-8CJ"/>
+                                                </connections>
+                                            </containerView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" link="YES"/>
                                         </accessibility>
                                         <constraints>
+                                            <constraint firstItem="H7l-JE-0j8" firstAttribute="leading" secondItem="TPB-th-qc2" secondAttribute="leading" id="4Rd-UA-CNN"/>
                                             <constraint firstAttribute="trailing" secondItem="EDI-dH-qEU" secondAttribute="trailing" id="5On-C5-VDv"/>
                                             <constraint firstItem="EDI-dH-qEU" firstAttribute="top" secondItem="he5-iI-Zck" secondAttribute="bottom" constant="8" id="7hW-XY-boM"/>
                                             <constraint firstItem="he5-iI-Zck" firstAttribute="leading" secondItem="TPB-th-qc2" secondAttribute="leading" id="8jX-3L-0hK"/>
                                             <constraint firstAttribute="trailing" secondItem="J79-Q9-v76" secondAttribute="trailing" id="EXD-8F-zGx"/>
                                             <constraint firstItem="J79-Q9-v76" firstAttribute="top" secondItem="TPB-th-qc2" secondAttribute="top" constant="8" id="GuO-ZH-Coc"/>
+                                            <constraint firstAttribute="trailing" secondItem="H7l-JE-0j8" secondAttribute="trailing" id="OYM-Et-uW3"/>
                                             <constraint firstItem="J79-Q9-v76" firstAttribute="leading" secondItem="TPB-th-qc2" secondAttribute="leading" id="aJp-G0-NnT"/>
                                             <constraint firstItem="EDI-dH-qEU" firstAttribute="leading" secondItem="TPB-th-qc2" secondAttribute="leading" id="apo-Vu-H3B"/>
                                             <constraint firstItem="he5-iI-Zck" firstAttribute="top" secondItem="J79-Q9-v76" secondAttribute="bottom" constant="8" id="fPU-JN-yEb"/>
@@ -870,6 +878,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                     <constraint firstAttribute="trailing" secondItem="TPB-th-qc2" secondAttribute="trailing" id="NIp-Ry-axl"/>
                                     <constraint firstAttribute="bottom" secondItem="TPB-th-qc2" secondAttribute="bottom" id="Nag-cd-bVz"/>
                                     <constraint firstItem="TPB-th-qc2" firstAttribute="top" secondItem="yQl-eE-t95" secondAttribute="top" id="Noz-Wj-C3Q"/>
+                                    <constraint firstAttribute="bottom" secondItem="H7l-JE-0j8" secondAttribute="bottom" constant="8" id="XMv-hl-Stw"/>
                                     <constraint firstItem="TPB-th-qc2" firstAttribute="leading" secondItem="yQl-eE-t95" secondAttribute="leading" id="wcn-DP-OB1"/>
                                 </constraints>
                             </scrollView>
@@ -889,11 +898,84 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                         <outlet property="eventDateLabel" destination="he5-iI-Zck" id="BAi-Q0-Wze"/>
                         <outlet property="eventImageView" destination="EDI-dH-qEU" id="CmO-nY-rr3"/>
                         <outlet property="eventTitleLabel" destination="J79-Q9-v76" id="XLN-vb-ow6"/>
+                        <outlet property="scheduleTableContainerView" destination="H7l-JE-0j8" id="E3z-lZ-k5A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IpF-8F-PLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3561" y="3337"/>
+        </scene>
+        <!--Event Schedule View Controller-->
+        <scene sceneID="ELg-mi-seA">
+            <objects>
+                <viewController id="JCG-VQ-Ha1" customClass="EventScheduleViewController" customModule="summer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7di-j7-f0c">
+                        <rect key="frame" x="0.0" y="0.0" width="355" height="81.5"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hir-h7-igo">
+                                <rect key="frame" x="0.0" y="0.0" width="355" height="81.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventScheduleCell" rowHeight="63" id="23o-8z-jRL" customClass="EventScheduleCell" customModule="summer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="355" height="63"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="23o-8z-jRL" id="GCw-fh-Ui1">
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="62.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HYA-Ch-xsd">
+                                                    <rect key="frame" x="0.0" y="10" width="339" height="42.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="eventScheduleTitleLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlR-Ri-aDc">
+                                                            <rect key="frame" x="0.0" y="0.0" width="339" height="23.5"/>
+                                                            <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eventScheduleDateLabel" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3u-TY-kWl">
+                                                            <rect key="frame" x="0.0" y="23.5" width="339" height="19"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="19" id="2Ov-FM-Qw4"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                            <color key="textColor" red="0.40784313729999999" green="0.40784313729999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="HYA-Ch-xsd" firstAttribute="leading" secondItem="GCw-fh-Ui1" secondAttribute="leading" id="2GN-UU-9vz"/>
+                                                <constraint firstAttribute="trailing" secondItem="HYA-Ch-xsd" secondAttribute="trailing" id="74a-i4-aic"/>
+                                                <constraint firstAttribute="bottom" secondItem="HYA-Ch-xsd" secondAttribute="bottom" constant="10" id="Brm-KJ-c5l"/>
+                                                <constraint firstItem="HYA-Ch-xsd" firstAttribute="top" secondItem="GCw-fh-Ui1" secondAttribute="top" constant="10" id="H26-3d-816"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="eventScheduleDateLabel" destination="N3u-TY-kWl" id="vSX-Oz-VgC"/>
+                                            <outlet property="eventScheduleTitleLabel" destination="dlR-Ri-aDc" id="paK-IM-gxL"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Hir-h7-igo" firstAttribute="leading" secondItem="Hdj-yS-HPD" secondAttribute="leading" id="6CT-6W-Py7"/>
+                            <constraint firstItem="Hir-h7-igo" firstAttribute="bottom" secondItem="Hdj-yS-HPD" secondAttribute="bottom" id="awf-FV-qkH"/>
+                            <constraint firstItem="Hir-h7-igo" firstAttribute="top" secondItem="Hdj-yS-HPD" secondAttribute="top" id="fW5-lb-b5Z"/>
+                            <constraint firstItem="Hdj-yS-HPD" firstAttribute="trailing" secondItem="Hir-h7-igo" secondAttribute="trailing" id="mQH-cq-gyy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Hdj-yS-HPD"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Hir-h7-igo" id="BwX-g4-Brl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fZp-ac-bLG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4412" y="3335.5322338830588"/>
         </scene>
         <!--Events-->
         <scene sceneID="74t-YB-Boj">

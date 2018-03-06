@@ -11,7 +11,7 @@ class DocumentStore {
     private var courses = [Course]()
     private var lecturers = [Lecturer]()
     private var events = [Event]()
-    
+    private var eventSchedule = [String: [EventSchedule]]()
     var delegate: DocumentStoreDelegate?
     
     init() {
@@ -24,6 +24,13 @@ class DocumentStore {
 
     func getEvents() -> [EventViewModel] {
         return events.map { EventViewModel(event: $0) }
+    }
+    
+    func getEventScheduleBy(id: String) -> [EventScheduleViewModel]? {
+        guard let schedule = eventSchedule[id] else {
+            return nil
+        }
+        return schedule.map { EventScheduleViewModel(schedule: $0) }
     }
     
     func getEventsHappening(now: Date) -> [EventViewModel] {
@@ -82,10 +89,40 @@ class DocumentStore {
         return eventsWithoutStartDates + eventsWithStartDates
     }
     
+    private func sort(eventSchedules: [EventSchedule]) -> [EventSchedule] {
+        let eventSchedulesWithoutStart = eventSchedules.filter {$0.start == nil }
+        let eventSchedulesWithStart = eventSchedules.filter { $0.start != nil }.sorted(by: { $0.start! < $1.start! })
+        return eventSchedulesWithoutStart + eventSchedulesWithStart
+    }
+    
     private func sort(courses: [Course]) -> [Course] {
         let coursesWithoutDates = courses.filter {$0.startDate == nil || $0.endDate == nil}
         let coursesWithDates = courses.filter { $0.startDate != nil && $0.endDate != nil}.sorted(by: { $0.startDate! < $1.startDate! || ($0.startDate! == $1.startDate! && $0.endDate! < $1.endDate!)})
         return coursesWithoutDates + coursesWithDates
+    }
+    
+    // firestore does not support returning subcollections as part of the parent document
+    // and we can't iterate 'events' reliably until they're all loaded
+    // so differ until someone actually views a particular event
+    func loadEventScheduleBy(id: String) {
+        self.db.collection("events").document(id).collection("schedule").getDocuments() {
+            querySnapshot, error in
+            if let error = error {
+                print("\(error.localizedDescription)")
+            } else {
+                self.eventSchedule[id] = [EventSchedule]()
+                self.eventSchedule[id] = self.sort(eventSchedules: querySnapshot!.documents.flatMap({
+                    var scheduleDictionary = $0.data()
+                    scheduleDictionary["id"] = $0.documentID
+                    guard let schedule = EventSchedule.from(scheduleDictionary as NSDictionary) else {
+                        return nil
+                    }
+                    return schedule
+                }))
+                
+                self.delegate?.documentsDidUpdate()
+            }
+        }
     }
     
     private func loadData() {
@@ -100,6 +137,7 @@ class DocumentStore {
                     guard let event = Event.from(eventDictionary as NSDictionary) else {
                         return nil
                     }
+                    
                     return event
                 }))
                 
@@ -163,6 +201,8 @@ class DocumentStore {
                 diff in
                 
                 //TODO DRY depending on how similar the added, modified, and removed response are
+                
+                //TODO schedule delta
                 switch diff.type {
                 case .added:
                     var eventDictionary = diff.document.data()

@@ -11,9 +11,13 @@ extension SwinjectStoryboard {
         defaultContainer.storyboardInitCompleted(EventsViewController.self) { r, c in
             c.documentStore = r.resolve(DocumentStore.self)
         }
+        defaultContainer.storyboardInitCompleted(EventScheduleViewController.self) { r, c in
+            c.documentStore = r.resolve(DocumentStore.self)
+        }
         defaultContainer.storyboardInitCompleted(TodayViewController.self) { r, c in
             c.documentStore = r.resolve(DocumentStore.self)
         }
+
         let documentStoreSingleton = DocumentStore()
         defaultContainer.register(DocumentStore.self) { _ in documentStoreSingleton }
     }

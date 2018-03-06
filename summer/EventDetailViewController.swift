@@ -10,11 +10,13 @@ class EventDetailViewController: UIViewController {
     @IBOutlet var eventDateLabel: UILabel!
     @IBOutlet var contentView: UIView!
     
+    @IBOutlet var scheduleTableContainerView: UIView!
     var event: EventViewModel! {
         didSet {
             navigationItem.title = event.title
         }
     }
+    
     var lecturer: LecturerViewModel?
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,7 +51,7 @@ class EventDetailViewController: UIViewController {
         eventDescription.translatesAutoresizingMaskIntoConstraints = false
         eventDescription.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
         eventDescription.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
-        eventDescription.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
+        eventDescription.bottomAnchor.constraint(equalTo: scheduleTableContainerView.topAnchor, constant: 8).isActive = true
         eventDescription.numberOfLines = 0
         
         if let eventImageUrl = event.imageUrl {
@@ -63,5 +65,12 @@ class EventDetailViewController: UIViewController {
         
         self.navigationItem.leftItemsSupplementBackButton = true
         self.navigationItem.leftBarButtonItem = self.splitViewController!.displayModeButtonItem
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "eventScheduleViewSegue" {
+            let eventScheduleViewController = segue.destination as! EventScheduleViewController
+            eventScheduleViewController.eventId = event.id
+        }
     }
 }

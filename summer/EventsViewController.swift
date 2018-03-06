@@ -20,7 +20,7 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        documentStore?.delegate = self
+        documentStore.delegate = self
         
         categorizeEvents()
         groupEvents()

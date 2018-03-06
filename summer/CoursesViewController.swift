@@ -24,7 +24,7 @@ class CoursesViewController: UIViewController, DocumentStoreDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        documentStore?.delegate = self
+        documentStore.delegate = self
         
         tableView.dataSource = self
         tableView.delegate = self

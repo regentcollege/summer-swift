@@ -2,6 +2,7 @@ import Foundation
 import AFDateHelper
 
 class EventViewModel {
+    var id: String?
     let title: String
     let description: String
     var dateDescription: String?
@@ -10,11 +11,14 @@ class EventViewModel {
     let season: Seasons
     var lecturerId: String?
     
+    var schedule: [EventScheduleViewModel]?
+    
     @objc var startDate: Date?
     @objc var endDate: Date?
     
     init(event: Event?) {
         if let event = event {
+            self.id = event.id
             self.title = event.title
             if let description = event.description {
                 self.description = description
