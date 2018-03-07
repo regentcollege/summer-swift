@@ -11,6 +11,7 @@
 		321292AA1FAFAB0F00FFEB94 /* GlobalSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321292A91FAFAB0F00FFEB94 /* GlobalSplitViewController.swift */; };
 		321292AC1FAFB31000FFEB94 /* MoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321292AB1FAFB31000FFEB94 /* MoreDetailViewController.swift */; };
 		322B448A1FFA8732008EB396 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322B44891FFA8732008EB396 /* TodayViewController.swift */; };
+		32440ECA204E81D7008E850D /* EventSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32440EC9204E81D7008E850D /* EventSchedule.swift */; };
 		3244AF8E1FB9730300E682C2 /* SwinjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3244AF8D1FB9730300E682C2 /* SwinjectService.swift */; };
 		3244AF911FB973C000E682C2 /* DocumentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3244AF901FB973C000E682C2 /* DocumentStore.swift */; };
 		324DC7761FA0F4D6007F97BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DC7751FA0F4D6007F97BF /* AppDelegate.swift */; };
@@ -28,6 +29,9 @@
 		32672ED41FA20022005D7F26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 324DC7871FA0F4F0007F97BF /* GoogleService-Info.plist */; };
 		326CC5511FA6F85600E01CD9 /* Futura-LigObl.otf in Resources */ = {isa = PBXBuildFile; fileRef = 326CC5501FA6F85600E01CD9 /* Futura-LigObl.otf */; };
 		32700C8020422BCE00B08F41 /* AboutDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32700C7F20422BCE00B08F41 /* AboutDetailViewController.swift */; };
+		32708995204CA75800541C96 /* EventScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32708994204CA75800541C96 /* EventScheduleCell.swift */; };
+		32708997204CA77F00541C96 /* EventScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32708996204CA77F00541C96 /* EventScheduleViewModel.swift */; };
+		32708999204CAB7600541C96 /* EventScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32708998204CAB7600541C96 /* EventScheduleViewController.swift */; };
 		328653541FA3ADC6000494CC /* CourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328653531FA3ADC6000494CC /* CourseDetailViewController.swift */; };
 		329C9B6E1FB6A0D0003220C6 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C9B6D1FB6A0D0003220C6 /* Settings.swift */; };
 		329C9B701FB6C9B9003220C6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C9B6F1FB6C9B9003220C6 /* TabBarController.swift */; };
@@ -66,6 +70,7 @@
 		321292A91FAFAB0F00FFEB94 /* GlobalSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSplitViewController.swift; sourceTree = "<group>"; };
 		321292AB1FAFB31000FFEB94 /* MoreDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreDetailViewController.swift; sourceTree = "<group>"; };
 		322B44891FFA8732008EB396 /* TodayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		32440EC9204E81D7008E850D /* EventSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSchedule.swift; sourceTree = "<group>"; };
 		3244AF8D1FB9730300E682C2 /* SwinjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwinjectService.swift; sourceTree = "<group>"; };
 		3244AF901FB973C000E682C2 /* DocumentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentStore.swift; sourceTree = "<group>"; };
 		324DC7721FA0F4D6007F97BF /* summer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = summer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +90,9 @@
 		3263874C1FA52CB500AC9C43 /* LecturerDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturerDetailViewController.swift; sourceTree = "<group>"; };
 		326CC5501FA6F85600E01CD9 /* Futura-LigObl.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura-LigObl.otf"; sourceTree = "<group>"; };
 		32700C7F20422BCE00B08F41 /* AboutDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDetailViewController.swift; sourceTree = "<group>"; };
+		32708994204CA75800541C96 /* EventScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventScheduleCell.swift; sourceTree = "<group>"; };
+		32708996204CA77F00541C96 /* EventScheduleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventScheduleViewModel.swift; sourceTree = "<group>"; };
+		32708998204CAB7600541C96 /* EventScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventScheduleViewController.swift; sourceTree = "<group>"; };
 		328653531FA3ADC6000494CC /* CourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewController.swift; sourceTree = "<group>"; };
 		329C9B6D1FB6A0D0003220C6 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		329C9B6F1FB6C9B9003220C6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -210,6 +218,7 @@
 			children = (
 				324DC78C1FA139F6007F97BF /* Course.swift */,
 				32D1A8F91FDA3F2E007C2302 /* Event.swift */,
+				32440EC9204E81D7008E850D /* EventSchedule.swift */,
 				32F9C1E51FA241A80084DB82 /* Lecturer.swift */,
 			);
 			name = Models;
@@ -224,9 +233,11 @@
 				328653531FA3ADC6000494CC /* CourseDetailViewController.swift */,
 				32F9C1E71FA24D230084DB82 /* CourseCell.swift */,
 				32C6AF0E1FDB2CDD0037BAE8 /* EventsViewController.swift */,
-				322B44891FFA8732008EB396 /* TodayViewController.swift */,
 				32C6AF101FDB2D8D0037BAE8 /* EventDetailViewController.swift */,
 				32D1A8FB1FDA4565007C2302 /* EventCell.swift */,
+				32708998204CAB7600541C96 /* EventScheduleViewController.swift */,
+				32708994204CA75800541C96 /* EventScheduleCell.swift */,
+				322B44891FFA8732008EB396 /* TodayViewController.swift */,
 				32B71BC51FFFE9200080164A /* PromoCell.swift */,
 				3263874C1FA52CB500AC9C43 /* LecturerDetailViewController.swift */,
 				32E864841FA7E80F00ABBE96 /* MoreViewController.swift */,
@@ -243,6 +254,7 @@
 			children = (
 				32B7BB691FB644FF00ECFFAE /* CourseViewModel.swift */,
 				32C6AF0C1FDB1B4D0037BAE8 /* EventViewModel.swift */,
+				32708996204CA77F00541C96 /* EventScheduleViewModel.swift */,
 				32B7BB6E1FB6575900ECFFAE /* LecturerViewModel.swift */,
 			);
 			name = ViewModels;
@@ -556,7 +568,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				32B71BC61FFFE9200080164A /* PromoCell.swift in Sources */,
+				32708995204CA75800541C96 /* EventScheduleCell.swift in Sources */,
 				324DC78D1FA139F6007F97BF /* Course.swift in Sources */,
+				32440ECA204E81D7008E850D /* EventSchedule.swift in Sources */,
 				32D2583A1FC0C81A007EBDC7 /* Extensions.swift in Sources */,
 				324DC7761FA0F4D6007F97BF /* AppDelegate.swift in Sources */,
 				32B7BB6F1FB6575900ECFFAE /* LecturerViewModel.swift in Sources */,
@@ -576,10 +590,12 @@
 				328653541FA3ADC6000494CC /* CourseDetailViewController.swift in Sources */,
 				324DC78B1FA1397D007F97BF /* CoursesViewController.swift in Sources */,
 				32B7BB6A1FB644FF00ECFFAE /* CourseViewModel.swift in Sources */,
+				32708997204CA77F00541C96 /* EventScheduleViewModel.swift in Sources */,
 				329C9B6E1FB6A0D0003220C6 /* Settings.swift in Sources */,
 				322B448A1FFA8732008EB396 /* TodayViewController.swift in Sources */,
 				321292AA1FAFAB0F00FFEB94 /* GlobalSplitViewController.swift in Sources */,
 				32C6AF0D1FDB1B4D0037BAE8 /* EventViewModel.swift in Sources */,
+				32708999204CAB7600541C96 /* EventScheduleViewController.swift in Sources */,
 				32F9C1E61FA241A80084DB82 /* Lecturer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

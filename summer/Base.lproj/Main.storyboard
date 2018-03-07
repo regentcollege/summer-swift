@@ -827,7 +827,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                 <rect key="frame" x="12" y="64" width="355" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TPB-th-qc2">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="81.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="373.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eventTitleLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J79-Q9-v76">
                                                 <rect key="frame" x="0.0" y="8" width="355" height="31.5"/>
@@ -842,13 +842,13 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="EDI-dH-qEU">
-                                                <rect key="frame" x="0.0" y="81.5" width="355" height="150"/>
+                                                <rect key="frame" x="0.0" y="81.5" width="355" height="100"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="150" id="7Cu-St-StA"/>
+                                                    <constraint firstAttribute="height" constant="100" id="7Cu-St-StA"/>
                                                 </constraints>
                                             </imageView>
                                             <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H7l-JE-0j8">
-                                                <rect key="frame" x="0.0" y="0.0" width="355" height="81.5"/>
+                                                <rect key="frame" x="0.0" y="223.5" width="355" height="150"/>
                                                 <connections>
                                                     <segue destination="JCG-VQ-Ha1" kind="embed" identifier="eventScheduleViewSegue" id="46s-SU-8CJ"/>
                                                 </connections>
@@ -859,13 +859,14 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                             <accessibilityTraits key="traits" link="YES"/>
                                         </accessibility>
                                         <constraints>
-                                            <constraint firstItem="H7l-JE-0j8" firstAttribute="leading" secondItem="TPB-th-qc2" secondAttribute="leading" id="4Rd-UA-CNN"/>
                                             <constraint firstAttribute="trailing" secondItem="EDI-dH-qEU" secondAttribute="trailing" id="5On-C5-VDv"/>
                                             <constraint firstItem="EDI-dH-qEU" firstAttribute="top" secondItem="he5-iI-Zck" secondAttribute="bottom" constant="8" id="7hW-XY-boM"/>
                                             <constraint firstItem="he5-iI-Zck" firstAttribute="leading" secondItem="TPB-th-qc2" secondAttribute="leading" id="8jX-3L-0hK"/>
+                                            <constraint firstItem="H7l-JE-0j8" firstAttribute="leading" secondItem="TPB-th-qc2" secondAttribute="leading" id="BUy-AC-Ylu"/>
                                             <constraint firstAttribute="trailing" secondItem="J79-Q9-v76" secondAttribute="trailing" id="EXD-8F-zGx"/>
+                                            <constraint firstAttribute="trailing" secondItem="H7l-JE-0j8" secondAttribute="trailing" id="FuR-UK-DTn"/>
                                             <constraint firstItem="J79-Q9-v76" firstAttribute="top" secondItem="TPB-th-qc2" secondAttribute="top" constant="8" id="GuO-ZH-Coc"/>
-                                            <constraint firstAttribute="trailing" secondItem="H7l-JE-0j8" secondAttribute="trailing" id="OYM-Et-uW3"/>
+                                            <constraint firstAttribute="bottom" secondItem="H7l-JE-0j8" secondAttribute="bottom" priority="999" id="YEE-5a-KBy"/>
                                             <constraint firstItem="J79-Q9-v76" firstAttribute="leading" secondItem="TPB-th-qc2" secondAttribute="leading" id="aJp-G0-NnT"/>
                                             <constraint firstItem="EDI-dH-qEU" firstAttribute="leading" secondItem="TPB-th-qc2" secondAttribute="leading" id="apo-Vu-H3B"/>
                                             <constraint firstItem="he5-iI-Zck" firstAttribute="top" secondItem="J79-Q9-v76" secondAttribute="bottom" constant="8" id="fPU-JN-yEb"/>
@@ -878,7 +879,6 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                     <constraint firstAttribute="trailing" secondItem="TPB-th-qc2" secondAttribute="trailing" id="NIp-Ry-axl"/>
                                     <constraint firstAttribute="bottom" secondItem="TPB-th-qc2" secondAttribute="bottom" id="Nag-cd-bVz"/>
                                     <constraint firstItem="TPB-th-qc2" firstAttribute="top" secondItem="yQl-eE-t95" secondAttribute="top" id="Noz-Wj-C3Q"/>
-                                    <constraint firstAttribute="bottom" secondItem="H7l-JE-0j8" secondAttribute="bottom" constant="8" id="XMv-hl-Stw"/>
                                     <constraint firstItem="TPB-th-qc2" firstAttribute="leading" secondItem="yQl-eE-t95" secondAttribute="leading" id="wcn-DP-OB1"/>
                                 </constraints>
                             </scrollView>
@@ -910,11 +910,11 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
             <objects>
                 <viewController id="JCG-VQ-Ha1" customClass="EventScheduleViewController" customModule="summer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7di-j7-f0c">
-                        <rect key="frame" x="0.0" y="0.0" width="355" height="81.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="355" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hir-h7-igo">
-                                <rect key="frame" x="0.0" y="0.0" width="355" height="81.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="355" height="150"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventScheduleCell" rowHeight="63" id="23o-8z-jRL" customClass="EventScheduleCell" customModule="summer" customModuleProvider="target">
@@ -925,16 +925,16 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HYA-Ch-xsd">
-                                                    <rect key="frame" x="0.0" y="10" width="339" height="42.5"/>
+                                                    <rect key="frame" x="0.0" y="10" width="355" height="42.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="eventScheduleTitleLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlR-Ri-aDc">
-                                                            <rect key="frame" x="0.0" y="0.0" width="339" height="23.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="355" height="23.5"/>
                                                             <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eventScheduleDateLabel" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3u-TY-kWl">
-                                                            <rect key="frame" x="0.0" y="23.5" width="339" height="19"/>
+                                                            <rect key="frame" x="0.0" y="23.5" width="355" height="19"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="19" id="2Ov-FM-Qw4"/>
                                                             </constraints>

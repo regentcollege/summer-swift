@@ -10,8 +10,7 @@ class EventViewModel {
     var imageUrl: URL?
     let season: Seasons
     var lecturerId: String?
-    
-    var schedule: [EventScheduleViewModel]?
+    var groupScheduleByDay: Bool = false
     
     @objc var startDate: Date?
     @objc var endDate: Date?
@@ -20,6 +19,9 @@ class EventViewModel {
         if let event = event {
             self.id = event.id
             self.title = event.title
+            if let groupScheduleByDay = event.groupScheduleByDay {
+                self.groupScheduleByDay = groupScheduleByDay
+            }
             if let description = event.description {
                 self.description = description
             }

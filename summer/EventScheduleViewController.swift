@@ -1,11 +1,19 @@
 import UIKit
 
 class EventScheduleViewController: UIViewController, DocumentStoreDelegate {
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet var tableView: UITableView! {
+        didSet {
+            tableView.addConstraint(tableViewHeight)
+        }
+    }
+    
+    // https://stackoverflow.com/a/38019636
+    private lazy var tableViewHeight: NSLayoutConstraint = NSLayoutConstraint(item: self.tableView, attribute: NSLayoutAttribute.height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 0)
     
     var documentStore: DocumentStore!
     
     var eventId: String!
+    var groupScheduleByDay: Bool!
     
     var schedule: [EventScheduleViewModel]? {
         return documentStore.getEventScheduleBy(id: eventId)
@@ -18,12 +26,22 @@ class EventScheduleViewController: UIViewController, DocumentStoreDelegate {
         
         documentStore.loadEventScheduleBy(id: eventId)
         
+        if groupScheduleByDay {
+            // stuff
+        }
+        
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
         tableView.dataSource = self
     }
     
     func documentsDidUpdate() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            if let schedule = self.schedule {
+                self.tableViewHeight.constant = CGFloat(80 * schedule.count)
+            }
         }
     }
 }

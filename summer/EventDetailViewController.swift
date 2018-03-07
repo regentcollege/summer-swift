@@ -71,6 +71,8 @@ class EventDetailViewController: UIViewController {
         if segue.identifier == "eventScheduleViewSegue" {
             let eventScheduleViewController = segue.destination as! EventScheduleViewController
             eventScheduleViewController.eventId = event.id
+            eventScheduleViewController.groupScheduleByDay = event.groupScheduleByDay
+            eventScheduleViewController.view.translatesAutoresizingMaskIntoConstraints = false
         }
     }
 }

@@ -8,6 +8,7 @@ struct Event: Mappable {
     let lecturerId: String?
     let room: String?
     let season: Seasons?
+    let groupScheduleByDay: Bool?
     
     var startDate: Date?
     var endDate: Date?
@@ -20,6 +21,7 @@ struct Event: Mappable {
         lecturerId = map.optionalFrom("lecturerId")
         room = map.optionalFrom("room")
         season = map.optionalFrom("season")
+        groupScheduleByDay = map.optionalFrom("groupScheduleByDay")
         
         startDate = map.optionalFrom("startDate", transformation: extractDate)
         endDate = map.optionalFrom("endDate", transformation: extractDate)
