@@ -29,6 +29,13 @@ class TodayViewController: UIViewController, DocumentStoreDelegate {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 130
         
+        if #available(iOS 11.0, *) {
+            // table layout is fine
+        }
+        else {
+            self.automaticallyAdjustsScrollViewInsets = false
+        }
+        
         if eventsForToday.count == 0 {
             self.tableView.backgroundColor = UIColor.black
             self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none

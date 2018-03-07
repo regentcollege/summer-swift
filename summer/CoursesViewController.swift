@@ -29,6 +29,15 @@ class CoursesViewController: UIViewController, DocumentStoreDelegate {
         tableView.dataSource = self
         tableView.delegate = self
         
+        if #available(iOS 11.0, *) {
+            // table layout is fine
+        }
+        else {
+            self.automaticallyAdjustsScrollViewInsets = false
+            springSummerSegmentedControl.setWidth(CGFloat(170), forSegmentAt: 0)
+            springSummerSegmentedControl.setWidth(CGFloat(170), forSegmentAt: 1)
+        }
+        
         springSummerSegmentedControl.tintColor = Settings.Color.blue
         let font: [AnyHashable : Any] = [NSAttributedStringKey.font : Settings.Font.subHeaderFont]
         springSummerSegmentedControl.setTitleTextAttributes(font, for: .normal)

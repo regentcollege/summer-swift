@@ -22,8 +22,6 @@ private struct Section {
 class MoreViewController: UITableViewController {
     private var sections = [Section]()
     
-    let SectionHeaderHeight: CGFloat = 25
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,7 +32,6 @@ class MoreViewController: UITableViewController {
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 25
-        tableView.tableFooterView = UIView()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

@@ -113,7 +113,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4VU-Gg-1xO">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="4VU-Gg-1xO">
                                 <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <items>
                                     <barButtonItem title="Item" style="plain" id="SJS-b9-6do">
@@ -135,6 +135,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="4VU-Gg-1xO" firstAttribute="top" secondItem="twE-z4-xhK" secondAttribute="top" id="57a-tW-AiT"/>
+                            <constraint firstItem="4VU-Gg-1xO" firstAttribute="centerX" secondItem="0Yz-yI-aob" secondAttribute="centerX" id="Qhb-1I-zIr"/>
                             <constraint firstItem="4VU-Gg-1xO" firstAttribute="trailing" secondItem="twE-z4-xhK" secondAttribute="trailing" id="fFr-dL-SVh"/>
                             <constraint firstItem="oEV-JX-WtA" firstAttribute="top" secondItem="4VU-Gg-1xO" secondAttribute="bottom" id="hai-sv-xK0"/>
                             <constraint firstItem="oEV-JX-WtA" firstAttribute="trailing" secondItem="twE-z4-xhK" secondAttribute="trailing" id="iaI-HV-p8L"/>
@@ -866,7 +867,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                             <constraint firstAttribute="trailing" secondItem="J79-Q9-v76" secondAttribute="trailing" id="EXD-8F-zGx"/>
                                             <constraint firstAttribute="trailing" secondItem="H7l-JE-0j8" secondAttribute="trailing" id="FuR-UK-DTn"/>
                                             <constraint firstItem="J79-Q9-v76" firstAttribute="top" secondItem="TPB-th-qc2" secondAttribute="top" constant="8" id="GuO-ZH-Coc"/>
-                                            <constraint firstAttribute="bottom" secondItem="H7l-JE-0j8" secondAttribute="bottom" priority="999" id="YEE-5a-KBy"/>
+                                            <constraint firstAttribute="bottom" secondItem="H7l-JE-0j8" secondAttribute="bottom" priority="999" constant="15" id="YEE-5a-KBy"/>
                                             <constraint firstItem="J79-Q9-v76" firstAttribute="leading" secondItem="TPB-th-qc2" secondAttribute="leading" id="aJp-G0-NnT"/>
                                             <constraint firstItem="EDI-dH-qEU" firstAttribute="leading" secondItem="TPB-th-qc2" secondAttribute="leading" id="apo-Vu-H3B"/>
                                             <constraint firstItem="he5-iI-Zck" firstAttribute="top" secondItem="J79-Q9-v76" secondAttribute="bottom" constant="8" id="fPU-JN-yEb"/>
@@ -1365,7 +1366,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
         <image name="userVoice" width="194" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="siY-cu-I8T"/>
+        <segue reference="J2X-6V-7Uv"/>
         <segue reference="q0f-dx-IGf"/>
         <segue reference="Feh-8Y-KsY"/>
     </inferredMetricsTieBreakers>

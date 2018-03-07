@@ -36,6 +36,13 @@ class EventDetailViewController: UIViewController {
             return
         }
         
+        if #available(iOS 11.0, *) {
+            // table layout is fine
+        }
+        else {
+            self.automaticallyAdjustsScrollViewInsets = false
+        }
+        
         eventTitleLabel.text = event.title
         eventDateLabel.text = event.dateDescriptionFullMonth
         eventDateLabel.textColor = Settings.Color.blue

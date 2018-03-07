@@ -26,6 +26,13 @@ class CourseDetailViewController: UIViewController {
             return
         }
         
+        if #available(iOS 11.0, *) {
+            // table layout is fine
+        }
+        else {
+            self.automaticallyAdjustsScrollViewInsets = false
+        }
+        
         lecturerNameLabel.text = lecturer.name
 
         if let imageUrl = lecturer.imageUrl {

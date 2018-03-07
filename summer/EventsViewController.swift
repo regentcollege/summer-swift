@@ -31,6 +31,13 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 130
         
+        if #available(iOS 11.0, *) {
+            // table layout is fine
+        }
+        else {
+            self.automaticallyAdjustsScrollViewInsets = false
+        }
+        
         tableView.sectionIndexTrackingBackgroundColor = .clear
         tableView.sectionIndexBackgroundColor = .clear
         tableView.sectionIndexColor = Settings.Color.blue

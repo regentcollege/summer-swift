@@ -26,11 +26,11 @@ class DocumentStore {
         return events.map { EventViewModel(event: $0) }
     }
     
-    func getEventScheduleBy(id: String) -> [EventScheduleViewModel]? {
+    func getEventScheduleBy(id: String, showTimeOnly: Bool = false) -> [EventScheduleViewModel]? {
         guard let schedule = eventSchedule[id] else {
             return nil
         }
-        return schedule.map { EventScheduleViewModel(schedule: $0) }
+        return schedule.map { EventScheduleViewModel(schedule: $0, showTimeOnly: showTimeOnly) }
     }
     
     func getEventsHappening(now: Date) -> [EventViewModel] {
