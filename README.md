@@ -16,12 +16,15 @@
 - [x] FAQ
 - [x] Events
 - [x] What's happening today
-- [ ] Multiple sessions per event/course
-- [ ] Search and filter
+- [x] Multiple sessions per event/course
+- [x] Search and filter events
+- [ ] Search and filter courses
+- [ ] Add events to calendar
 - [ ] Directions
 - [ ] Announcements
 - [ ] Share to social media
 - [ ] [Today extension](https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/Today.html) for lock screen
+- [ ] iPad support
 - [ ] WatchKit
 - [ ] Internationalization and localization
 
@@ -48,7 +51,7 @@ Here is how this project isolates complexity:
 
 ## Requirements
 
-- iOS 10.0+
+- iOS 10.3+
 - Xcode 9
 
 ## Installation
