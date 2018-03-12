@@ -119,7 +119,7 @@ class EventDetailViewController: UIViewController, DocumentStoreDelegate, EventC
 // MARK: - UITableViewDataSource
 extension EventDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let schedule = schedule else {
+        guard let schedule = schedule, schedule.count > 0 else {
             return 1
         }
         
