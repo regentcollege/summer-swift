@@ -25,19 +25,27 @@ extension String {
 }
 
 extension String {
-    func toAttributedLabel() -> AttributedLabel {
+    func toAttributedText() -> AttributedText {
         let link = Style
             .foregroundColor(Settings.Color.blue, .normal)
             .foregroundColor(.brown, .highlighted)
         
-        let attributedLabel = AttributedLabel()
-        attributedLabel.attributedText = self
+        let paragraphLineSpacing = NSMutableParagraphStyle()
+        paragraphLineSpacing.lineSpacing = 3
+        let paragraphLineSpacingStyle = Style("p").paragraphStyle(paragraphLineSpacing)
+        
+        return self
             .replacingOccurrences(of: "&nbsp;", with: " ")
-            .style(tags: [Settings.Style.h1, Settings.Style.h3, Settings.Style.em, Settings.Style.strong], transformers: Settings.Style.transformers)
+            .style(tags: [paragraphLineSpacingStyle, Settings.Style.h1, Settings.Style.h3, Settings.Style.em, Settings.Style.strong], transformers: Settings.Style.transformers)
             .styleHashtags(link)
             .styleMentions(link)
             .styleLinks(link)
-            .styleAll(Settings.Style.paragraph)
+            .styleAll(Settings.Style.body)
+    }
+    
+    func toAttributedLabel() -> AttributedLabel {
+        let attributedLabel = AttributedLabel()
+        attributedLabel.attributedText = self.toAttributedText()
         
         attributedLabel.onClick = { label, detection in
             switch detection.type {

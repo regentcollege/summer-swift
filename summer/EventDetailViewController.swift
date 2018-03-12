@@ -201,7 +201,14 @@ extension EventDetailViewController: SwipeTableViewCellDelegate {
             let eventStore = EKEventStore()
             
             eventStore.requestAccess( to: EKEntityType.event, completion:{(granted, error) in
-                if (granted) && (error == nil) {
+                if granted && error == nil, let eventCalendar = eventStore.defaultCalendarForNewEvents {
+                    let alert = UIAlertController(title: "Confirm", message: "Add to your default calendar " + eventCalendar.title + "?", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
+                        return
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                    
                     let eventToAdd = EKEvent(eventStore: eventStore)
                     
                     var scheduleForCell: EventScheduleViewModel!

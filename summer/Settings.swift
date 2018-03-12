@@ -10,7 +10,6 @@ class Settings {
         static let headerFont = UIFont(name: "Futura-Bol", size: 18)!
         static let subHeaderFont = UIFont(name: "Futura-Bol", size: 16)!
         static let sectionHeaderFont = UIFont(name: "Futura-Lig", size: 18)!
-        static let paragraphFont = UIFont(name: "Futura-Lig", size: 16)!
         static let obliqueFont = UIFont(name: "Futura-LigObl", size: 16)!
     }
     
@@ -21,7 +20,8 @@ class Settings {
         static let h4 = Atributika.Style("h4").font(Settings.Font.sectionHeaderFont)
         static let em = Atributika.Style("em").font(.italicSystemFont(ofSize: 16))
         static let strong = Atributika.Style("strong").font(.boldSystemFont(ofSize: 16))
-        static let paragraph = Atributika.Style.font(.systemFont(ofSize: 16))
+        static let body = Atributika.Style.font(.systemFont(ofSize: 16))
+
         static let transformers: [TagTransformer] = [
             TagTransformer(tagName: "h2", tagType: .end, replaceValue: "\n"),
             TagTransformer(tagName: "h3", tagType: .end, replaceValue: "\n"),

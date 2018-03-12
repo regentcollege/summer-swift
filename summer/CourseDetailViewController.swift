@@ -48,14 +48,7 @@ class CourseDetailViewController: UIViewController {
         
         courseDescriptionTitleLabel.text = course.title
         courseDescriptionTitleLabel.textColor = Settings.Color.blue
-        
-        let str = course.description
-            .replacingOccurrences(of: "&nbsp;", with: " ")
-            .style(tags: [Settings.Style.h1, Settings.Style.h3, Settings.Style.em, Settings.Style.strong], transformers: Settings.Style.transformers)
-            .styleAll(Settings.Style.paragraph)
-            .attributedString
-        
-        courseDescriptionLabel.attributedText = str
+        courseDescriptionLabel.attributedText = course.description.toAttributedText().attributedString
         
         courseDateLabel.text = course.dates
         courseTimeLabel.text = course.meetingTime
