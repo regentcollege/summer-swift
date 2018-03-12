@@ -17,9 +17,9 @@
 - [x] Events
 - [x] What's happening today
 - [x] Multiple sessions per event/course
+- [x] Add events to calendar
 - [x] Search and filter events
 - [ ] Search and filter courses
-- [ ] Add events to calendar
 - [ ] Directions
 - [ ] Announcements
 - [ ] Share to social media
@@ -35,6 +35,7 @@
 - Dependency injection with [Swinject][swinject-url] and [SwinjectStoryboard][swinject-storyboard-url]
 - Embedded video with [PlayerKit][playerkit-url]
 - Rich text with HTML with [Atributika][atributika-url]
+- Swipeable table cells with [SwipeCellKit][swipecellkit-url]
 - Async images with [Kingfisher][kingfisher-url]
 - Responsive interface for iPad/iPhone with [SplitViews][splitview-url]
 
@@ -85,3 +86,4 @@ Distributed under the MIT license. See [LICENSE](LICENSE) for more information.
 [splitview-url]: https://developer.apple.com/documentation/uikit/uisplitviewcontroller
 [kingfisher-url]: https://github.com/onevcat/Kingfisher
 [atributika-url]: https://github.com/psharanda/Atributika
+[swipecellkit-url]: https://github.com/SwipeCellKit/SwipeCellKit
