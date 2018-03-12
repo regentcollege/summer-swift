@@ -2,6 +2,7 @@ import Foundation
 import AFDateHelper
 
 class EventScheduleViewModel {
+    var id: String
     let title: String
     var dateDescription: String?
     
@@ -10,6 +11,7 @@ class EventScheduleViewModel {
     
     init(schedule: EventSchedule?, showTimeOnly: Bool) {
         if let schedule = schedule {
+            self.id = schedule.id
             self.title = schedule.title
             if let start = schedule.start, let end = schedule.end {
                 self.start = start
@@ -31,6 +33,7 @@ class EventScheduleViewModel {
             }
         }
         else {
+            self.id = UUID().uuidString
             self.title = "TBD"
             self.dateDescription = "TBD"
         }

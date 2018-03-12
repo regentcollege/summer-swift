@@ -123,6 +123,52 @@ class DocumentStore {
                 self.delegate?.documentsDidUpdate()
             }
         }
+        db.collection("events").document(id).collection("schedule").addSnapshotListener {
+            querySnapshot, error in
+            
+            guard let snapshot = querySnapshot else { return }
+            guard var eventToSchedule = self.eventSchedule[id] else { return }
+            
+            snapshot.documentChanges.forEach {
+                diff in
+                switch diff.type {
+                case .added:
+                    var scheduleDictionary = diff.document.data()
+                    scheduleDictionary["id"] = diff.document.documentID
+                    if let eventSchedule = EventSchedule.from(scheduleDictionary as NSDictionary) {
+                        if eventToSchedule.first(where: { $0.id == eventSchedule.id }) != nil {
+                            return
+                        }
+                        eventToSchedule.append(eventSchedule)
+                        self.eventSchedule[id] = self.sort(eventSchedules: eventToSchedule)
+                        self.delegate?.documentsDidUpdate()
+                    }
+                case .modified:
+                    var scheduleDictionary = diff.document.data()
+                    scheduleDictionary["id"] = diff.document.documentID
+                    if let eventSchedule = EventSchedule.from(scheduleDictionary as NSDictionary) {
+                        if let updatedEventScheduleIndex = eventToSchedule.index(where: { $0.id == eventSchedule.id }) {
+                            eventToSchedule[updatedEventScheduleIndex] = eventSchedule
+                        }
+                        else {
+                            eventToSchedule.append(eventSchedule)
+                        }
+                        self.eventSchedule[id] = self.sort(eventSchedules: eventToSchedule)
+                        self.delegate?.documentsDidUpdate()
+                    }
+                case .removed:
+                    var scheduleDictionary = diff.document.data()
+                    scheduleDictionary["id"] = diff.document.documentID
+                    if let eventSchedule = EventSchedule.from(scheduleDictionary as NSDictionary) {
+                        if let updatedEventScheduleIndex = eventToSchedule.index(where: { $0.id == eventSchedule.id }) {
+                            eventToSchedule.remove(at: updatedEventScheduleIndex)
+                            self.eventSchedule[id] = self.sort(eventSchedules: eventToSchedule)
+                            self.delegate?.documentsDidUpdate()
+                        }
+                    }
+                }
+            }
+        }
     }
     
     private func loadData() {
@@ -201,8 +247,6 @@ class DocumentStore {
                 diff in
                 
                 //TODO DRY depending on how similar the added, modified, and removed response are
-                
-                //TODO schedule delta
                 switch diff.type {
                 case .added:
                     var eventDictionary = diff.document.data()

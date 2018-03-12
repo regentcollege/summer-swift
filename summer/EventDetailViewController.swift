@@ -119,11 +119,8 @@ class EventDetailViewController: UIViewController, DocumentStoreDelegate, EventC
 // MARK: - UITableViewDataSource
 extension EventDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let schedule = schedule, schedule.count > 0 else {
-            return 1
-        }
-        
         if event.groupScheduleByDay {
+            // the event description is always the first section
             if section == 0 {
                 return 1
             }
@@ -132,7 +129,14 @@ extension EventDetailViewController: UITableViewDataSource {
             return sessions!.count
         }
         
-        return schedule.count
+        // if the schedule is not grouped by day then there is only one section
+
+        // the event description is at least the first cell
+        guard let schedule = schedule, schedule.count > 0 else {
+            return 1
+        }
+        
+        return schedule.count + 1
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -158,7 +162,7 @@ extension EventDetailViewController: UITableViewDataSource {
                 scheduleForCell = getSessionBy(section: indexPath.section, row: indexPath.row)
             }
             else {
-                scheduleForCell = schedule[indexPath.row]
+                scheduleForCell = schedule[indexPath.row - 1]
             }
             cell.configureWith(schedule: scheduleForCell)
             cell.delegate = self
