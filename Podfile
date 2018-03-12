@@ -18,6 +18,7 @@ target 'summer' do
     pod 'Swinject', '~> 2.1.0'
     pod 'SwinjectStoryboard', '~> 1.0'
     pod 'AFDateHelper'
+    pod 'SwipeCellKit'
     
     target 'summerTests' do
         inherit! :search_paths

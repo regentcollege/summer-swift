@@ -2,7 +2,7 @@ import Foundation
 import AFDateHelper
 
 class EventViewModel {
-    var id: String?
+    var id: String
     let title: String
     let description: String
     var dateDescription: String?
@@ -50,6 +50,7 @@ class EventViewModel {
             self.lecturerId = event.lecturerId
         }
         else {
+            self.id = UUID().uuidString
             self.title = "TBD"
             self.description = "Stay tuned!"
             self.dateDescription = "TBD"

@@ -31,7 +31,6 @@
 		32700C8020422BCE00B08F41 /* AboutDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32700C7F20422BCE00B08F41 /* AboutDetailViewController.swift */; };
 		32708995204CA75800541C96 /* EventScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32708994204CA75800541C96 /* EventScheduleCell.swift */; };
 		32708997204CA77F00541C96 /* EventScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32708996204CA77F00541C96 /* EventScheduleViewModel.swift */; };
-		32708999204CAB7600541C96 /* EventScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32708998204CAB7600541C96 /* EventScheduleViewController.swift */; };
 		328653541FA3ADC6000494CC /* CourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328653531FA3ADC6000494CC /* CourseDetailViewController.swift */; };
 		329C9B6E1FB6A0D0003220C6 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C9B6D1FB6A0D0003220C6 /* Settings.swift */; };
 		329C9B701FB6C9B9003220C6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C9B6F1FB6C9B9003220C6 /* TabBarController.swift */; };
@@ -92,7 +91,6 @@
 		32700C7F20422BCE00B08F41 /* AboutDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDetailViewController.swift; sourceTree = "<group>"; };
 		32708994204CA75800541C96 /* EventScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventScheduleCell.swift; sourceTree = "<group>"; };
 		32708996204CA77F00541C96 /* EventScheduleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventScheduleViewModel.swift; sourceTree = "<group>"; };
-		32708998204CAB7600541C96 /* EventScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventScheduleViewController.swift; sourceTree = "<group>"; };
 		328653531FA3ADC6000494CC /* CourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewController.swift; sourceTree = "<group>"; };
 		329C9B6D1FB6A0D0003220C6 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		329C9B6F1FB6C9B9003220C6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -235,7 +233,6 @@
 				32C6AF0E1FDB2CDD0037BAE8 /* EventsViewController.swift */,
 				32C6AF101FDB2D8D0037BAE8 /* EventDetailViewController.swift */,
 				32D1A8FB1FDA4565007C2302 /* EventCell.swift */,
-				32708998204CAB7600541C96 /* EventScheduleViewController.swift */,
 				32708994204CA75800541C96 /* EventScheduleCell.swift */,
 				322B44891FFA8732008EB396 /* TodayViewController.swift */,
 				32B71BC51FFFE9200080164A /* PromoCell.swift */,
@@ -495,6 +492,7 @@
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
 				"${BUILT_PRODUCTS_DIR}/SwinjectStoryboard/SwinjectStoryboard.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
@@ -515,6 +513,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwinjectStoryboard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
@@ -595,7 +594,6 @@
 				322B448A1FFA8732008EB396 /* TodayViewController.swift in Sources */,
 				321292AA1FAFAB0F00FFEB94 /* GlobalSplitViewController.swift in Sources */,
 				32C6AF0D1FDB1B4D0037BAE8 /* EventViewModel.swift in Sources */,
-				32708999204CAB7600541C96 /* EventScheduleViewController.swift in Sources */,
 				32F9C1E61FA241A80084DB82 /* Lecturer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,6 +1,7 @@
 import UIKit
+import SwipeCellKit
 
-class EventScheduleCell: UITableViewCell {
+class EventScheduleCell: SwipeTableViewCell {
     @IBOutlet var eventScheduleTitleLabel: UILabel!
     @IBOutlet var eventScheduleDateLabel: UILabel!
     
