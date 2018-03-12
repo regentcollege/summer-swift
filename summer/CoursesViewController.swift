@@ -41,6 +41,13 @@ class CoursesViewController: UIViewController, DocumentStoreDelegate {
         springSummerSegmentedControl.tintColor = Settings.Color.blue
         let font: [AnyHashable : Any] = [NSAttributedStringKey.font : Settings.Font.subHeaderFont]
         springSummerSegmentedControl.setTitleTextAttributes(font, for: .normal)
+        
+        if let splitViewController = self.splitViewController, !splitViewController.isCollapsed {
+            let initialIndexPath = IndexPath(row: 0, section: 0)
+            self.tableView.selectRow(at: initialIndexPath, animated: true, scrollPosition:UITableViewScrollPosition.none)
+            self.performSegue(withIdentifier: "showCourse", sender: initialIndexPath)
+            self.tableView.deselectRow(at: initialIndexPath, animated: false)
+        }
     }
     
     func documentsDidUpdate() {

@@ -19,9 +19,11 @@
 	<key>CFBundleShortVersionString</key>
 	<string>0.13</string>
 	<key>CFBundleVersion</key>
-	<string>5</string>
+	<string>6</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Add events to your calendar</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Futura-Bol.otf</string>
@@ -54,7 +56,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSCalendarsUsageDescription</key>
-	<string>Add events to your calendar</string>
 </dict>
 </plist>

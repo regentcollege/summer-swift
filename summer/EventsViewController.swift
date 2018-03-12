@@ -55,6 +55,13 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
         }
         self.tableView.scrollToRow(at: eventIndexToShow, at: .middle, animated: false)
         
+        self.tableView.selectRow(at: eventIndexToShow, animated: true, scrollPosition:UITableViewScrollPosition.none)
+        
+        if let splitViewController = self.splitViewController, !splitViewController.isCollapsed {
+            self.performSegue(withIdentifier: "showEvent", sender: eventIndexToShow)
+            self.tableView.deselectRow(at: eventIndexToShow, animated: false)
+        }
+        
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "Search events"
         searchController.searchBar.scopeButtonTitles = ["All", "May", "June", "July", "EPL"]

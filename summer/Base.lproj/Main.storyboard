@@ -176,30 +176,36 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="90" height="112.5"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="90" id="Bpi-uL-gr7"/>
-                                                            <constraint firstAttribute="height" constant="112.5" id="oEe-Vk-QP9"/>
+                                                            <constraint firstAttribute="width" constant="90" id="Bpi-uL-gr7">
+                                                                <variation key="widthClass=regular" constant="180"/>
+                                                            </constraint>
+                                                            <constraint firstAttribute="height" constant="112.5" id="oEe-Vk-QP9">
+                                                                <variation key="widthClass=regular" constant="225"/>
+                                                            </constraint>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lecturerNameLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Esa-oP-Ox1">
-                                                        <rect key="frame" x="90" y="0.0" width="265" height="100"/>
+                                                        <rect key="frame" x="90" y="0.0" width="265" height="112.5"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="249" id="API-DQ-1n9"/>
-                                                            <constraint firstAttribute="height" constant="100" id="IG9-Ot-GWX"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-chevronright" translatesAutoresizingMaskIntoConstraints="NO" id="BdQ-SG-0JS">
-                                                        <rect key="frame" x="355" y="0.0" width="20" height="100"/>
+                                                        <rect key="frame" x="355" y="0.0" width="20" height="112.5"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="100" id="2Nf-pQ-Kz4"/>
                                                             <constraint firstAttribute="width" constant="20" id="o0y-uN-SyO"/>
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
                                                 <gestureRecognizers/>
+                                                <constraints>
+                                                    <constraint firstItem="Esa-oP-Ox1" firstAttribute="centerY" secondItem="MtU-D1-Ukg" secondAttribute="centerY" id="6LC-x3-vKl"/>
+                                                    <constraint firstItem="BdQ-SG-0JS" firstAttribute="centerY" secondItem="MtU-D1-Ukg" secondAttribute="centerY" id="xFs-Gc-Z76"/>
+                                                </constraints>
                                                 <connections>
                                                     <outletCollection property="gestureRecognizers" destination="CEn-D1-Fdx" appends="YES" id="JXU-oB-nvz"/>
                                                 </connections>
@@ -623,8 +629,12 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                                         <rect key="frame" x="0.0" y="0.0" width="90" height="112.5"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="112.5" id="5I1-IU-1Ow"/>
-                                                            <constraint firstAttribute="width" constant="90" id="H8o-Fg-YGu"/>
+                                                            <constraint firstAttribute="height" constant="112.5" id="5I1-IU-1Ow">
+                                                                <variation key="widthClass=regular" constant="225"/>
+                                                            </constraint>
+                                                            <constraint firstAttribute="width" constant="90" id="H8o-Fg-YGu">
+                                                                <variation key="widthClass=regular" constant="180"/>
+                                                            </constraint>
                                                         </constraints>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="67A-RF-cd4">
@@ -856,7 +866,9 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="CKF-3W-yci" userLabel="Event Image View">
                                                             <rect key="frame" x="0.0" y="66.5" width="343" height="130"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="130" id="0jR-pb-fGu"/>
+                                                                <constraint firstAttribute="height" constant="130" id="0jR-pb-fGu">
+                                                                    <variation key="widthClass=regular" constant="300"/>
+                                                                </constraint>
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
@@ -1326,7 +1338,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
         <image name="userVoice" width="194" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KJ5-tk-FbQ"/>
+        <segue reference="J2X-6V-7Uv"/>
         <segue reference="q0f-dx-IGf"/>
         <segue reference="Feh-8Y-KsY"/>
     </inferredMetricsTieBreakers>

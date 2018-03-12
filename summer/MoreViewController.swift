@@ -32,6 +32,13 @@ class MoreViewController: UITableViewController {
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 25
+        
+        if let splitViewController = self.splitViewController, !splitViewController.isCollapsed {
+            let initialIndexPath = IndexPath(row: 3, section: 0)
+            self.tableView.selectRow(at: initialIndexPath, animated: true, scrollPosition:UITableViewScrollPosition.none)
+            self.performSegue(withIdentifier: "showWifiDetail", sender: initialIndexPath)
+            self.tableView.deselectRow(at: initialIndexPath, animated: false)
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
