@@ -40,6 +40,13 @@ class TodayViewController: UIViewController, DocumentStoreDelegate {
             self.tableView.backgroundColor = UIColor.black
             self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
             self.tableView.isScrollEnabled = false
+            if let splitViewController = self.splitViewController, !splitViewController.isCollapsed, splitViewController.displayMode != .allVisible {
+                let initialIndexPath = IndexPath(row: 0, section: 0)
+                self.tableView.selectRow(at: initialIndexPath, animated: true, scrollPosition:UITableViewScrollPosition.none)
+                self.performSegue(withIdentifier: "showPromoDetail", sender: initialIndexPath)
+                self.tableView.deselectRow(at: initialIndexPath, animated: false)
+                splitViewController.preferredDisplayMode = .primaryHidden
+            }
         }
     }
     
@@ -51,6 +58,9 @@ class TodayViewController: UIViewController, DocumentStoreDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
+        case "showPromoDetail"?:
+            // nothing to inject
+            print("showing promo detail")
         case "showEvent"?:
             if let row = tableView.indexPathForSelectedRow?.row,
                 let navViewController = segue.destination as? UINavigationController,
@@ -98,7 +108,12 @@ extension TodayViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension TodayViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showEvent", sender: EventsViewController())
+        if eventsForToday.count == 0 {
+            performSegue(withIdentifier: "showPromoDetail", sender: TodayViewController())
+        }
+        else {
+            performSegue(withIdentifier: "showEvent", sender: EventsViewController())
+        }
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

@@ -34,6 +34,9 @@
 		328653541FA3ADC6000494CC /* CourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328653531FA3ADC6000494CC /* CourseDetailViewController.swift */; };
 		329C9B6E1FB6A0D0003220C6 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C9B6D1FB6A0D0003220C6 /* Settings.swift */; };
 		329C9B701FB6C9B9003220C6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C9B6F1FB6C9B9003220C6 /* TabBarController.swift */; };
+		32B2170820572ED90060E6E4 /* PromoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B2170720572ED90060E6E4 /* PromoDetailViewController.swift */; };
+		32B2170A205730C80060E6E4 /* PromoCellGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B21709205730C80060E6E4 /* PromoCellGradientView.swift */; };
+		32B2170E20573FA10060E6E4 /* PromoDetailGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B2170D20573FA10060E6E4 /* PromoDetailGradientView.swift */; };
 		32B71BC61FFFE9200080164A /* PromoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B71BC51FFFE9200080164A /* PromoCell.swift */; };
 		32B7BB651FB4199300ECFFAE /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7BB641FB4199300ECFFAE /* VideoViewController.swift */; };
 		32B7BB6A1FB644FF00ECFFAE /* CourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7BB691FB644FF00ECFFAE /* CourseViewModel.swift */; };
@@ -94,6 +97,9 @@
 		328653531FA3ADC6000494CC /* CourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewController.swift; sourceTree = "<group>"; };
 		329C9B6D1FB6A0D0003220C6 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		329C9B6F1FB6C9B9003220C6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		32B2170720572ED90060E6E4 /* PromoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromoDetailViewController.swift; sourceTree = "<group>"; };
+		32B21709205730C80060E6E4 /* PromoCellGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromoCellGradientView.swift; sourceTree = "<group>"; };
+		32B2170D20573FA10060E6E4 /* PromoDetailGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromoDetailGradientView.swift; sourceTree = "<group>"; };
 		32B71BC51FFFE9200080164A /* PromoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromoCell.swift; sourceTree = "<group>"; };
 		32B7BB641FB4199300ECFFAE /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		32B7BB691FB644FF00ECFFAE /* CourseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewModel.swift; sourceTree = "<group>"; };
@@ -226,7 +232,6 @@
 			isa = PBXGroup;
 			children = (
 				324DC7791FA0F4D6007F97BF /* Main.storyboard */,
-				32700C7F20422BCE00B08F41 /* AboutDetailViewController.swift */,
 				324DC78A1FA1397D007F97BF /* CoursesViewController.swift */,
 				328653531FA3ADC6000494CC /* CourseDetailViewController.swift */,
 				32F9C1E71FA24D230084DB82 /* CourseCell.swift */,
@@ -235,10 +240,14 @@
 				32D1A8FB1FDA4565007C2302 /* EventCell.swift */,
 				32708994204CA75800541C96 /* EventScheduleCell.swift */,
 				322B44891FFA8732008EB396 /* TodayViewController.swift */,
+				32B2170720572ED90060E6E4 /* PromoDetailViewController.swift */,
+				32B2170D20573FA10060E6E4 /* PromoDetailGradientView.swift */,
 				32B71BC51FFFE9200080164A /* PromoCell.swift */,
+				32B21709205730C80060E6E4 /* PromoCellGradientView.swift */,
 				3263874C1FA52CB500AC9C43 /* LecturerDetailViewController.swift */,
 				32E864841FA7E80F00ABBE96 /* MoreViewController.swift */,
 				321292AB1FAFB31000FFEB94 /* MoreDetailViewController.swift */,
+				32700C7F20422BCE00B08F41 /* AboutDetailViewController.swift */,
 				321292A91FAFAB0F00FFEB94 /* GlobalSplitViewController.swift */,
 				329C9B6F1FB6C9B9003220C6 /* TabBarController.swift */,
 				32B7BB641FB4199300ECFFAE /* VideoViewController.swift */,
@@ -567,8 +576,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				32B71BC61FFFE9200080164A /* PromoCell.swift in Sources */,
+				32B2170E20573FA10060E6E4 /* PromoDetailGradientView.swift in Sources */,
 				32708995204CA75800541C96 /* EventScheduleCell.swift in Sources */,
 				324DC78D1FA139F6007F97BF /* Course.swift in Sources */,
+				32B2170820572ED90060E6E4 /* PromoDetailViewController.swift in Sources */,
 				32440ECA204E81D7008E850D /* EventSchedule.swift in Sources */,
 				32D2583A1FC0C81A007EBDC7 /* Extensions.swift in Sources */,
 				324DC7761FA0F4D6007F97BF /* AppDelegate.swift in Sources */,
@@ -577,6 +588,7 @@
 				3244AF8E1FB9730300E682C2 /* SwinjectService.swift in Sources */,
 				329C9B701FB6C9B9003220C6 /* TabBarController.swift in Sources */,
 				32D1A8FA1FDA3F2E007C2302 /* Event.swift in Sources */,
+				32B2170A205730C80060E6E4 /* PromoCellGradientView.swift in Sources */,
 				32F9C1E81FA24D230084DB82 /* CourseCell.swift in Sources */,
 				32E864851FA7E80F00ABBE96 /* MoreViewController.swift in Sources */,
 				3244AF911FB973C000E682C2 /* DocumentStore.swift in Sources */,

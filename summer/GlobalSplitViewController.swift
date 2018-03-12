@@ -3,7 +3,7 @@ import UIKit
 class GlobalSplitViewController: UISplitViewController, UISplitViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
-        preferredDisplayMode = .allVisible
+        preferredDisplayMode = .automatic
         self.delegate = self
     }
     

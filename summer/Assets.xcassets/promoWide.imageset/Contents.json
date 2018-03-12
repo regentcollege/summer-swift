@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "2018SummerWide.jpg",
+      "filename" : "promoWide.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "promoWide-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "promoWideHD.png",
       "scale" : "3x"
     }
   ],

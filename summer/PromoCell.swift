@@ -43,7 +43,7 @@ class PromoCell: UITableViewCell {
             }
             startDateLabel?.text = startDateLabel.text! + courseStartDateLabel
         }
-        let gradient = GradientView(frame: self.bounds)
+        let gradient = PromoCellGradientView(frame: self.bounds)
         gradientView.insertSubview(gradient, at: 0)
     }
 }

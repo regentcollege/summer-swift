@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oAz-NB-zwm">
-    <device id="retina4_7" orientation="portrait">
+    <device id="ipad12_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -37,11 +37,11 @@
             <objects>
                 <viewController id="SXA-qk-czs" customClass="CoursesViewController" customModule="summer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="top" id="0Yz-yI-aob">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oEV-JX-WtA">
-                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="1258"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="113" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
@@ -53,7 +53,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="courseTitleLabel" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="3x5-im-hXE">
-                                                    <rect key="frame" x="23" y="13" width="303" height="27"/>
+                                                    <rect key="frame" x="23" y="17" width="303" height="23"/>
                                                     <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -118,7 +118,7 @@
                                 <items>
                                     <barButtonItem title="Item" style="plain" id="SJS-b9-6do">
                                         <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="0sA-83-NXE">
-                                            <rect key="frame" x="16" y="7" width="343" height="30"/>
+                                            <rect key="frame" x="20" y="7" width="335" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
                                                 <segment title="Spring"/>
@@ -160,20 +160,20 @@
             <objects>
                 <viewController id="BPe-f0-hhX" customClass="CourseDetailViewController" customModule="summer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SOw-T2-vZi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URN-NB-C8P">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="1024" height="1253"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W4F-51-1U7">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="237"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="349.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="MtU-D1-Ukg">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="112.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="1024" height="225"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hlH-Ca-YqD">
-                                                        <rect key="frame" x="0.0" y="0.0" width="90" height="112.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="180" height="225"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="90" id="Bpi-uL-gr7">
@@ -185,7 +185,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lecturerNameLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Esa-oP-Ox1">
-                                                        <rect key="frame" x="90" y="0.0" width="265" height="112.5"/>
+                                                        <rect key="frame" x="180" y="0.0" width="824" height="225"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="249" id="API-DQ-1n9"/>
@@ -195,7 +195,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-chevronright" translatesAutoresizingMaskIntoConstraints="NO" id="BdQ-SG-0JS">
-                                                        <rect key="frame" x="355" y="0.0" width="20" height="112.5"/>
+                                                        <rect key="frame" x="1004" y="0.0" width="20" height="225"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="o0y-uN-SyO"/>
                                                         </constraints>
@@ -211,25 +211,25 @@
                                                 </connections>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="courseDescriptionTitleLabel" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aov-go-zRW">
-                                                <rect key="frame" x="8" y="120.5" width="359" height="22.5"/>
+                                                <rect key="frame" x="8" y="233" width="1008" height="22.5"/>
                                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="courseDescriptionLabel" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Rl-js-eVm">
-                                                <rect key="frame" x="8" y="151.5" width="359" height="20.5"/>
+                                                <rect key="frame" x="8" y="264" width="1008" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="courseDateLabel" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sB-gd-0qy" userLabel="Course Date Label">
-                                                <rect key="frame" x="8" y="180" width="359" height="20.5"/>
+                                                <rect key="frame" x="8" y="292.5" width="1008" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="courseTimeLabel" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3t-yh-zGY" userLabel="Course Time Label">
-                                                <rect key="frame" x="8" y="208.5" width="359" height="20.5"/>
+                                                <rect key="frame" x="8" y="321" width="1008" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -299,11 +299,11 @@
             <objects>
                 <viewController id="qaE-hY-Fxp" customClass="MoreDetailViewController" customModule="summer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t51-Fd-vAh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="moreDescriptionLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBs-nJ-4gI">
-                                <rect key="frame" x="103.5" y="323" width="168" height="21"/>
+                                <rect key="frame" x="428" y="672.5" width="168" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -330,7 +330,7 @@
             <objects>
                 <navigationController id="w45-G9-dUt" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CAc-Rm-1en">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="1024" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -346,23 +346,23 @@
             <objects>
                 <viewController title="About Detail View" id="QSc-n0-wqw" customClass="AboutDetailViewController" customModule="summer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RSt-Pc-SRs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Regent College Summer 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2B-hB-4ld">
-                                <rect key="frame" x="14.5" y="72" width="347" height="29"/>
+                                <rect key="frame" x="338.5" y="72" width="347" height="29"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Browse courses, events, and see what's happening today at Regent College." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQw-la-X2a">
-                                <rect key="frame" x="8" y="111" width="359" height="42.5"/>
+                                <rect key="frame" x="8" y="111" width="1008" height="20.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jzl-kw-jhj">
-                                <rect key="frame" x="0.0" y="169.5" width="375" height="448.5"/>
+                                <rect key="frame" x="0.0" y="147.5" width="1024" height="1169.5"/>
                                 <connections>
                                     <segue destination="asd-CA-QzK" kind="embed" identifier="aboutDetailTableSegue" id="vb8-Ig-wj9"/>
                                 </connections>
@@ -396,7 +396,7 @@
             <objects>
                 <navigationController id="UBv-kl-XnC" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iHz-3l-tFi">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="1024" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -412,17 +412,17 @@
             <objects>
                 <viewController id="6d6-Uh-Mb9" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nFG-sD-NTa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wifi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7y-WZ-wnV">
-                                <rect key="frame" x="163.5" y="72" width="48" height="29"/>
+                                <rect key="frame" x="488" y="72" width="48" height="29"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLA-dk-sis">
-                                <rect key="frame" x="8" y="109" width="359" height="328.5"/>
+                                <rect key="frame" x="8" y="109" width="1008" height="152.5"/>
                                 <string key="text">The “Regent Student” wifi is the most reliable network. Login using your Regent Login, the same you use for REGIS and Moodle. REGIS username and password. If you don’t remember your login information, you may email helpdesk@regent-college.edu or call them at 604-221-3372.
 
 “UBC Visitor” is also available, but is much slower than “Regent Student.” Login using your email address.
@@ -454,17 +454,17 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
             <objects>
                 <tableViewController title="About Detail Table View" id="asd-CA-QzK" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="J3p-TK-55S">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="448.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1169.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
                             <tableViewSection id="xCJ-z8-RMY">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="75" id="DIZ-Bn-vwO">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DIZ-Bn-vwO" id="LH6-dg-2nC">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="75"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="986" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GitHub-Mark" translatesAutoresizingMaskIntoConstraints="NO" id="hYW-UM-U6D">
@@ -491,10 +491,10 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="75" id="MUb-U0-uh2">
-                                        <rect key="frame" x="0.0" y="75" width="375" height="75"/>
+                                        <rect key="frame" x="0.0" y="75" width="1024" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MUb-U0-uh2" id="4Sl-l6-j5d">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="75"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="986" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request Features on UserVoice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nci-oi-lkR">
@@ -538,19 +538,19 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="Qbs-jO-bPZ" customClass="MoreViewController" customModule="summer" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wbl-5J-GWC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="QeQ-Es-sJQ" style="IBUITableViewCellStyleDefault" id="LNM-Y5-axl">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="52"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LNM-Y5-axl" id="0dy-zU-ABe">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="51.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QeQ-Es-sJQ">
-                                            <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="324" height="51.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -613,20 +613,20 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
             <objects>
                 <viewController id="wkJ-1j-NuC" customClass="LecturerDetailViewController" customModule="summer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iaE-8R-jEQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFs-nR-jAS">
-                                <rect key="frame" x="0.0" y="313" width="375" height="128"/>
+                                <rect key="frame" x="0.0" y="313" width="1024" height="128"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L5v-hQ-xFA">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="128"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIv-om-y5p" userLabel="Banner Stack View">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="112.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="1024" height="225"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1zE-8E-GVm">
-                                                        <rect key="frame" x="0.0" y="0.0" width="90" height="112.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="180" height="225"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="112.5" id="5I1-IU-1Ow">
@@ -638,17 +638,17 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                                         </constraints>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="67A-RF-cd4">
-                                                        <rect key="frame" x="90" y="0.0" width="285" height="112.5"/>
+                                                        <rect key="frame" x="180" y="0.0" width="844" height="225"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lecturerNameLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FrY-iq-4eO">
-                                                                <rect key="frame" x="8" y="8" width="269" height="66.5"/>
+                                                                <rect key="frame" x="8" y="8" width="828" height="179"/>
                                                                 <gestureRecognizers/>
                                                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pex-Sz-Eik">
-                                                                <rect key="frame" x="8" y="74.5" width="269" height="30"/>
+                                                                <rect key="frame" x="8" y="187" width="828" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="UyP-P1-atL"/>
                                                                 </constraints>
@@ -707,34 +707,34 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
             <objects>
                 <viewController id="MjD-ay-X7L" customClass="VideoViewController" customModule="summer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iHj-jR-ii7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FoG-HY-VHu">
-                                <rect key="frame" x="172.5" y="584" width="30" height="30"/>
+                                <rect key="frame" x="497" y="1283" width="30" height="30"/>
                                 <state key="normal" title="Play"/>
                                 <connections>
                                     <action selector="didTapPlayButton" destination="MjD-ay-X7L" eventType="touchUpInside" id="o2Z-Xy-WtX"/>
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="euR-FR-0Id">
-                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                                <rect key="frame" x="502" y="673" width="20" height="20"/>
                             </activityIndicatorView>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="stB-b7-rOo">
-                                <rect key="frame" x="128" y="552" width="119" height="31"/>
+                                <rect key="frame" x="128" y="1251" width="768" height="31"/>
                                 <connections>
                                     <action selector="didChangeSliderValue" destination="MjD-ay-X7L" eventType="valueChanged" id="f4b-5N-Pl8"/>
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WeA-gu-eX9">
-                                <rect key="frame" x="242.5" y="584" width="37" height="30"/>
+                                <rect key="frame" x="567" y="1283" width="37" height="30"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="dismissVC:" destination="MjD-ay-X7L" eventType="touchUpInside" id="QNf-sL-Wh8"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buffering" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eU0-nv-eLf">
-                                <rect key="frame" x="152" y="626" width="71" height="21"/>
+                                <rect key="frame" x="476.5" y="1325" width="71" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -814,7 +814,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PVg-Mu-V3r" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="v5S-7P-tFE">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="1024" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -831,31 +831,31 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
             <objects>
                 <viewController id="HMa-wH-fEm" customClass="EventDetailViewController" customModule="summer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jhj-ZX-Us1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LgG-1Z-921">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="1024" height="1253"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventCell" rowHeight="213" id="EiM-bq-Z8K" customClass="EventCell" customModule="summer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="213"/>
+                                        <rect key="frame" x="0.0" y="28" width="1024" height="213"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EiM-bq-Z8K" id="1T5-HH-VXY">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="212.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="212.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qR6-R6-Wwi">
-                                                    <rect key="frame" x="16" y="8" width="343" height="196.5"/>
+                                                    <rect key="frame" x="16" y="8" width="992" height="196.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="eventTitleLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YjQ-ts-GZp">
-                                                            <rect key="frame" x="0.0" y="0.0" width="343" height="23.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="992" height="23.5"/>
                                                             <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eventDateLabel" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHJ-Ea-fxf">
-                                                            <rect key="frame" x="0.0" y="35.5" width="343" height="19"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="eventDateLabel" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHJ-Ea-fxf">
+                                                            <rect key="frame" x="0.0" y="35.5" width="992" height="19"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="19" id="vZZ-ux-wOc"/>
                                                             </constraints>
@@ -863,8 +863,8 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                                             <color key="textColor" red="0.40784313729999999" green="0.40784313729999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="CKF-3W-yci" userLabel="Event Image View">
-                                                            <rect key="frame" x="0.0" y="66.5" width="343" height="130"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CKF-3W-yci" userLabel="Event Image View">
+                                                            <rect key="frame" x="0.0" y="66.5" width="992" height="130"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="130" id="0jR-pb-fGu">
                                                                     <variation key="widthClass=regular" constant="300"/>
@@ -889,23 +889,23 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventScheduleCell" rowHeight="74" id="23o-8z-jRL" customClass="EventScheduleCell" customModule="summer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="241" width="375" height="74"/>
+                                        <rect key="frame" x="0.0" y="241" width="1024" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="23o-8z-jRL" id="GCw-fh-Ui1">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="73.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="73.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HYA-Ch-xsd">
-                                                    <rect key="frame" x="0.0" y="10" width="375" height="53.5"/>
+                                                    <rect key="frame" x="0.0" y="10" width="1024" height="53.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="eventScheduleTitleLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlR-Ri-aDc">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="34.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="34.5"/>
                                                             <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eventScheduleDateLabel" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3u-TY-kWl">
-                                                            <rect key="frame" x="0.0" y="34.5" width="375" height="19"/>
+                                                            <rect key="frame" x="0.0" y="34.5" width="1024" height="19"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="19" id="2Ov-FM-Qw4"/>
                                                             </constraints>
@@ -954,11 +954,11 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
             <objects>
                 <viewController id="JiK-yQ-TLr" customClass="EventsViewController" customModule="summer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bZe-DZ-vq9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DhA-DO-msO">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="1302"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventCell" rowHeight="213" id="YOJ-BS-2fB" customClass="EventCell" customModule="summer" customModuleProvider="target">
@@ -969,16 +969,16 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="heC-Q1-T4t">
-                                                    <rect key="frame" x="8" y="8" width="359" height="186"/>
+                                                    <rect key="frame" x="8" y="8" width="359" height="182"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="eventTitleLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0St-QX-ZaX">
-                                                            <rect key="frame" x="0.0" y="0.0" width="359" height="21"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="359" height="17"/>
                                                             <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eventDateLabel" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uSR-5Z-8vX">
-                                                            <rect key="frame" x="0.0" y="29" width="359" height="19"/>
+                                                            <rect key="frame" x="0.0" y="25" width="359" height="19"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="19" id="cda-Bc-CkA"/>
                                                             </constraints>
@@ -987,7 +987,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="W8F-iG-lL8" userLabel="Event Image View">
-                                                            <rect key="frame" x="0.0" y="56" width="359" height="130"/>
+                                                            <rect key="frame" x="0.0" y="52" width="359" height="130"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="130" id="Hjs-AJ-kI1"/>
                                                             </constraints>
@@ -1052,7 +1052,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
             <objects>
                 <viewController id="2xA-D1-AaC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xKM-cJ-cJs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="BZ1-ZW-kvA"/>
@@ -1067,11 +1067,11 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
             <objects>
                 <viewController id="4G5-vH-RCm" customClass="TodayViewController" customModule="summer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tyx-T1-gVR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rpy-DO-CgS">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="1302"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PromoCell" rowHeight="516" id="5LZ-ZF-RPp" customClass="PromoCell" customModule="summer" customModuleProvider="target">
@@ -1103,7 +1103,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="503.5"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summer Programs 2018" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrR-Tx-aYV">
-                                                    <rect key="frame" x="15" y="19" width="243" height="72.5"/>
+                                                    <rect key="frame" x="15" y="23" width="243" height="72.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="72" id="676-1c-Ivb"/>
                                                         <constraint firstAttribute="width" constant="243" id="HTF-rw-5uJ"/>
@@ -1113,13 +1113,13 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INVITE GOD TO DEEPEN YOUR FAITH, BROADEN YOUR MIND, AND TRANSFORM YOUR HEART" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aey-hT-q21">
-                                                    <rect key="frame" x="15" y="101.5" width="321" height="22.5"/>
+                                                    <rect key="frame" x="15" y="105.5" width="321" height="22.5"/>
                                                     <fontDescription key="fontDescription" name="Futura-Boo" family="Futura" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9MO-QQ-MIn">
-                                                    <rect key="frame" x="15" y="128.5" width="337" height="20.5"/>
+                                                    <rect key="frame" x="15" y="132.5" width="337" height="20.5"/>
                                                     <string key="text">Summer Programs present the best of what Regent has to offer, in our most user-friendly format. Our one- and two-week courses allow you to dive deep, combining a condensed, focused lecture schedule with the luxury of time to prepare and respond.</string>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1185,16 +1185,16 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Nr1-Vd-H99">
-                                                    <rect key="frame" x="8" y="8" width="367" height="186"/>
+                                                    <rect key="frame" x="8" y="8" width="367" height="182"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="eventTitleLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yjX-Oq-DhA">
-                                                            <rect key="frame" x="0.0" y="0.0" width="367" height="37"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="367" height="33"/>
                                                             <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eventDateLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KG9-49-6HR">
-                                                            <rect key="frame" x="0.0" y="37" width="367" height="19"/>
+                                                            <rect key="frame" x="0.0" y="33" width="367" height="19"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="19" id="DSd-YC-AHF"/>
                                                             </constraints>
@@ -1203,7 +1203,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="aoe-cb-qBS" userLabel="Event Image View">
-                                                            <rect key="frame" x="0.0" y="56" width="367" height="130"/>
+                                                            <rect key="frame" x="0.0" y="52" width="367" height="130"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="130" id="NLA-xu-Rv1"/>
                                                             </constraints>
@@ -1240,11 +1240,78 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                     <navigationItem key="navigationItem" title="Today at Regent College" id="XKn-JQ-f3n"/>
                     <connections>
                         <outlet property="tableView" destination="rpy-DO-CgS" id="UkK-aY-IZu"/>
+                        <segue destination="0OR-rs-8rl" kind="showDetail" identifier="showPromoDetail" id="U79-0G-7AJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3aP-gd-pQ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="389.05547226386807" y="1901.5999999999999"/>
+        </scene>
+        <!--Promo Detail View Controller-->
+        <scene sceneID="ciT-Ra-rUF">
+            <objects>
+                <viewController id="0OR-rs-8rl" customClass="PromoDetailViewController" customModule="summer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IRT-bT-Gch">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="promoPortrait" translatesAutoresizingMaskIntoConstraints="NO" id="CIL-Jb-eXv">
+                                <rect key="frame" x="0.0" y="20" width="1024" height="1297"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ixi-6W-H94" userLabel="gradientView">
+                                <rect key="frame" x="0.0" y="20" width="1024" height="1297"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Regent College Summer Programs 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUx-uZ-3sa">
+                                <rect key="frame" x="138.5" y="170" width="747" height="45.5"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INVITE GOD TO DEEPEN YOUR FAITH, BROADEN YOUR MIND, AND TRANSFORM YOUR HEART" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJa-M5-d3a">
+                                <rect key="frame" x="10" y="390.5" width="1004" height="78"/>
+                                <fontDescription key="fontDescription" name="Futura-Boo" family="Futura" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4e-bT-MKu">
+                                <rect key="frame" x="50" y="1064" width="924" height="127.5"/>
+                                <string key="text">Summer Programs present the best of what Regent has to offer, in our most user-friendly format. Our one- and two-week courses allow you to dive deep, combining a condensed, focused lecture schedule with the luxury of time to prepare and respond.</string>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="W4e-bT-MKu" firstAttribute="leading" secondItem="DcI-q0-Rnt" secondAttribute="leading" constant="50" id="1TJ-Cz-A1x"/>
+                            <constraint firstItem="DcI-q0-Rnt" firstAttribute="bottom" secondItem="W4e-bT-MKu" secondAttribute="bottom" constant="125.5" id="3Qb-8E-8rm"/>
+                            <constraint firstItem="kUx-uZ-3sa" firstAttribute="centerX" secondItem="IRT-bT-Gch" secondAttribute="centerX" id="7NI-A4-50K"/>
+                            <constraint firstItem="CIL-Jb-eXv" firstAttribute="top" secondItem="DcI-q0-Rnt" secondAttribute="top" id="7zt-6a-2Vl"/>
+                            <constraint firstItem="DcI-q0-Rnt" firstAttribute="trailing" secondItem="CIL-Jb-eXv" secondAttribute="trailing" id="9V6-v2-Wiy"/>
+                            <constraint firstItem="CIL-Jb-eXv" firstAttribute="leading" secondItem="DcI-q0-Rnt" secondAttribute="leading" id="FA4-pj-9Tf"/>
+                            <constraint firstItem="Ixi-6W-H94" firstAttribute="leading" secondItem="DcI-q0-Rnt" secondAttribute="leading" id="H2P-S0-aFm"/>
+                            <constraint firstItem="DcI-q0-Rnt" firstAttribute="bottom" secondItem="Ixi-6W-H94" secondAttribute="bottom" id="Hpk-K9-Glk"/>
+                            <constraint firstItem="EJa-M5-d3a" firstAttribute="centerX" secondItem="IRT-bT-Gch" secondAttribute="centerX" id="LYv-VK-pxD"/>
+                            <constraint firstItem="DcI-q0-Rnt" firstAttribute="trailing" secondItem="W4e-bT-MKu" secondAttribute="trailing" constant="50" id="Lh2-z4-dTs"/>
+                            <constraint firstItem="DcI-q0-Rnt" firstAttribute="trailing" secondItem="Ixi-6W-H94" secondAttribute="trailing" id="YF0-M6-lr9"/>
+                            <constraint firstItem="Ixi-6W-H94" firstAttribute="top" secondItem="DcI-q0-Rnt" secondAttribute="top" id="cjA-wA-lla"/>
+                            <constraint firstItem="EJa-M5-d3a" firstAttribute="top" secondItem="kUx-uZ-3sa" secondAttribute="bottom" constant="175" id="l7W-aH-Cua"/>
+                            <constraint firstItem="DcI-q0-Rnt" firstAttribute="bottom" secondItem="CIL-Jb-eXv" secondAttribute="bottom" id="pKZ-Cm-HXC"/>
+                            <constraint firstItem="EJa-M5-d3a" firstAttribute="leading" secondItem="IRT-bT-Gch" secondAttribute="leading" constant="10" id="qI5-Db-UqZ"/>
+                            <constraint firstAttribute="trailing" secondItem="EJa-M5-d3a" secondAttribute="trailing" constant="10" id="qJs-Cv-Jp3"/>
+                            <constraint firstItem="kUx-uZ-3sa" firstAttribute="top" secondItem="DcI-q0-Rnt" secondAttribute="top" constant="150" id="urh-MC-pG3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DcI-q0-Rnt"/>
+                    </view>
+                    <connections>
+                        <outlet property="gradientView" destination="Ixi-6W-H94" id="Dfq-oR-dqX"/>
+                        <outlet property="promoImageView" destination="CIL-Jb-eXv" id="jAz-eA-M1B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uUl-AD-P7Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1461.9140625" y="1901.9033674963396"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8wF-8A-xnF">
@@ -1296,7 +1363,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jpy-8J-yg9" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yus-6b-Fx0">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="1024" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1314,7 +1381,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iz8-Ei-2x0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7Ah-Fo-Ski">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="1024" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1334,7 +1401,8 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
         <image name="icons8-event" width="25" height="25"/>
         <image name="icons8-plan" width="25" height="25"/>
         <image name="promo" width="640" height="860"/>
-        <image name="promoWide" width="1146" height="585"/>
+        <image name="promoPortrait" width="795" height="1024"/>
+        <image name="promoWide" width="1024" height="768"/>
         <image name="userVoice" width="194" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>

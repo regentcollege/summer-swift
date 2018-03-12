@@ -11,5 +11,8 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         if let navController = splitViewController?.viewControllers[0] as? UINavigationController {
             navController.popViewController(animated: true)
         }
+        if tabBarController.selectedIndex != 0 {
+            splitViewController?.preferredDisplayMode = .allVisible
+        }
     }
 }
