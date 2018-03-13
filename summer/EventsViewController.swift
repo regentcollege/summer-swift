@@ -77,6 +77,17 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
         }
     }
     
+    // provide the initial detail view for iPad
+    // must go here and not viewDidLoad because iPhone begins not collapsed
+    override func viewWillAppear(_ animated: Bool) {
+        if let splitViewController = self.splitViewController, !splitViewController.isCollapsed {
+            let initialIndexPath = IndexPath(row: 0, section: 0)
+            self.tableView.selectRow(at: initialIndexPath, animated: true, scrollPosition:UITableViewScrollPosition.none)
+            self.performSegue(withIdentifier: "showEvent", sender: initialIndexPath)
+            self.tableView.deselectRow(at: initialIndexPath, animated: false)
+        }
+    }
+    
     func documentsDidUpdate() {
         DispatchQueue.main.async {
             self.groupEvents()

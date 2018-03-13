@@ -32,9 +32,15 @@ class MoreViewController: UITableViewController {
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 25
-        
+    }
+    
+    // provide the initial detail view for iPad
+    // must go here and not viewDidLoad because iPhone begins not collapsed
+    override func viewWillAppear(_ animated: Bool) {
         if let splitViewController = self.splitViewController, !splitViewController.isCollapsed {
-            let initialIndexPath = IndexPath(row: 3, section: 0)
+            
+            // the wifi row is most used
+            let initialIndexPath = IndexPath(row: 2, section: 0)
             self.tableView.selectRow(at: initialIndexPath, animated: true, scrollPosition:UITableViewScrollPosition.none)
             self.performSegue(withIdentifier: "showWifiDetail", sender: initialIndexPath)
             self.tableView.deselectRow(at: initialIndexPath, animated: false)

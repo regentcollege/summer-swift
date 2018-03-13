@@ -64,6 +64,10 @@ class EventDetailViewController: UIViewController, DocumentStoreDelegate, EventC
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if event == nil {
+            return
+        }
+        
         documentStore.delegate = self
         
         documentStore.loadEventScheduleBy(id: event.id)

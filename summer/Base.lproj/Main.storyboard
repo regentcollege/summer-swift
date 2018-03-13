@@ -40,7 +40,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oEV-JX-WtA">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oEV-JX-WtA">
                                 <rect key="frame" x="0.0" y="108" width="375" height="1258"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="113" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1125,8 +1125,8 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="startDateLabel" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9XE-D1-gDx">
-                                                    <rect key="frame" x="15" y="473.5" width="113.5" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="teaserTrailerLabel" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9XE-D1-gDx">
+                                                    <rect key="frame" x="15" y="473.5" width="136" height="21"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -1174,7 +1174,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                         <connections>
                                             <outlet property="gradientView" destination="9AF-pD-CiV" id="p5a-Hi-T0z"/>
                                             <outlet property="promoImage" destination="akk-9p-3HB" id="VgL-UO-zLn"/>
-                                            <outlet property="startDateLabel" destination="9XE-D1-gDx" id="Guw-Ke-IXz"/>
+                                            <outlet property="teaserTrailerLabel" destination="9XE-D1-gDx" id="mTs-JC-OMt"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventCell" rowHeight="213" id="Wj4-tV-ZKu" customClass="EventCell" customModule="summer" customModuleProvider="target">
@@ -1255,10 +1255,10 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="promoPortrait" translatesAutoresizingMaskIntoConstraints="NO" id="CIL-Jb-eXv">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="promoPortrait" translatesAutoresizingMaskIntoConstraints="NO" id="CIL-Jb-eXv">
                                 <rect key="frame" x="0.0" y="20" width="1024" height="1297"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ixi-6W-H94" userLabel="gradientView">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ixi-6W-H94" userLabel="gradientView">
                                 <rect key="frame" x="0.0" y="20" width="1024" height="1297"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -1275,27 +1275,36 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4e-bT-MKu">
-                                <rect key="frame" x="50" y="1064" width="924" height="127.5"/>
+                                <rect key="frame" x="50" y="1117.5" width="924" height="74"/>
                                 <string key="text">Summer Programs present the best of what Regent has to offer, in our most user-friendly format. Our one- and two-week courses allow you to dive deep, combining a condensed, focused lecture schedule with the luxury of time to prepare and respond.</string>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="teaserTrailerLabel" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shN-bh-gIH">
+                                <rect key="frame" x="50" y="1201.5" width="924" height="24"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="shN-bh-gIH" firstAttribute="leading" secondItem="W4e-bT-MKu" secondAttribute="leading" id="051-j7-nnT"/>
                             <constraint firstItem="W4e-bT-MKu" firstAttribute="leading" secondItem="DcI-q0-Rnt" secondAttribute="leading" constant="50" id="1TJ-Cz-A1x"/>
                             <constraint firstItem="DcI-q0-Rnt" firstAttribute="bottom" secondItem="W4e-bT-MKu" secondAttribute="bottom" constant="125.5" id="3Qb-8E-8rm"/>
+                            <constraint firstItem="Ixi-6W-H94" firstAttribute="width" secondItem="CIL-Jb-eXv" secondAttribute="width" id="6lq-ru-kXT"/>
                             <constraint firstItem="kUx-uZ-3sa" firstAttribute="centerX" secondItem="IRT-bT-Gch" secondAttribute="centerX" id="7NI-A4-50K"/>
                             <constraint firstItem="CIL-Jb-eXv" firstAttribute="top" secondItem="DcI-q0-Rnt" secondAttribute="top" id="7zt-6a-2Vl"/>
                             <constraint firstItem="DcI-q0-Rnt" firstAttribute="trailing" secondItem="CIL-Jb-eXv" secondAttribute="trailing" id="9V6-v2-Wiy"/>
                             <constraint firstItem="CIL-Jb-eXv" firstAttribute="leading" secondItem="DcI-q0-Rnt" secondAttribute="leading" id="FA4-pj-9Tf"/>
                             <constraint firstItem="Ixi-6W-H94" firstAttribute="leading" secondItem="DcI-q0-Rnt" secondAttribute="leading" id="H2P-S0-aFm"/>
-                            <constraint firstItem="DcI-q0-Rnt" firstAttribute="bottom" secondItem="Ixi-6W-H94" secondAttribute="bottom" id="Hpk-K9-Glk"/>
                             <constraint firstItem="EJa-M5-d3a" firstAttribute="centerX" secondItem="IRT-bT-Gch" secondAttribute="centerX" id="LYv-VK-pxD"/>
                             <constraint firstItem="DcI-q0-Rnt" firstAttribute="trailing" secondItem="W4e-bT-MKu" secondAttribute="trailing" constant="50" id="Lh2-z4-dTs"/>
-                            <constraint firstItem="DcI-q0-Rnt" firstAttribute="trailing" secondItem="Ixi-6W-H94" secondAttribute="trailing" id="YF0-M6-lr9"/>
-                            <constraint firstItem="Ixi-6W-H94" firstAttribute="top" secondItem="DcI-q0-Rnt" secondAttribute="top" id="cjA-wA-lla"/>
+                            <constraint firstItem="Ixi-6W-H94" firstAttribute="height" secondItem="CIL-Jb-eXv" secondAttribute="height" id="V0y-h4-SpB"/>
+                            <constraint firstItem="shN-bh-gIH" firstAttribute="top" secondItem="W4e-bT-MKu" secondAttribute="bottom" constant="10" id="eJ0-cW-y1f"/>
+                            <constraint firstItem="Ixi-6W-H94" firstAttribute="top" secondItem="DcI-q0-Rnt" secondAttribute="top" id="jYs-7l-JhS"/>
+                            <constraint firstItem="DcI-q0-Rnt" firstAttribute="trailing" secondItem="shN-bh-gIH" secondAttribute="trailing" constant="50" id="l5l-tS-Xj6"/>
                             <constraint firstItem="EJa-M5-d3a" firstAttribute="top" secondItem="kUx-uZ-3sa" secondAttribute="bottom" constant="175" id="l7W-aH-Cua"/>
                             <constraint firstItem="DcI-q0-Rnt" firstAttribute="bottom" secondItem="CIL-Jb-eXv" secondAttribute="bottom" id="pKZ-Cm-HXC"/>
                             <constraint firstItem="EJa-M5-d3a" firstAttribute="leading" secondItem="IRT-bT-Gch" secondAttribute="leading" constant="10" id="qI5-Db-UqZ"/>
@@ -1307,6 +1316,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                     <connections>
                         <outlet property="gradientView" destination="Ixi-6W-H94" id="Dfq-oR-dqX"/>
                         <outlet property="promoImageView" destination="CIL-Jb-eXv" id="jAz-eA-M1B"/>
+                        <outlet property="teaserTrailerLabel" destination="shN-bh-gIH" id="mpY-3t-AAL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uUl-AD-P7Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1401,12 +1411,12 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
         <image name="icons8-event" width="25" height="25"/>
         <image name="icons8-plan" width="25" height="25"/>
         <image name="promo" width="640" height="860"/>
-        <image name="promoPortrait" width="795" height="1024"/>
+        <image name="promoPortrait" width="746" height="960"/>
         <image name="promoWide" width="1024" height="768"/>
         <image name="userVoice" width="194" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="J2X-6V-7Uv"/>
+        <segue reference="siY-cu-I8T"/>
         <segue reference="q0f-dx-IGf"/>
         <segue reference="Feh-8Y-KsY"/>
     </inferredMetricsTieBreakers>

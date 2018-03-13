@@ -40,13 +40,20 @@ class TodayViewController: UIViewController, DocumentStoreDelegate {
             self.tableView.backgroundColor = UIColor.black
             self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
             self.tableView.isScrollEnabled = false
-            if let splitViewController = self.splitViewController, !splitViewController.isCollapsed, splitViewController.displayMode != .allVisible {
-                let initialIndexPath = IndexPath(row: 0, section: 0)
-                self.tableView.selectRow(at: initialIndexPath, animated: true, scrollPosition:UITableViewScrollPosition.none)
-                self.performSegue(withIdentifier: "showPromoDetail", sender: initialIndexPath)
-                self.tableView.deselectRow(at: initialIndexPath, animated: false)
-                splitViewController.preferredDisplayMode = .primaryHidden
-            }
+        }
+    }
+    
+    // provide the initial detail view for iPad
+    // must go here and not viewDidLoad because iPhone begins not collapsed
+    override func viewWillAppear(_ animated: Bool) {
+        if let splitViewController = self.splitViewController, !splitViewController.isCollapsed, splitViewController.displayMode == .allVisible {
+            let initialIndexPath = IndexPath(row: 0, section: 0)
+            self.tableView.selectRow(at: initialIndexPath, animated: true, scrollPosition:UITableViewScrollPosition.none)
+            self.performSegue(withIdentifier: "showPromoDetail", sender: initialIndexPath)
+            self.tableView.deselectRow(at: initialIndexPath, animated: false)
+            
+            // the detail view for the promo cell is designed for full screen
+            splitViewController.preferredDisplayMode = .primaryHidden
         }
     }
     
@@ -59,8 +66,9 @@ class TodayViewController: UIViewController, DocumentStoreDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "showPromoDetail"?:
-            // nothing to inject
-            print("showing promo detail")
+            if let promoDetailViewController = segue.destination as? PromoDetailViewController {
+                promoDetailViewController.teaserTrailer = createTeaserTrailer(nextEvent: nextEvent, nextCourse: nextCourse)
+            }
         case "showEvent"?:
             if let row = tableView.indexPathForSelectedRow?.row,
                 let navViewController = segue.destination as? UINavigationController,
@@ -72,6 +80,44 @@ class TodayViewController: UIViewController, DocumentStoreDelegate {
         default:
             preconditionFailure("Unexpected segue identifer")
         }
+    }
+    
+    func createTeaserTrailer(nextEvent: EventViewModel?, nextCourse: CourseViewModel?) -> String {
+        var teaserTrailer = String()
+        if let event = nextEvent, let eventStartDate = event.startDate {
+            let daysUntilNextEvent = eventStartDate.since(Date(), in: .day)
+            if daysUntilNextEvent <= 1 {
+                teaserTrailer = "Our next event starts tomorrow"
+            }
+            else if daysUntilNextEvent < 7 {
+                teaserTrailer = "\(daysUntilNextEvent) days until our next event"
+            }
+            else if eventStartDate.compare(.isNextWeek) {
+                teaserTrailer = "One week until our next event"
+            }
+            else {
+                teaserTrailer = "\(eventStartDate.since(Date(), in: .week)) weeks until our next event"
+            }
+        }
+        if teaserTrailer != "" {
+            teaserTrailer += "\n"
+        }
+        if let course = nextCourse, let courseStartDate = course.startDate {
+            let daysUntilNextCourse = courseStartDate.since(Date(), in: .day)
+            if daysUntilNextCourse <= 1 {
+                teaserTrailer += "Our next course starts tomorrow"
+            }
+            else if daysUntilNextCourse < 7 {
+                teaserTrailer += "\(daysUntilNextCourse) days until our next course"
+            }
+            else if courseStartDate.compare(.isNextWeek) {
+                teaserTrailer += "One week until our next course"
+            }
+            else {
+                teaserTrailer += "\(courseStartDate.since(Date(), in: .week)) weeks until our next course"
+            }
+        }
+        return teaserTrailer
     }
 }
 
@@ -88,7 +134,7 @@ extension TodayViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if eventsForToday.count == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "PromoCell", for: indexPath) as? PromoCell {
-                cell.configureWith(event: nextEvent, course: nextCourse)
+                cell.configureWith(teaserTrailer: createTeaserTrailer(nextEvent: nextEvent, nextCourse: nextCourse))
                 return cell
             }
             return UITableViewCell()

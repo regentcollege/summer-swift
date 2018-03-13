@@ -41,7 +41,11 @@ class CoursesViewController: UIViewController, DocumentStoreDelegate {
         springSummerSegmentedControl.tintColor = Settings.Color.blue
         let font: [AnyHashable : Any] = [NSAttributedStringKey.font : Settings.Font.subHeaderFont]
         springSummerSegmentedControl.setTitleTextAttributes(font, for: .normal)
-        
+    }
+    
+    // provide the initial detail view for iPad
+    // must go here and not viewDidLoad because iPhone begins not collapsed
+    override func viewWillAppear(_ animated: Bool) {
         if let splitViewController = self.splitViewController, !splitViewController.isCollapsed {
             let initialIndexPath = IndexPath(row: 0, section: 0)
             self.tableView.selectRow(at: initialIndexPath, animated: true, scrollPosition:UITableViewScrollPosition.none)

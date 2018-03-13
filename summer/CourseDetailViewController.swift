@@ -3,7 +3,6 @@ import Kingfisher
 import Atributika
 
 class CourseDetailViewController: UIViewController {
-    
     @IBOutlet var lecturerImageView: UIImageView!
     @IBOutlet var lecturerNameLabel: UILabel!
     @IBOutlet var courseDescriptionTitleLabel: UILabel!
