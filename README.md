@@ -11,6 +11,9 @@
 ![Events](/../screenshots/Summer2018Events.png?raw=true)
 ![EventsDetail](/../screenshots/Summer2018EventsDetail.png?raw=true)
 
+![TodayiPad](/../screenshots/Summer2018TodayiPad.png?raw=true)
+![EventsiPad](/../screenshots/Summer2018EventsiPad.png?raw=true)
+
 ## Features
 - [x] Course and lecturer details
 - [x] FAQ
@@ -24,7 +27,6 @@
 - [ ] Announcements
 - [ ] Share to social media
 - [ ] [Today extension](https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/Today.html) for lock screen
-- [ ] iPad support
 - [ ] WatchKit
 - [ ] Internationalization and localization
 
