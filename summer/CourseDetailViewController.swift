@@ -6,10 +6,12 @@ class CourseDetailViewController: UIViewController {
     @IBOutlet var lecturerImageView: UIImageView!
     @IBOutlet var lecturerNameLabel: UILabel!
     @IBOutlet var courseDescriptionTitleLabel: UILabel!
-    @IBOutlet var courseDescriptionLabel: UILabel!
     @IBOutlet var courseDateLabel: UILabel!
     @IBOutlet var courseTimeLabel: UILabel!
     @IBOutlet var detailChevronImage: UIImageView!
+    
+    @IBOutlet var stackView: UIStackView!
+    var courseDescription: AttributedLabel?
     
     var course: CourseViewModel! {
         didSet {
@@ -47,7 +49,18 @@ class CourseDetailViewController: UIViewController {
         
         courseDescriptionTitleLabel.text = course.title
         courseDescriptionTitleLabel.textColor = Settings.Color.blue
-        courseDescriptionLabel.attributedText = course.description.toAttributedText().attributedString
+        
+        // the cell can be reused, so don't lay this out more than once
+        if courseDescription == nil {
+            let courseDescriptionBuilder = course.description.toAttributedLabel()
+            courseDescriptionBuilder.textAlignment = NSTextAlignment.natural
+            courseDescriptionBuilder.lineBreakMode = NSLineBreakMode.byWordWrapping
+            courseDescriptionBuilder.numberOfLines = 0
+            
+            courseDescription = courseDescriptionBuilder
+            
+            stackView.addArrangedSubview(courseDescriptionBuilder)
+        }
         
         courseDateLabel.text = course.dates
         courseTimeLabel.text = course.meetingTime
