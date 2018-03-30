@@ -10,6 +10,7 @@ class CourseDetailViewController: UIViewController {
     @IBOutlet var courseTimeLabel: UILabel!
     @IBOutlet var detailChevronImage: UIImageView!
     
+    @IBOutlet var directionsButton: UIButton!
     @IBOutlet var directionsCollectionView: UICollectionView!
     @IBOutlet var stackView: UIStackView!
     var courseDescription: AttributedLabel?
@@ -47,6 +48,11 @@ class CourseDetailViewController: UIViewController {
         
         if !lecturer.hasDetail {
             detailChevronImage.isHidden = true
+        }
+        
+        if let room = room {
+            directionsButton.setTitle(room.title, for: .normal)
+            directionsButton.isHidden = false
         }
         
         courseDescriptionTitleLabel.text = course.title
@@ -87,6 +93,10 @@ class CourseDetailViewController: UIViewController {
         default:
             preconditionFailure("Unexpected segue identifer")
         }
+    }
+    
+    @IBAction func toggleDirections(_ sender: UIButton) {
+        directionsCollectionView.isHidden = !directionsCollectionView.isHidden
     }
 }
 
