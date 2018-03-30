@@ -20,7 +20,7 @@ class RoomViewModel {
             }
         }
         else {
-            title = "TBD"
+            title = "Room TBA"
         }
     }
 }

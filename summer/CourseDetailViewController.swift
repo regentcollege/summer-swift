@@ -53,6 +53,10 @@ class CourseDetailViewController: UIViewController {
         if let room = room {
             directionsButton.setTitle(room.title, for: .normal)
             directionsButton.isHidden = false
+            directionsButton.isEnabled = false
+            if let directionImageUrls = room.directionImageUrls, directionImageUrls.count > 0 {
+                self.directionsButton.isEnabled = true
+            }
         }
         
         courseDescriptionTitleLabel.text = course.title

@@ -169,7 +169,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="182"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Dvf-AI-gSD">
-                                                <rect key="frame" x="8" y="0.0" width="375" height="182"/>
+                                                <rect key="frame" x="8" y="0.0" width="359" height="182"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="MtU-D1-Ukg">
                                                         <rect key="frame" x="0.0" y="0.0" width="359" height="112.5"/>
@@ -239,7 +239,7 @@
                                                         </connections>
                                                     </button>
                                                     <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1l4-RK-Bye" userLabel="Directions Collection View">
-                                                        <rect key="frame" x="0.0" y="182" width="375" height="200"/>
+                                                        <rect key="frame" x="0.0" y="182" width="359" height="200"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="200" id="b8x-XZ-cif"/>
@@ -293,7 +293,6 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Dvf-AI-gSD" firstAttribute="width" secondItem="URN-NB-C8P" secondAttribute="width" id="Jsn-BG-PJA"/>
                                     <constraint firstItem="W4F-51-1U7" firstAttribute="leading" secondItem="URN-NB-C8P" secondAttribute="leading" id="Zoh-hu-J64"/>
                                     <constraint firstItem="W4F-51-1U7" firstAttribute="top" secondItem="URN-NB-C8P" secondAttribute="top" id="iRQ-6R-MZ9"/>
                                     <constraint firstItem="W4F-51-1U7" firstAttribute="width" secondItem="URN-NB-C8P" secondAttribute="width" id="pIm-IE-ZQ6"/>
