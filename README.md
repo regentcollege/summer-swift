@@ -21,9 +21,9 @@
 - [x] What's happening today
 - [x] Multiple sessions per event/course
 - [x] Add events to calendar
+- [ ] Directions
 - [x] Search and filter events
 - [ ] Search and filter courses
-- [ ] Directions
 - [ ] Announcements
 - [ ] Share to social media
 - [ ] [Today extension](https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/Today.html) for lock screen
@@ -45,7 +45,6 @@
 
 > "Isolate complexity" - Steve McConnell, *Code Complete*
 
-Here is how this project isolates complexity:
 - **Model**: Data, including the means to instantiate from source; in this case it is Firestore NSDictionary.
 - **ViewModel**: Data formed for specific view purposes. Only show data from the model that the view actually needs. Combine and massage fields with presentation logic.
 - **DocumentStore** (aka repository): Data CRUD (create, read, update, delete). This service is injected into the ViewControllers, sets them as its delegate, and tells them when it has updates with documentsDidUpdate().
