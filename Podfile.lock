@@ -1,6 +1,6 @@
 PODS:
   - AFDateHelper (4.2.7)
-  - Atributika (4.3.1)
+  - Atributika (4.4.0)
   - BoringSSL (10.0):
     - BoringSSL/Implementation (= 10.0)
     - BoringSSL/Interface (= 10.0)
@@ -9,34 +9,34 @@ PODS:
   - BoringSSL/Interface (10.0)
   - Crashlytics (3.9.3):
     - Fabric (~> 1.7.2)
-  - Fabric (1.7.5)
-  - Firebase/Auth (4.10.1):
+  - Fabric (1.7.6)
+  - Firebase/Auth (4.11.0):
     - Firebase/Core
-    - FirebaseAuth (= 4.4.4)
-  - Firebase/Core (4.10.1):
+    - FirebaseAuth (= 4.5.0)
+  - Firebase/Core (4.11.0):
     - FirebaseAnalytics (= 4.1.0)
-    - FirebaseCore (= 4.0.17)
-  - Firebase/Firestore (4.10.1):
+    - FirebaseCore (= 4.0.18)
+  - Firebase/Firestore (4.11.0):
     - Firebase/Core
-    - FirebaseFirestore (= 0.10.3)
+    - FirebaseFirestore (= 0.10.4)
   - FirebaseAnalytics (4.1.0):
     - FirebaseCore (~> 4.0)
     - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
     - nanopb (~> 0.3)
-  - FirebaseAuth (4.4.4):
+  - FirebaseAuth (4.5.0):
     - FirebaseAnalytics (~> 4.1)
     - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
     - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseCore (4.0.17):
+  - FirebaseCore (4.0.18):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseFirestore (0.10.3):
+  - FirebaseFirestore (0.10.4):
     - FirebaseAnalytics (~> 4.1)
     - FirebaseCore (~> 4.0)
     - gRPC-ProtoRPC (~> 1.0)
     - leveldb-library (~> 1.18)
     - Protobuf (~> 3.5)
-  - FirebaseInstanceID (2.0.9):
+  - FirebaseInstanceID (2.0.10):
     - FirebaseCore (~> 4.0)
   - GoogleToolboxForMac/DebugUtils (2.1.3):
     - GoogleToolboxForMac/Defines (= 2.1.3)
@@ -68,9 +68,9 @@ PODS:
     - gRPC-Core (= 1.10.0)
     - gRPC-RxLibrary (= 1.10.0)
   - GTMSessionFetcher/Core (1.1.14)
-  - Kingfisher (4.6.3)
+  - Kingfisher (4.6.4)
   - leveldb-library (1.20)
-  - ModelMapper (7.4.1)
+  - ModelMapper (8.0.0)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
@@ -81,7 +81,7 @@ PODS:
   - Swinject (2.1.1)
   - SwinjectStoryboard (1.1.2):
     - Swinject (~> 2.1)
-  - SwipeCellKit (2.0.1)
+  - SwipeCellKit (2.1.0)
 
 DEPENDENCIES:
   - AFDateHelper
@@ -100,31 +100,31 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFDateHelper: 4ad66fb19503041fbba8a3018cb7ef9c71b2ff88
-  Atributika: 87c2d3c0a9ccbab343b43d65ccf1f164f7a9570c
+  Atributika: cde9fabe77d08a1c26a81c0e52967dbe6610d605
   BoringSSL: 32764dbaf5f5888cf51fbaa172a010126b41bcd4
   Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
-  Fabric: ae7146a5f505ea370a1e44820b4b1dc8890e2890
-  Firebase: 92c6ba593e32db0defde464a9adc981d5cb49f97
+  Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
+  Firebase: cc13dfab1038c8b45d7903e01fc690451d6d0b24
   FirebaseAnalytics: 3dfae28d4a5e06f86c4fae830efc2ad3fadb19bc
-  FirebaseAuth: d040bb7a9db6dfc29d0e7ec82d48be51352b2581
-  FirebaseCore: 872307b001bbefda1dfa0dbfffa50a6919023d4a
-  FirebaseFirestore: 41d1ec1f37963b63f8bbbcdb94d8545d4c6c1b42
-  FirebaseInstanceID: d2058a35e9bebda1b6dd42486b84917bde552a9d
+  FirebaseAuth: 147bf340a0706b44ca1753d6b41ebafd9687cfe6
+  FirebaseCore: b981f47e5254cbcfdeb483355300d743f6fcab2c
+  FirebaseFirestore: 796df79c29cf8ecf806564f4d347665bdafa6ef0
+  FirebaseInstanceID: 8d20d890d65c917f9f7d9950b6e10a760ad34321
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   gRPC: f54f0e6d603052b4562447da442ce2ff30bcdacc
   gRPC-Core: a030b1678ded49c88ec5ba7c90ee8ee5f47ec6e1
   gRPC-ProtoRPC: 22712b23eb1bda656a59715fa5c1da0ea1493ea4
   gRPC-RxLibrary: a41a4652d220f230ba1c0491a94ce2ee04c6180a
   GTMSessionFetcher: 390ea358e5a0d0133153806f744662dad933d06b
-  Kingfisher: 98e6d5b5e807645743e8ed5ececd25d688d38452
+  Kingfisher: 68498a706e46c2a050b0c9572f100e5db407f6e0
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
-  ModelMapper: e576b4e32007bf574d0f9e4f533d29c46d29f146
+  ModelMapper: a258c5f8e1422e0e826c8265a3e89ae1b329c3a6
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   PlayerKit: a1fd44e0d2277ac5e2e6cb1fae38e86c872abb5b
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   Swinject: afea49fd95f392b41171669f165842879c48fad6
   SwinjectStoryboard: 92e75763c3299cdf627bef98a5180dc894864336
-  SwipeCellKit: 76888d93d1843dc568fdf38fff21b15dbbcf6b28
+  SwipeCellKit: 80bdb188166484d8a0d813d9fd7748ad33181815
 
 PODFILE CHECKSUM: 9e4d933e4e797ef44c3b4566e9c8b7cdefab48e8
 

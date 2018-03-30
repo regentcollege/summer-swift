@@ -9,6 +9,8 @@ class CourseViewModel {
     var startDate: Date?
     var endDate: Date?
     var meetingTime: String
+    var room: String?
+    var roomId: String?
     
     init(course: Course?) {
         if let course = course {
@@ -26,6 +28,13 @@ class CourseViewModel {
                 self.season = Seasons.Spring
             }
             self.lecturerId = course.lecturerId
+            
+            if let room = course.room {
+                self.room = room
+            }
+            if let roomId = course.roomId {
+                self.roomId = roomId
+            }
             
             self.startDate = course.startDate
             self.endDate = course.endDate

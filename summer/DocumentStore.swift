@@ -12,6 +12,7 @@ class DocumentStore {
     private var lecturers = [Lecturer]()
     private var events = [Event]()
     private var eventSchedule = [String: [EventSchedule]]()
+    private var rooms = [Room]()
     var delegate: DocumentStoreDelegate?
     
     init() {
@@ -81,6 +82,13 @@ class DocumentStore {
             return LecturerViewModel(lecturer: lecturer)
         }
         return LecturerViewModel(lecturer: nil)
+    }
+    
+    func getRoomBy(id: String?) -> RoomViewModel {
+        if let id = id, let room = rooms.first(where: { $0.id == id }) {
+            return RoomViewModel(room: room)
+        }
+        return RoomViewModel(room: nil)
     }
     
     private func sort(events: [Event]) -> [Event] {
@@ -223,6 +231,25 @@ class DocumentStore {
                 })
                 
                 self.prefetchImageUrls(urls: self.lecturers.map { $0.imageUrl! })
+                
+                self.delegate?.documentsDidUpdate()
+            }
+        }
+        db.collection("rooms").getDocuments() {
+            querySnapshot, error in
+            if let error = error {
+                print("\(error.localizedDescription)")
+            } else {
+                self.rooms = querySnapshot!.documents.flatMap({
+                    var roomDictionary = $0.data()
+                    roomDictionary["id"] = $0.documentID
+                    guard let room = Room.from(roomDictionary as NSDictionary) else {
+                        return nil
+                    }
+                    return room
+                })
+                
+                // could prefetch direction images
                 
                 self.delegate?.documentsDidUpdate()
             }
@@ -370,6 +397,50 @@ class DocumentStore {
                     if let lecturer = Lecturer.from(lecturerDictionary as NSDictionary) {
                         if let updatedLecturerIndex = self.lecturers.index(where: { $0.id == lecturer.id }) {
                             self.lecturers.remove(at: updatedLecturerIndex)
+                            self.delegate?.documentsDidUpdate()
+                        }
+                    }
+                }
+            }
+        }
+        db.collection("rooms").addSnapshotListener {
+            querySnapshot, error in
+            
+            guard let snapshot = querySnapshot else { return }
+            
+            snapshot.documentChanges.forEach {
+                diff in
+                
+                //TODO DRY depending on how similar the added, modified, and removed response are
+                switch diff.type {
+                case .added:
+                    var roomDictionary = diff.document.data()
+                    roomDictionary["id"] = diff.document.documentID
+                    if let room = Room.from(roomDictionary as NSDictionary) {
+                        if self.rooms.first(where: { $0.id == room.id }) != nil {
+                            return
+                        }
+                        self.rooms.append(room)
+                        self.delegate?.documentsDidUpdate()
+                    }
+                case .modified:
+                    var roomDictionary = diff.document.data()
+                    roomDictionary["id"] = diff.document.documentID
+                    if let room = Room.from(roomDictionary as NSDictionary) {
+                        if let updatedRoomIndex = self.rooms.index(where: { $0.id == room.id }) {
+                            self.rooms[updatedRoomIndex] = room
+                        }
+                        else {
+                            self.rooms.append(room)
+                        }
+                        self.delegate?.documentsDidUpdate()
+                    }
+                case .removed:
+                    var roomDictionary = diff.document.data()
+                    roomDictionary["id"] = diff.document.documentID
+                    if let room = Room.from(roomDictionary as NSDictionary) {
+                        if let updatedRoomIndex = self.rooms.index(where: { $0.id == room.id }) {
+                            self.rooms.remove(at: updatedRoomIndex)
                             self.delegate?.documentsDidUpdate()
                         }
                     }

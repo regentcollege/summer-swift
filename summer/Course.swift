@@ -15,6 +15,7 @@ struct Course: Mappable {
     let creditHours: String?
     let meetingTime: String?
     let room: String?
+    let roomId: String?
     let term: String?
     let reportingTerm: String?
     let season: Seasons?
@@ -33,6 +34,7 @@ struct Course: Mappable {
         creditHours = map.optionalFrom("creditHours")
         meetingTime = map.optionalFrom("meetingTime")
         room = map.optionalFrom("room")
+        roomId = map.optionalFrom("roomId")
         term = map.optionalFrom("term")
         reportingTerm = map.optionalFrom("reportingTerm")
         season = map.optionalFrom("season")

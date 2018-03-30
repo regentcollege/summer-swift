@@ -10,6 +10,7 @@ class CourseDetailViewController: UIViewController {
     @IBOutlet var courseTimeLabel: UILabel!
     @IBOutlet var detailChevronImage: UIImageView!
     
+    @IBOutlet var directionsCollectionView: UICollectionView!
     @IBOutlet var stackView: UIStackView!
     var courseDescription: AttributedLabel?
     
@@ -19,6 +20,7 @@ class CourseDetailViewController: UIViewController {
         }
     }
     var lecturer: LecturerViewModel!
+    var room: RoomViewModel?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -86,4 +88,27 @@ class CourseDetailViewController: UIViewController {
             preconditionFailure("Unexpected segue identifer")
         }
     }
+}
+
+extension CourseDetailViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if let room = room, let directionImageUrls = room.directionImageUrls {
+            return directionImageUrls.count
+        }
+        
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = directionsCollectionView.dequeueReusableCell(withReuseIdentifier: "DirectionCell", for: indexPath) as? DirectionCell, let room = room, let directionImageUrls = room.directionImageUrls {
+            cell.configureWith(directionImageUrl: directionImageUrls[indexPath.row])
+            return cell
+        }
+        
+        return UICollectionViewCell()
+    }    
+}
+
+extension CourseDetailViewController: UICollectionViewDelegate {
+    
 }

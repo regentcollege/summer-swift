@@ -69,6 +69,7 @@ class CoursesViewController: UIViewController, DocumentStoreDelegate {
                 let course = coursesBySegment[row]
                 courseDetailViewController.course = course
                 courseDetailViewController.lecturer = documentStore.getLecturerBy(id: course.lecturerId)
+                courseDetailViewController.room = documentStore.getRoomBy(id: course.roomId)
             }
         default:
             preconditionFailure("Unexpected segue identifer")
