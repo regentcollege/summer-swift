@@ -55,7 +55,7 @@ Here is how this project isolates complexity:
 ## Requirements
 
 - iOS 10.3+
-- Xcode 9
+- Xcode 9.3
 
 ## Installation
 
