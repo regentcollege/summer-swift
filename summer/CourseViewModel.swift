@@ -1,6 +1,7 @@
 import Foundation
 
 class CourseViewModel {
+    let name: String
     let title: String
     let description: String
     let season: Seasons
@@ -14,6 +15,7 @@ class CourseViewModel {
     
     init(course: Course?) {
         if let course = course {
+            self.name = course.name
             self.title = course.title
             if let description = course.description {
                 self.description = description
@@ -53,6 +55,7 @@ class CourseViewModel {
             }
         }
         else {
+            self.name = "TBD"
             self.title = "TBD"
             self.description = "Stay tuned!"
             self.dates = "Dates TBD"

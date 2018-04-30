@@ -23,6 +23,16 @@ class CourseDetailViewController: UIViewController {
     var lecturer: LecturerViewModel!
     var room: RoomViewModel?
     
+    override func viewDidLoad() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(share(sender:)))
+    }
+    
+    @objc func share(sender:UIView){
+        let content = URL(string: "courses/course-details?course_id=" + course.name, relativeTo: Settings.Url.baseURL)!
+        let activityViewController = UIActivityViewController(activityItems: [content], applicationActivities: nil)
+        present(activityViewController, animated: true, completion: {})
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         

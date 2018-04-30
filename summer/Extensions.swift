@@ -2,6 +2,7 @@ import UIKit
 import Mapper
 import AFDateHelper
 import Atributika
+import Firebase
 
 // https://gist.github.com/arshad/de147c42d7b3063ef7bc
 extension String {
@@ -71,8 +72,8 @@ extension String {
 // Mapper does not have String to Date OOB
 extension Mappable {
     func extractDate(object: Any?) throws -> Date {
-        if let date = object as? Date {
-            return date
+        if let timestamp = object as? Timestamp {
+            return timestamp.dateValue()
         }
         if let dateString = object as? String,
             !dateString.isEmpty,

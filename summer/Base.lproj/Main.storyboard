@@ -245,20 +245,20 @@
                                                             <constraint firstAttribute="height" constant="200" id="b8x-XZ-cif"/>
                                                         </constraints>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xXa-hU-mKm">
-                                                            <size key="itemSize" width="200" height="200"/>
+                                                            <size key="itemSize" width="300" height="200"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="DirectionCell" id="zOW-kL-wR0" userLabel="Direction Cell" customClass="DirectionCell" customModule="summer" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ufY-Xw-8vR" userLabel="Direction Image"/>
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ufY-Xw-8vR" userLabel="Direction Image"/>
                                                                     </subviews>
                                                                 </view>
                                                                 <constraints>
@@ -927,27 +927,36 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                             <outlet property="stackView" destination="qR6-R6-Wwi" id="eeq-bZ-sI4"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventScheduleCell" rowHeight="74" id="23o-8z-jRL" customClass="EventScheduleCell" customModule="summer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="241" width="375" height="74"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventScheduleCell" rowHeight="105" id="23o-8z-jRL" customClass="EventScheduleCell" customModule="summer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="241" width="375" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="23o-8z-jRL" id="GCw-fh-Ui1">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="73.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="104.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HYA-Ch-xsd">
-                                                    <rect key="frame" x="0.0" y="10" width="375" height="53.5"/>
+                                                    <rect key="frame" x="0.0" y="10" width="375" height="84.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="eventScheduleTitleLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlR-Ri-aDc">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="34.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="23.5"/>
                                                             <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eventScheduleSubtitleLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWT-Jj-oXU">
+                                                            <rect key="frame" x="0.0" y="23.5" width="375" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                                            <color key="textColor" red="0.40784313729999999" green="0.40784313729999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eventScheduleSpeakerLabel" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="je2-Oq-3a9">
+                                                            <rect key="frame" x="0.0" y="44" width="375" height="20.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                            <color key="textColor" red="0.40784313729999999" green="0.40784313729999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eventScheduleDateLabel" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3u-TY-kWl">
-                                                            <rect key="frame" x="0.0" y="34.5" width="375" height="19"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="19" id="2Ov-FM-Qw4"/>
-                                                            </constraints>
+                                                            <rect key="frame" x="0.0" y="64.5" width="375" height="20"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                             <color key="textColor" red="0.40784313729999999" green="0.40784313729999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -962,8 +971,13 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                                 <constraint firstItem="HYA-Ch-xsd" firstAttribute="top" secondItem="GCw-fh-Ui1" secondAttribute="top" constant="10" id="H26-3d-816"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="HYA-Ch-xsd" firstAttribute="width" secondItem="23o-8z-jRL" secondAttribute="width" id="RGR-65-QE1"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="eventScheduleDateLabel" destination="N3u-TY-kWl" id="vSX-Oz-VgC"/>
+                                            <outlet property="eventScheduleSpeakerLabel" destination="je2-Oq-3a9" id="kt3-3d-cBs"/>
+                                            <outlet property="eventScheduleSubtitleLabel" destination="uWT-Jj-oXU" id="FfL-kE-Nbi"/>
                                             <outlet property="eventScheduleTitleLabel" destination="dlR-Ri-aDc" id="paK-IM-gxL"/>
                                         </connections>
                                     </tableViewCell>
@@ -1264,6 +1278,60 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                             <segue destination="iz8-Ei-2x0" kind="showDetail" identifier="showEvent" trigger="accessoryAction" id="J2X-6V-7Uv"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventScheduleCell" rowHeight="105" id="grF-8i-Bkf" customClass="EventScheduleCell" customModule="summer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="757" width="375" height="105"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="grF-8i-Bkf" id="fJ0-SI-10W">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="104.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rRM-YO-mFY">
+                                                    <rect key="frame" x="0.0" y="10" width="375" height="84.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="eventScheduleTitleLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4l-by-FRI">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="23.5"/>
+                                                            <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eventScheduleSubtitleLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKO-Hk-MY2">
+                                                            <rect key="frame" x="0.0" y="23.5" width="375" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                                            <color key="textColor" red="0.40784313729999999" green="0.40784313729999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eventScheduleSpeakerLabel" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aqd-Ba-Ygf">
+                                                            <rect key="frame" x="0.0" y="44" width="375" height="20.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                            <color key="textColor" red="0.40784313729999999" green="0.40784313729999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eventScheduleDateLabel" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0F-Zd-dwJ">
+                                                            <rect key="frame" x="0.0" y="64.5" width="375" height="20"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                            <color key="textColor" red="0.40784313729999999" green="0.40784313729999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="rRM-YO-mFY" secondAttribute="bottom" constant="10" id="6CT-Wx-fOa"/>
+                                                <constraint firstAttribute="trailing" secondItem="rRM-YO-mFY" secondAttribute="trailing" id="V7G-yY-M6I"/>
+                                                <constraint firstItem="rRM-YO-mFY" firstAttribute="leading" secondItem="fJ0-SI-10W" secondAttribute="leading" id="X3O-1f-Ehk"/>
+                                                <constraint firstItem="rRM-YO-mFY" firstAttribute="top" secondItem="fJ0-SI-10W" secondAttribute="top" constant="10" id="Zze-ap-ZbO"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="rRM-YO-mFY" firstAttribute="width" secondItem="grF-8i-Bkf" secondAttribute="width" id="oPL-NU-SFI"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="eventScheduleDateLabel" destination="a0F-Zd-dwJ" id="dvf-UW-YHc"/>
+                                            <outlet property="eventScheduleSpeakerLabel" destination="Aqd-Ba-Ygf" id="hQt-dk-Z3N"/>
+                                            <outlet property="eventScheduleSubtitleLabel" destination="vKO-Hk-MY2" id="Vum-dq-V47"/>
+                                            <outlet property="eventScheduleTitleLabel" destination="x4l-by-FRI" id="e42-nm-4OG"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
@@ -1455,7 +1523,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
         <image name="userVoice" width="194" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="siY-cu-I8T"/>
+        <segue reference="J2X-6V-7Uv"/>
         <segue reference="q0f-dx-IGf"/>
         <segue reference="Feh-8Y-KsY"/>
     </inferredMetricsTieBreakers>

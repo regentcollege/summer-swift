@@ -45,15 +45,15 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
         var eventIndexToShow = IndexPath(row: 0, section: 0)
         var sectionPosition = 0
         for events in eventsWithSections {
-            sectionPosition += 1
             if let startDate = Date(fromString: events.key, format: .isoDate) {
-            if(Date().compare(.isLater(than: startDate))) {
+            if(Settings.currentDate.compare(.isSameDay(as: startDate)) || Settings.currentDate.compare(.isLater(than: startDate))) {
                 eventIndexToShow = IndexPath(row: 0, section: sectionPosition)
                 break
                 }
             }
+            sectionPosition += 1
         }
-        self.tableView.scrollToRow(at: eventIndexToShow, at: .middle, animated: false)
+        self.tableView.scrollToRow(at: eventIndexToShow, at: .top, animated: false)
         
         self.tableView.selectRow(at: eventIndexToShow, animated: true, scrollPosition:UITableViewScrollPosition.none)
         

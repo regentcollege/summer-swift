@@ -4,6 +4,8 @@ import AFDateHelper
 class EventScheduleViewModel {
     var id: String
     let title: String
+    var subtitle: String?
+    var speaker: String?
     var dateDescription: String?
     
     @objc var start: Date?
@@ -13,6 +15,8 @@ class EventScheduleViewModel {
         if let schedule = schedule {
             self.id = schedule.id
             self.title = schedule.title
+            self.subtitle = schedule.subtitle
+            self.speaker = schedule.speaker
             if let start = schedule.start, let end = schedule.end {
                 self.start = start
                 self.end = end

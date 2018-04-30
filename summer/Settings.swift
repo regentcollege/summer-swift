@@ -3,7 +3,7 @@ import Atributika
 
 class Settings {
     struct Url {
-        static let baseURL = NSURL(string: "https://www.regent-college.edu/summer")!
+        static let baseURL = URL(string: "https://www.regent-college.edu/summer")!
     }
 
     struct Font {
@@ -39,4 +39,6 @@ class Settings {
         static let blue = "00b3d4".hexColor
         static let purple = "64006b".hexColor
     }
+    
+    static var currentDate = Date()
 }

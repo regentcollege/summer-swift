@@ -15,9 +15,15 @@ class DocumentStore {
     private var rooms = [Room]()
     var delegate: DocumentStoreDelegate?
     
+    var hasLoadedEvents = false
+    
     init() {
         FirebaseApp.configure()
         db = Firestore.firestore()
+        
+        let settings = db.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        db.settings = settings
         
         loadData()
         checkForUpdates()
@@ -32,6 +38,16 @@ class DocumentStore {
             return nil
         }
         return schedule.map { EventScheduleViewModel(schedule: $0, showTimeOnly: showTimeOnly) }
+    }
+    
+    func getEventScheduleHappening(now: Date, id: String, showTimeOnly: Bool = false) -> [EventScheduleViewModel]? {
+        guard let schedule = eventSchedule[id] else {
+            return nil
+        }
+        
+        return schedule.filter { $0.start!.compare(.isSameDay(as: now)) ||
+            $0.end!.compare(.isSameDay(as: now)) ||
+            $0.start!.compare(.isEarlier(than: now)) && $0.end!.compare(.isLater(than: now)) }.map { EventScheduleViewModel(schedule: $0, showTimeOnly: showTimeOnly) }
     }
     
     func getEventsHappening(now: Date) -> [EventViewModel] {
@@ -119,7 +135,7 @@ class DocumentStore {
                 print("\(error.localizedDescription)")
             } else {
                 self.eventSchedule[id] = [EventSchedule]()
-                self.eventSchedule[id] = self.sort(eventSchedules: querySnapshot!.documents.flatMap({
+                self.eventSchedule[id] = self.sort(eventSchedules: querySnapshot!.documents.compactMap({
                     var scheduleDictionary = $0.data()
                     scheduleDictionary["id"] = $0.documentID
                     guard let schedule = EventSchedule.from(scheduleDictionary as NSDictionary) else {
@@ -180,22 +196,47 @@ class DocumentStore {
     }
     
     private func loadData() {
+        db.collection("meta").document("settings").getDocument { (document, error) in
+            if let document = document, document.exists, let data = document.data() {
+                Settings.currentDate = Date()
+                
+                if let currentTimestamp = data["currentDate"] as? Timestamp {
+                    Settings.currentDate = currentTimestamp.dateValue()
+                }
+                if let dateString = data["currentDate"] as? String,
+                    !dateString.isEmpty,
+                    let extractedDate = Date(fromString: dateString, format: .isoDate)
+                {
+                    Settings.currentDate = extractedDate
+                }
+                
+                self.delegate?.documentsDidUpdate()
+            } else {
+                print("No settings")
+            }
+        }
         db.collection("events").getDocuments() {
             querySnapshot, error in
             if let error = error {
                 print("\(error.localizedDescription)")
             } else {
-                self.events = self.sort(events: querySnapshot!.documents.flatMap({
+                self.events = self.sort(events: querySnapshot!.documents.compactMap({
                     var eventDictionary = $0.data()
                     eventDictionary["id"] = $0.documentID
                     guard let event = Event.from(eventDictionary as NSDictionary) else {
                         return nil
                     }
                     
+                    // this async load will fire delegate updates on each event
+                    // this is overkill as we don't need all the schedules immediately
+                    self.loadEventScheduleBy(id: event.id)
+                    
                     return event
                 }))
                 
                 self.prefetchImageUrls(urls: self.events.filter({ $0.imageUrl != nil }).map({ $0.imageUrl! }))
+                
+                self.hasLoadedEvents = true
                 
                 self.delegate?.documentsDidUpdate()
             }
@@ -205,7 +246,7 @@ class DocumentStore {
             if let error = error {
                 print("\(error.localizedDescription)")
             } else {
-                self.courses = self.sort(courses: querySnapshot!.documents.flatMap({
+                self.courses = self.sort(courses: querySnapshot!.documents.compactMap({
                     var courseDictionary = $0.data()
                     courseDictionary["id"] = $0.documentID
                     guard let course = Course.from(courseDictionary as NSDictionary) else {
@@ -221,7 +262,7 @@ class DocumentStore {
             if let error = error {
                 print("\(error.localizedDescription)")
             } else {
-                self.lecturers = querySnapshot!.documents.flatMap({
+                self.lecturers = querySnapshot!.documents.compactMap({
                     var lecturerDictionary = $0.data()
                     lecturerDictionary["id"] = $0.documentID
                     guard let lecturer = Lecturer.from(lecturerDictionary as NSDictionary) else {
@@ -240,7 +281,7 @@ class DocumentStore {
             if let error = error {
                 print("\(error.localizedDescription)")
             } else {
-                self.rooms = querySnapshot!.documents.flatMap({
+                self.rooms = querySnapshot!.documents.compactMap({
                     var roomDictionary = $0.data()
                     roomDictionary["id"] = $0.documentID
                     guard let room = Room.from(roomDictionary as NSDictionary) else {
@@ -265,6 +306,27 @@ class DocumentStore {
     }
     
     private func checkForUpdates() {
+        db.collection("meta").document("settings")
+            .addSnapshotListener { documentSnapshot, error in
+                guard let document = documentSnapshot, let data = document.data() else {
+                    print("Error fetching document: \(error!)")
+                    return
+                }
+                
+                Settings.currentDate = Date()
+                
+                if let currentDate = data["currentDate"] as? Date {
+                    Settings.currentDate = currentDate
+                }
+                if let dateString = data["currentDate"] as? String,
+                    !dateString.isEmpty,
+                    let extractedDate = Date(fromString: dateString, format: .isoDate)
+                {
+                    Settings.currentDate = extractedDate
+                }
+                
+                self.delegate?.documentsDidUpdate()
+        }
         db.collection("events").addSnapshotListener {
             querySnapshot, error in
             

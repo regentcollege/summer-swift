@@ -1,21 +1,27 @@
 import UIKit
 import AFDateHelper
+import SwipeCellKit
+import EventKit
 
-class TodayViewController: UIViewController, DocumentStoreDelegate {
+class TodayViewController: UIViewController, DocumentStoreDelegate, EventCellDelegate {
     @IBOutlet var tableView: UITableView!
     
     var documentStore: DocumentStore!
     
     var eventsForToday: [EventViewModel] {
-        return documentStore.getEventsHappening(now: Date())
+        return documentStore.getEventsHappening(now: Settings.currentDate)
     }
     
     var nextEvent: EventViewModel? {
-        return documentStore.getNextEvent(from: Date())
+        return documentStore.getNextEvent(from: Settings.currentDate)
     }
     
     var nextCourse: CourseViewModel? {
-        return documentStore.getNextCourse(from: Date())
+        return documentStore.getNextCourse(from: Settings.currentDate)
+    }
+    
+    func getScheduleFor(event: EventViewModel) -> [EventScheduleViewModel]? {
+        return documentStore.getEventScheduleHappening(now: Settings.currentDate, id: event.id, showTimeOnly: true)
     }
     
     override func viewDidLoad() {
@@ -36,11 +42,11 @@ class TodayViewController: UIViewController, DocumentStoreDelegate {
             self.automaticallyAdjustsScrollViewInsets = false
         }
         
-        if eventsForToday.count == 0 {
-            self.tableView.backgroundColor = UIColor.black
-            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-            self.tableView.isScrollEnabled = false
-        }
+        styleTable()
+    }
+    
+    func reloadTableForEventCellChange() {
+        tableView.reloadData()
     }
     
     // provide the initial detail view for iPad
@@ -60,6 +66,22 @@ class TodayViewController: UIViewController, DocumentStoreDelegate {
     func documentsDidUpdate() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            
+            self.styleTable()
+        }
+    }
+    
+    func styleTable() {
+        if documentStore.hasLoadedEvents && eventsForToday.count == 0 {
+            self.tableView.backgroundColor = UIColor.black
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+            self.tableView.isScrollEnabled = false
+        }
+        else {
+            self.tableView.backgroundColor = UIColor.white
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
+            self.tableView.isScrollEnabled = true
+            self.tableView.tableFooterView = UIView()
         }
     }
     
@@ -70,10 +92,13 @@ class TodayViewController: UIViewController, DocumentStoreDelegate {
                 promoDetailViewController.teaserTrailer = createTeaserTrailer(nextEvent: nextEvent, nextCourse: nextCourse)
             }
         case "showEvent"?:
-            if let row = tableView.indexPathForSelectedRow?.row,
+            // eventdetail will steal the documentstore delegate
+            // if meaningful updates to the todayview are needed you'll
+            // have to reload its table on every appear
+            if let section = tableView.indexPathForSelectedRow?.section,
                 let navViewController = segue.destination as? UINavigationController,
                 let eventDetailViewController = navViewController.topViewController as? EventDetailViewController {
-                let event = eventsForToday[row]
+                let event = eventsForToday[section]
                 eventDetailViewController.event = event
                 eventDetailViewController.lecturer = documentStore.getLecturerBy(id: event.lecturerId)
             }
@@ -85,7 +110,7 @@ class TodayViewController: UIViewController, DocumentStoreDelegate {
     func createTeaserTrailer(nextEvent: EventViewModel?, nextCourse: CourseViewModel?) -> String {
         var teaserTrailer = String()
         if let event = nextEvent, let eventStartDate = event.startDate {
-            let daysUntilNextEvent = eventStartDate.since(Date(), in: .day)
+            let daysUntilNextEvent = eventStartDate.since(Settings.currentDate, in: .day)
             if daysUntilNextEvent <= 1 {
                 teaserTrailer = "Our next event starts tomorrow"
             }
@@ -96,14 +121,14 @@ class TodayViewController: UIViewController, DocumentStoreDelegate {
                 teaserTrailer = "One week until our next event"
             }
             else {
-                teaserTrailer = "\(eventStartDate.since(Date(), in: .week)) weeks until our next event"
+                teaserTrailer = "\(eventStartDate.since(Settings.currentDate, in: .week)) weeks until our next event"
             }
         }
         if teaserTrailer != "" {
             teaserTrailer += "\n"
         }
         if let course = nextCourse, let courseStartDate = course.startDate {
-            let daysUntilNextCourse = courseStartDate.since(Date(), in: .day)
+            let daysUntilNextCourse = courseStartDate.since(Settings.currentDate, in: .day)
             if daysUntilNextCourse <= 1 {
                 teaserTrailer += "Our next course starts tomorrow"
             }
@@ -114,7 +139,7 @@ class TodayViewController: UIViewController, DocumentStoreDelegate {
                 teaserTrailer += "One week until our next course"
             }
             else {
-                teaserTrailer += "\(courseStartDate.since(Date(), in: .week)) weeks until our next course"
+                teaserTrailer += "\(courseStartDate.since(Settings.currentDate, in: .week)) weeks until our next course"
             }
         }
         return teaserTrailer
@@ -124,10 +149,28 @@ class TodayViewController: UIViewController, DocumentStoreDelegate {
 // MARK: - UITableViewDataSource
 extension TodayViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if !documentStore.hasLoadedEvents {
+            return 0
+        }
+        
+        if eventsForToday.count == 0 {
+            return 1
+        }
+
+        // the event description is at least the first cell
+        guard let schedule = getScheduleFor(event: eventsForToday[section]), schedule.count > 0 else {
+            return 1
+        }
+        
+        return schedule.count + 1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         if eventsForToday.count == 0 {
             return 1
         }
         
+        // todo: must count the number of events with schedule today
         return eventsForToday.count
     }
     
@@ -140,14 +183,38 @@ extension TodayViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as? EventCell {
-            let event = eventsForToday[indexPath.row]
+        if indexPath.row == 0 {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as? EventCell {
+                let event = eventsForToday[indexPath.section]
+                
+                cell.configureWith(event: event, lecturer: documentStore.getLecturerBy(id: event.lecturerId))
+                return cell
+            }
+        }
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "EventScheduleCell", for: indexPath) as? EventScheduleCell, let schedule = getScheduleFor(event: eventsForToday[0]) {
             
-            cell.configureWith(event: event, lecturer: documentStore.getLecturerBy(id: event.lecturerId))
+            let scheduleForCell = schedule[indexPath.row - 1]
+            cell.configureWith(schedule: scheduleForCell)
+            cell.delegate = self
             return cell
         }
         
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if eventsForToday.count == 0 || indexPath.row != 0 {
+            return nil
+        }
+        return indexPath
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
+        var options = SwipeTableOptions()
+        options.expansionStyle = .selection
+        options.transitionStyle = .border
+        return options
     }
 }
 
@@ -157,9 +224,58 @@ extension TodayViewController: UITableViewDelegate {
         if eventsForToday.count == 0 {
             performSegue(withIdentifier: "showPromoDetail", sender: TodayViewController())
         }
-        else {
+        else if indexPath.row == 0 {
             performSegue(withIdentifier: "showEvent", sender: EventsViewController())
         }
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+// todo: this is a straight copy from EventDetailViewController. DRY ASAP.
+// MARK: - SwipeTableViewCellDelegate
+extension TodayViewController: SwipeTableViewCellDelegate {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+        
+        let calendarAction = SwipeAction(style: .default, title: "Add to Calendar") { action, indexPath in
+            let eventStore = EKEventStore()
+            
+            eventStore.requestAccess( to: EKEntityType.event, completion:{(granted, error) in
+                if granted && error == nil, let eventCalendar = eventStore.defaultCalendarForNewEvents {
+                    let alert = UIAlertController(title: "Confirm", message: "Add to your default calendar " + eventCalendar.title + "?", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
+                        return
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                    
+                    let eventToAdd = EKEvent(eventStore: eventStore)
+                    
+                    let scheduleForCell = self.getScheduleFor(event: self.eventsForToday[0])![indexPath.row]
+                    
+                    eventToAdd.title = self.eventsForToday[0].title + " " + scheduleForCell.title
+                    eventToAdd.startDate = scheduleForCell.start
+                    eventToAdd.endDate = scheduleForCell.end
+                    eventToAdd.calendar = eventStore.defaultCalendarForNewEvents
+                    
+                    do {
+                        try eventStore.save(eventToAdd, span: .thisEvent)
+                        let alert = UIAlertController(title: "Added", message: "Added to your default calendar for new events: " + eventToAdd.calendar.title, preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    catch let error as NSError {
+                        print("json error: \(error.localizedDescription)")
+                    }
+                }
+            })
+        }
+        
+        calendarAction.backgroundColor = Settings.Color.blue
+        
+        var options = SwipeTableOptions()
+        options.expansionStyle = .selection
+        
+        return [calendarAction]
     }
 }
