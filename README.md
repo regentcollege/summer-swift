@@ -21,7 +21,7 @@
 - [x] What's happening today
 - [x] Multiple sessions per event/course
 - [x] Add events to calendar
-- [ ] Directions
+- [x] Directions
 - [x] Search and filter events
 - [ ] Search and filter courses
 - [ ] Announcements
