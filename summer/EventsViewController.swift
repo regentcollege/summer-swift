@@ -15,7 +15,6 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
     var eventCategories = [String: [EventViewModel]]()
     var eventsWithSections = [String : [EventViewModel]]()
     var sectionTitles = [String]()
-    var sectionTitlesDate = [Date]()
     
     var isCollapsedView: Bool {
         return splitViewController?.isCollapsed ?? true
@@ -42,29 +41,6 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
             self.automaticallyAdjustsScrollViewInsets = false
         }
         
-        tableView.sectionIndexTrackingBackgroundColor = .clear
-        tableView.sectionIndexBackgroundColor = .clear
-        tableView.sectionIndexColor = Settings.Color.blue
-        
-        var eventIndexToShow = IndexPath(row: 0, section: 0)
-        var sectionPosition = 0
-        for events in eventsWithSections {
-            if let startDate = Date(fromString: events.key, format: .isoDate) {
-            if(Settings.currentDate.compare(.isSameDay(as: startDate)) || Settings.currentDate.compare(.isLater(than: startDate))) {
-                eventIndexToShow = IndexPath(row: 0, section: sectionPosition)
-                break
-                }
-            }
-            sectionPosition += 1
-        }
-        self.tableView.scrollToRow(at: eventIndexToShow, at: .top, animated: false)
-        
-        self.tableView.selectRow(at: eventIndexToShow, animated: true, scrollPosition:UITableViewScrollPosition.none)
-        
-        if !isCollapsedView {
-            self.performSegue(withIdentifier: "showEvent", sender: eventIndexToShow)
-        }
-        
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "Search events"
         searchController.searchBar.scopeButtonTitles = ["All", "May", "June", "July", "EPL"]
@@ -83,10 +59,22 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
     // provide the initial detail view for iPad
     // must go here and not viewDidLoad because iPhone begins not collapsed
     override func viewWillAppear(_ animated: Bool) {
+        var eventIndexToShow = IndexPath(row: 0, section: 0)
+        var sectionPosition = 0
+        for events in eventsWithSections {
+            if let startDate = Date(fromString: events.key, format: .isoDate) {
+                if(Settings.currentDate.compare(.isSameDay(as: startDate)) || Settings.currentDate.compare(.isLater(than: startDate))) {
+                    eventIndexToShow = IndexPath(row: 0, section: sectionPosition)
+                    break
+                }
+            }
+            sectionPosition += 1
+        }
+        self.tableView.scrollToRow(at: eventIndexToShow, at: .top, animated: false)
+
         if !isCollapsedView {
-            let initialIndexPath = IndexPath(row: 0, section: 0)
-            self.tableView.selectRow(at: initialIndexPath, animated: true, scrollPosition:UITableViewScrollPosition.none)
-            self.performSegue(withIdentifier: "showEvent", sender: initialIndexPath)
+            self.tableView.selectRow(at: eventIndexToShow, animated: true, scrollPosition:UITableViewScrollPosition.none)
+            self.performSegue(withIdentifier: "showEvent", sender: eventIndexToShow)
         }
     }
     
@@ -145,7 +133,6 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
     
     private func groupEvents() {
         sectionTitles.removeAll()
-        sectionTitlesDate.removeAll()
         eventsWithSections.removeAll()
         
         var eventsToGroup = events
@@ -160,7 +147,6 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
                     sectionTitle = thisSectionTitle
                     eventsWithSections[sectionTitle] = [EventViewModel]()
                     sectionTitles.append(sectionTitle)
-                    sectionTitlesDate.append(startDate)
                 }
                 eventsWithSections[thisSectionTitle]?.append(event)
             }
