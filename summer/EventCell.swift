@@ -14,7 +14,7 @@ class EventCell: UITableViewCell {
     var delegate: EventCellDelegate?
     var eventDescription: AttributedLabel?
     
-    func configureWith(event: EventViewModel, lecturer: LecturerViewModel?, showEventDescription: Bool = false) {
+    func configureWith(event: EventViewModel, lecturer: LecturerViewModel?, showEventDescription: Bool = false, limitEventDescription: Bool = true) {
         eventTitleLabel?.text = event.title
         eventDateLabel?.text = event.dateDescription
         eventDateLabel?.textColor = Settings.Color.blue
@@ -33,19 +33,24 @@ class EventCell: UITableViewCell {
             let eventDescriptionBuilder = event.description.toAttributedLabel()
             eventDescriptionBuilder.textAlignment = NSTextAlignment.natural
             eventDescriptionBuilder.lineBreakMode = NSLineBreakMode.byTruncatingTail
-            eventDescriptionBuilder.numberOfLines = 10
+            eventDescriptionBuilder.numberOfLines = 0
+            if limitEventDescription {
+                eventDescriptionBuilder.numberOfLines = 10
+            }
             
             self.eventDescription = eventDescriptionBuilder
             
             stackView.addArrangedSubview(eventDescriptionBuilder)
             
-            let button = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
-            button.setTitle("More", for: .normal)
-            button.setTitleColor(Settings.Color.blue, for: .normal)
-            button.contentHorizontalAlignment = .right
-            button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-            
-            stackView.addArrangedSubview(button)
+            if limitEventDescription {
+                let button = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
+                button.setTitle("More", for: .normal)
+                button.setTitleColor(Settings.Color.blue, for: .normal)
+                button.contentHorizontalAlignment = .right
+                button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+                
+                stackView.addArrangedSubview(button)
+            }
         }
     }
     

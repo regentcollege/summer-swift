@@ -153,7 +153,11 @@ extension EventDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath == IndexPath(item: 0, section: 0) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as? EventCell {
-                cell.configureWith(event: event, lecturer: documentStore.getLecturerBy(id: event.lecturerId), showEventDescription: true)
+                var limitEventDescription = true
+                if schedule?.count == 0 {
+                    limitEventDescription = false
+                }
+                cell.configureWith(event: event, lecturer: documentStore.getLecturerBy(id: event.lecturerId), showEventDescription: true, limitEventDescription: limitEventDescription)
                 cell.delegate = self
                 return cell
             }
