@@ -52,15 +52,10 @@ class TodayViewController: UIViewController, DocumentStoreDelegate, EventCellDel
     // provide the initial detail view for iPad
     // must go here and not viewDidLoad because iPhone begins not collapsed
     override func viewWillAppear(_ animated: Bool) {
-        if let splitViewController = self.splitViewController, !splitViewController.isCollapsed, splitViewController.displayMode == .allVisible {
-            let initialIndexPath = IndexPath(row: 0, section: 0)
-            self.tableView.selectRow(at: initialIndexPath, animated: true, scrollPosition:UITableViewScrollPosition.none)
-            self.performSegue(withIdentifier: "showPromoDetail", sender: initialIndexPath)
-            self.tableView.deselectRow(at: initialIndexPath, animated: false)
-            
-            // the detail view for the promo cell is designed for full screen
-            splitViewController.preferredDisplayMode = .primaryHidden
+        if !documentStore.hasLoadedEvents {
+            return
         }
+        self.styleTable()
     }
     
     func documentsDidUpdate() {
@@ -82,6 +77,21 @@ class TodayViewController: UIViewController, DocumentStoreDelegate, EventCellDel
             self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
             self.tableView.isScrollEnabled = true
             self.tableView.tableFooterView = UIView()
+        }
+        
+        if documentStore.hasLoadedEvents, let splitViewController = self.splitViewController, !splitViewController.isCollapsed, splitViewController.displayMode == .allVisible {
+            let initialIndexPath = IndexPath(row: 0, section: 0)
+            self.tableView.selectRow(at: initialIndexPath, animated: true, scrollPosition:UITableViewScrollPosition.none)
+            if eventsForToday.count == 0 {
+                self.performSegue(withIdentifier: "showPromoDetail", sender: initialIndexPath)
+                
+                // the detail view for the promo cell is designed for full screen
+                splitViewController.preferredDisplayMode = .primaryHidden
+            }
+            else {
+                self.performSegue(withIdentifier: "showEvent", sender: initialIndexPath)
+            }
+            self.tableView.deselectRow(at: initialIndexPath, animated: false)
         }
     }
     
