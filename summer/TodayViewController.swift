@@ -28,6 +28,8 @@ class TodayViewController: UIViewController, DocumentStoreDelegate, EventCellDel
         return splitViewController?.isCollapsed ?? true
     }
     
+    var hasSelectedCell = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,6 +62,22 @@ class TodayViewController: UIViewController, DocumentStoreDelegate, EventCellDel
         self.styleTable()
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        coordinator.animate(alongsideTransition: nil, completion: { _ in
+            // if we collapse we need to recalculate which cells are shown
+            self.tableView.reloadData()
+            
+            // if we begin in portrait collapsed and rotate to not collapsed there is nothing selected
+            if !self.hasSelectedCell && !self.isCollapsedView && (UIDevice.current.orientation == UIDeviceOrientation.landscapeLeft || UIDevice.current.orientation == UIDeviceOrientation.landscapeRight) {
+                let initialIndexPath = IndexPath(row: 0, section: 0)
+                self.tableView.selectRow(at: initialIndexPath, animated: true, scrollPosition:UITableViewScrollPosition.none)
+                self.performSegue(withIdentifier: "showEvent", sender: initialIndexPath)
+            }
+        })
+    }
+    
     func documentsDidUpdate() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -81,7 +99,7 @@ class TodayViewController: UIViewController, DocumentStoreDelegate, EventCellDel
             self.tableView.tableFooterView = UIView()
         }
         
-        if documentStore.hasLoadedEvents, !isCollapsedView, splitViewController?.displayMode == .allVisible {
+        if documentStore.hasLoadedEvents, !isCollapsedView {
             let initialIndexPath = IndexPath(row: 0, section: 0)
             self.tableView.selectRow(at: initialIndexPath, animated: true, scrollPosition:UITableViewScrollPosition.none)
             if eventsForToday.count == 0 {
@@ -97,6 +115,7 @@ class TodayViewController: UIViewController, DocumentStoreDelegate, EventCellDel
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        hasSelectedCell = true
         switch segue.identifier {
         case "showPromoDetail"?:
             if let promoDetailViewController = segue.destination as? PromoDetailViewController {
@@ -164,7 +183,7 @@ extension TodayViewController: UITableViewDataSource {
             return 0
         }
         
-        if eventsForToday.count == 0 {
+        if eventsForToday.count == 0 || !isCollapsedView {
             return 1
         }
 
