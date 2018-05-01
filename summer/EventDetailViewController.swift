@@ -93,6 +93,18 @@ class EventDetailViewController: UIViewController, DocumentStoreDelegate, EventC
         }
         
         tableView.dataSource = self
+        
+        if event.url != nil {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(share(sender:)))
+        }
+    }
+    
+    @objc func share(sender:UIView){
+        guard let eventUrl = event.url else {
+            return
+        }
+        let activityViewController = UIActivityViewController(activityItems: [eventUrl], applicationActivities: nil)
+        present(activityViewController, animated: true, completion: {})
     }
     
     func documentsDidUpdate() {

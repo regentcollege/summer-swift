@@ -7,6 +7,7 @@ class EventViewModel {
     let description: String
     var dateDescription: String?
     var dateDescriptionFullMonth: String?
+    var url: URL?
     var imageUrl: URL?
     let season: Seasons
     var lecturerId: String?
@@ -28,9 +29,10 @@ class EventViewModel {
             else {
                 self.description = "Stay tuned!"
             }
-            if let imageUrl = event.imageUrl {
-                self.imageUrl = imageUrl
-            }
+            
+            self.url = event.url
+            self.imageUrl = event.imageUrl
+            
             if let season = event.season {
                 self.season = season
             }

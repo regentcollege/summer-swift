@@ -4,6 +4,7 @@ struct Event: Mappable {
     let id: String
     let title: String
     let description: String?
+    let url: URL?
     let imageUrl: URL?
     let lecturerId: String?
     let room: String?
@@ -17,6 +18,7 @@ struct Event: Mappable {
         id = try map.from("id")
         title = try map.from("title")
         description = map.optionalFrom("description")
+        url = map.optionalFrom("url")
         imageUrl = map.optionalFrom("imageUrl")
         lecturerId = map.optionalFrom("lecturerId")
         room = map.optionalFrom("room")
