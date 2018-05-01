@@ -24,6 +24,10 @@ class TodayViewController: UIViewController, DocumentStoreDelegate, EventCellDel
         return documentStore.getEventScheduleHappening(now: Settings.currentDate, id: event.id, showTimeOnly: true)
     }
     
+    var isCollapsedView: Bool {
+        return splitViewController?.isCollapsed ?? true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,8 +53,6 @@ class TodayViewController: UIViewController, DocumentStoreDelegate, EventCellDel
         tableView.reloadData()
     }
     
-    // provide the initial detail view for iPad
-    // must go here and not viewDidLoad because iPhone begins not collapsed
     override func viewWillAppear(_ animated: Bool) {
         if !documentStore.hasLoadedEvents {
             return
@@ -79,19 +81,18 @@ class TodayViewController: UIViewController, DocumentStoreDelegate, EventCellDel
             self.tableView.tableFooterView = UIView()
         }
         
-        if documentStore.hasLoadedEvents, let splitViewController = self.splitViewController, !splitViewController.isCollapsed, splitViewController.displayMode == .allVisible {
+        if documentStore.hasLoadedEvents, !isCollapsedView, splitViewController?.displayMode == .allVisible {
             let initialIndexPath = IndexPath(row: 0, section: 0)
             self.tableView.selectRow(at: initialIndexPath, animated: true, scrollPosition:UITableViewScrollPosition.none)
             if eventsForToday.count == 0 {
                 self.performSegue(withIdentifier: "showPromoDetail", sender: initialIndexPath)
                 
                 // the detail view for the promo cell is designed for full screen
-                splitViewController.preferredDisplayMode = .primaryHidden
+                splitViewController?.preferredDisplayMode = .primaryHidden
             }
             else {
                 self.performSegue(withIdentifier: "showEvent", sender: initialIndexPath)
             }
-            self.tableView.deselectRow(at: initialIndexPath, animated: false)
         }
     }
     
@@ -237,7 +238,9 @@ extension TodayViewController: UITableViewDelegate {
         else if indexPath.row == 0 {
             performSegue(withIdentifier: "showEvent", sender: EventsViewController())
         }
-        tableView.deselectRow(at: indexPath, animated: true)
+        if isCollapsedView {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
 }
 

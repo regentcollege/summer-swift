@@ -17,6 +17,10 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
     var sectionTitles = [String]()
     var sectionTitlesDate = [Date]()
     
+    var isCollapsedView: Bool {
+        return splitViewController?.isCollapsed ?? true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,9 +61,8 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
         
         self.tableView.selectRow(at: eventIndexToShow, animated: true, scrollPosition:UITableViewScrollPosition.none)
         
-        if let splitViewController = self.splitViewController, !splitViewController.isCollapsed {
+        if !isCollapsedView {
             self.performSegue(withIdentifier: "showEvent", sender: eventIndexToShow)
-            self.tableView.deselectRow(at: eventIndexToShow, animated: false)
         }
         
         let searchController = UISearchController(searchResultsController: nil)
@@ -80,11 +83,10 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
     // provide the initial detail view for iPad
     // must go here and not viewDidLoad because iPhone begins not collapsed
     override func viewWillAppear(_ animated: Bool) {
-        if let splitViewController = self.splitViewController, !splitViewController.isCollapsed {
+        if !isCollapsedView {
             let initialIndexPath = IndexPath(row: 0, section: 0)
             self.tableView.selectRow(at: initialIndexPath, animated: true, scrollPosition:UITableViewScrollPosition.none)
             self.performSegue(withIdentifier: "showEvent", sender: initialIndexPath)
-            self.tableView.deselectRow(at: initialIndexPath, animated: false)
         }
     }
     
@@ -192,8 +194,12 @@ extension EventsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as? EventCell {
             let event = getEventBy(section: indexPath.section, row: indexPath.row)
-            
             cell.configureWith(event: event, lecturer: documentStore.getLecturerBy(id: event.lecturerId))
+            
+            if !isCollapsedView {
+                cell.accessoryType = .none
+            }
+            
             return cell
         }
         
@@ -209,7 +215,9 @@ extension EventsViewController: UITableViewDataSource {
 extension EventsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "showEvent", sender: EventsViewController())
-        tableView.deselectRow(at: indexPath, animated: true)
+        if isCollapsedView {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
 }
 

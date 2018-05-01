@@ -17,6 +17,10 @@ class CoursesViewController: UIViewController, DocumentStoreDelegate {
         }
     }
     
+    var isCollapsedView: Bool {
+        return splitViewController?.isCollapsed ?? true
+    }
+    
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
         self.tableView.reloadData()
     }
@@ -46,11 +50,10 @@ class CoursesViewController: UIViewController, DocumentStoreDelegate {
     // provide the initial detail view for iPad
     // must go here and not viewDidLoad because iPhone begins not collapsed
     override func viewWillAppear(_ animated: Bool) {
-        if let splitViewController = self.splitViewController, !splitViewController.isCollapsed {
+        if !isCollapsedView {
             let initialIndexPath = IndexPath(row: 0, section: 0)
             self.tableView.selectRow(at: initialIndexPath, animated: true, scrollPosition:UITableViewScrollPosition.none)
             self.performSegue(withIdentifier: "showCourse", sender: initialIndexPath)
-            self.tableView.deselectRow(at: initialIndexPath, animated: false)
         }
     }
     
@@ -87,6 +90,11 @@ extension CoursesViewController: UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell", for: indexPath) as? CourseCell {
             let course = coursesBySegment[indexPath.row]
             cell.configureWith(course: course, lecturer: documentStore.getLecturerBy(id: course.lecturerId))
+            
+            if !isCollapsedView {
+                cell.accessoryType = .none
+            }
+            
             return cell
         }
         
@@ -98,6 +106,8 @@ extension CoursesViewController: UITableViewDataSource {
 extension CoursesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "showCourse", sender: CoursesViewController())
-        tableView.deselectRow(at: indexPath, animated: true)
+        if isCollapsedView {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
 }
