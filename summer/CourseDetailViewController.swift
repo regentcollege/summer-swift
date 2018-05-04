@@ -1,6 +1,7 @@
 import UIKit
 import Kingfisher
 import Atributika
+import ImageSlideshow
 
 class CourseDetailViewController: UIViewController {
     @IBOutlet var lecturerImageView: UIImageView!
@@ -9,9 +10,9 @@ class CourseDetailViewController: UIViewController {
     @IBOutlet var courseDateLabel: UILabel!
     @IBOutlet var courseTimeLabel: UILabel!
     @IBOutlet var detailChevronImage: UIImageView!
-    
+    @IBOutlet var roomLabel: UILabel!
     @IBOutlet var directionsButton: UIButton!
-    @IBOutlet var directionsCollectionView: UICollectionView!
+    @IBOutlet var slideshow: ImageSlideshow!
     @IBOutlet var stackView: UIStackView!
     var courseDescription: AttributedLabel?
     
@@ -25,12 +26,6 @@ class CourseDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(share(sender:)))
-    }
-    
-    @objc func share(sender:UIView){
-        let content = URL(string: "courses/course-details?course_id=" + course.name, relativeTo: Settings.Url.baseURL)!
-        let activityViewController = UIActivityViewController(activityItems: [content], applicationActivities: nil)
-        present(activityViewController, animated: true, completion: {})
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,11 +56,15 @@ class CourseDetailViewController: UIViewController {
         }
         
         if let room = room {
-            directionsButton.setTitle(room.title, for: .normal)
-            directionsButton.isHidden = false
-            directionsButton.isEnabled = false
+            roomLabel.text = room.title
+            
             if let directionImageUrls = room.directionImageUrls, directionImageUrls.count > 0 {
-                self.directionsButton.isEnabled = true
+                directionsButton.isHidden = false
+                
+                let kingfisher = directionImageUrls.map { KingfisherSource(url: $0) }
+                slideshow.setImageInputs(kingfisher)
+                
+                slideshow.slideshowInterval = 0
             }
         }
         
@@ -109,30 +108,14 @@ class CourseDetailViewController: UIViewController {
         }
     }
     
+    @objc func share(sender:UIView){
+        let content = URL(string: "courses/course-details?course_id=" + course.name, relativeTo: Settings.Url.baseURL)!
+        let activityViewController = UIActivityViewController(activityItems: [content], applicationActivities: nil)
+        present(activityViewController, animated: true, completion: {})
+    }
+    
     @IBAction func toggleDirections(_ sender: UIButton) {
-        directionsCollectionView.isHidden = !directionsCollectionView.isHidden
+        let fullScreenController = slideshow.presentFullScreenController(from: self)
+        fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .white, color: nil)
     }
-}
-
-extension CourseDetailViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let room = room, let directionImageUrls = room.directionImageUrls {
-            return directionImageUrls.count
-        }
-        
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = directionsCollectionView.dequeueReusableCell(withReuseIdentifier: "DirectionCell", for: indexPath) as? DirectionCell, let room = room, let directionImageUrls = room.directionImageUrls {
-            cell.configureWith(directionImageUrl: directionImageUrls[indexPath.row])
-            return cell
-        }
-        
-        return UICollectionViewCell()
-    }    
-}
-
-extension CourseDetailViewController: UICollectionViewDelegate {
-    
 }

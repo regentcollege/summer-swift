@@ -19,6 +19,8 @@ target 'summer' do
     pod 'SwinjectStoryboard', '~> 1.0'
     pod 'AFDateHelper'
     pod 'SwipeCellKit'
+    pod 'ImageSlideshow'
+    pod 'ImageSlideshow/Kingfisher'
     
     target 'summerTests' do
         inherit! :search_paths

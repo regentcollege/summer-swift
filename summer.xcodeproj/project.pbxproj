@@ -41,7 +41,6 @@
 		32B7BB651FB4199300ECFFAE /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7BB641FB4199300ECFFAE /* VideoViewController.swift */; };
 		32B7BB6A1FB644FF00ECFFAE /* CourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7BB691FB644FF00ECFFAE /* CourseViewModel.swift */; };
 		32B7BB6F1FB6575900ECFFAE /* LecturerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7BB6E1FB6575900ECFFAE /* LecturerViewModel.swift */; };
-		32C55C71206EDAF700CF0A66 /* DirectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C55C70206EDAF700CF0A66 /* DirectionCell.swift */; };
 		32C55C73206EE01100CF0A66 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C55C72206EE01100CF0A66 /* Room.swift */; };
 		32C55C75206EE0F000CF0A66 /* RoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C55C74206EE0F000CF0A66 /* RoomViewModel.swift */; };
 		32C6AF0D1FDB1B4D0037BAE8 /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C6AF0C1FDB1B4D0037BAE8 /* EventViewModel.swift */; };
@@ -107,7 +106,6 @@
 		32B7BB641FB4199300ECFFAE /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		32B7BB691FB644FF00ECFFAE /* CourseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewModel.swift; sourceTree = "<group>"; };
 		32B7BB6E1FB6575900ECFFAE /* LecturerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturerViewModel.swift; sourceTree = "<group>"; };
-		32C55C70206EDAF700CF0A66 /* DirectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionCell.swift; sourceTree = "<group>"; };
 		32C55C72206EE01100CF0A66 /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		32C55C74206EE0F000CF0A66 /* RoomViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewModel.swift; sourceTree = "<group>"; };
 		32C6AF0C1FDB1B4D0037BAE8 /* EventViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
@@ -242,7 +240,6 @@
 				324DC78A1FA1397D007F97BF /* CoursesViewController.swift */,
 				328653531FA3ADC6000494CC /* CourseDetailViewController.swift */,
 				32F9C1E71FA24D230084DB82 /* CourseCell.swift */,
-				32C55C70206EDAF700CF0A66 /* DirectionCell.swift */,
 				32C6AF0E1FDB2CDD0037BAE8 /* EventsViewController.swift */,
 				32C6AF101FDB2D8D0037BAE8 /* EventDetailViewController.swift */,
 				32D1A8FB1FDA4565007C2302 /* EventCell.swift */,
@@ -504,6 +501,7 @@
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ModelMapper/Mapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PlayerKit/PlayerKit.framework",
@@ -525,6 +523,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PlayerKit.framework",
@@ -593,7 +592,6 @@
 				32440ECA204E81D7008E850D /* EventSchedule.swift in Sources */,
 				32D2583A1FC0C81A007EBDC7 /* Extensions.swift in Sources */,
 				324DC7761FA0F4D6007F97BF /* AppDelegate.swift in Sources */,
-				32C55C71206EDAF700CF0A66 /* DirectionCell.swift in Sources */,
 				32B7BB6F1FB6575900ECFFAE /* LecturerViewModel.swift in Sources */,
 				32700C8020422BCE00B08F41 /* AboutDetailViewController.swift in Sources */,
 				3244AF8E1FB9730300E682C2 /* SwinjectService.swift in Sources */,

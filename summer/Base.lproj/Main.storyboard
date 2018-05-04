@@ -166,10 +166,10 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W4F-51-1U7">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="182"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="204.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Dvf-AI-gSD">
-                                                <rect key="frame" x="8" y="0.0" width="359" height="182"/>
+                                                <rect key="frame" x="8" y="0.0" width="359" height="204.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="MtU-D1-Ukg">
                                                         <rect key="frame" x="0.0" y="0.0" width="359" height="112.5"/>
@@ -230,57 +230,32 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YxJ-ew-w6r" userLabel="Directions Button">
-                                                        <rect key="frame" x="0.0" y="182" width="134" height="0.0"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                        <state key="normal" title="directionsButton"/>
-                                                        <connections>
-                                                            <action selector="toggleDirections:" destination="BPe-f0-hhX" eventType="touchUpInside" id="3Mf-ka-M9c"/>
-                                                        </connections>
-                                                    </button>
-                                                    <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1l4-RK-Bye" userLabel="Directions Collection View">
-                                                        <rect key="frame" x="0.0" y="182" width="359" height="200"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="2Uh-rg-UgH">
+                                                        <rect key="frame" x="0.0" y="184" width="85" height="20.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="roomLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lkr-3C-IcW" userLabel="Room Label">
+                                                                <rect key="frame" x="0.0" y="0.0" width="85" height="20.5"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YxJ-ew-w6r" userLabel="Directions Button">
+                                                                <rect key="frame" x="-8" y="0.0" width="0.0" height="22"/>
+                                                                <connections>
+                                                                    <action selector="toggleDirections:" destination="BPe-f0-hhX" eventType="touchUpInside" id="3Mf-ka-M9c"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <view hidden="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="twk-7K-DgT" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                                                        <rect key="frame" x="0.0" y="204.5" width="240" height="250"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="200" id="b8x-XZ-cif"/>
+                                                            <constraint firstAttribute="width" constant="240" id="EOa-0d-O0A"/>
+                                                            <constraint firstAttribute="height" constant="250" id="ori-58-fmL"/>
                                                         </constraints>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xXa-hU-mKm">
-                                                            <size key="itemSize" width="300" height="200"/>
-                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        </collectionViewFlowLayout>
-                                                        <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="DirectionCell" id="zOW-kL-wR0" userLabel="Direction Cell" customClass="DirectionCell" customModule="summer" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
-                                                                    <subviews>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ufY-Xw-8vR" userLabel="Direction Image"/>
-                                                                    </subviews>
-                                                                </view>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="trailing" secondItem="ufY-Xw-8vR" secondAttribute="trailing" id="3jh-md-MOf"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="ufY-Xw-8vR" secondAttribute="bottom" id="OEu-yR-UKZ"/>
-                                                                    <constraint firstItem="ufY-Xw-8vR" firstAttribute="top" secondItem="zOW-kL-wR0" secondAttribute="top" id="qmu-Ua-MvZ"/>
-                                                                    <constraint firstItem="ufY-Xw-8vR" firstAttribute="leading" secondItem="zOW-kL-wR0" secondAttribute="leading" id="wKX-3I-QKB"/>
-                                                                </constraints>
-                                                                <connections>
-                                                                    <outlet property="directionImageView" destination="ufY-Xw-8vR" id="LUV-Vs-iCo"/>
-                                                                </connections>
-                                                            </collectionViewCell>
-                                                        </cells>
-                                                        <connections>
-                                                            <outlet property="dataSource" destination="BPe-f0-hhX" id="ret-Ku-SMY"/>
-                                                        </connections>
-                                                    </collectionView>
+                                                    </view>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="1l4-RK-Bye" secondAttribute="trailing" id="hZh-zY-jGC"/>
-                                                    <constraint firstItem="1l4-RK-Bye" firstAttribute="leading" secondItem="Dvf-AI-gSD" secondAttribute="leading" id="nmz-3A-RMp"/>
-                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -296,7 +271,7 @@
                                     <constraint firstItem="W4F-51-1U7" firstAttribute="leading" secondItem="URN-NB-C8P" secondAttribute="leading" id="Zoh-hu-J64"/>
                                     <constraint firstItem="W4F-51-1U7" firstAttribute="top" secondItem="URN-NB-C8P" secondAttribute="top" id="iRQ-6R-MZ9"/>
                                     <constraint firstItem="W4F-51-1U7" firstAttribute="width" secondItem="URN-NB-C8P" secondAttribute="width" id="pIm-IE-ZQ6"/>
-                                    <constraint firstAttribute="bottom" secondItem="W4F-51-1U7" secondAttribute="bottom" id="ra2-kk-L7M"/>
+                                    <constraint firstAttribute="bottom" secondItem="W4F-51-1U7" secondAttribute="bottom" constant="170" id="ra2-kk-L7M"/>
                                     <constraint firstAttribute="trailing" secondItem="W4F-51-1U7" secondAttribute="trailing" id="zAe-Jk-s8N"/>
                                 </constraints>
                             </scrollView>
@@ -312,15 +287,15 @@
                     </view>
                     <navigationItem key="navigationItem" id="MOz-W7-HX8"/>
                     <connections>
-                        <outlet property="DirectionsCollectionView" destination="1l4-RK-Bye" id="f4f-bk-pl7"/>
                         <outlet property="courseDateLabel" destination="0sB-gd-0qy" id="md6-iC-Ct9"/>
                         <outlet property="courseDescriptionTitleLabel" destination="aov-go-zRW" id="Wfx-wN-90b"/>
                         <outlet property="courseTimeLabel" destination="R3t-yh-zGY" id="eVW-Cg-Xmr"/>
                         <outlet property="detailChevronImage" destination="BdQ-SG-0JS" id="gPu-Fy-CDG"/>
                         <outlet property="directionsButton" destination="YxJ-ew-w6r" id="U5n-Z8-3Oy"/>
-                        <outlet property="directionsCollectionView" destination="1l4-RK-Bye" id="jXd-2G-r89"/>
                         <outlet property="lecturerImageView" destination="hlH-Ca-YqD" id="xQB-ps-U7k"/>
                         <outlet property="lecturerNameLabel" destination="Esa-oP-Ox1" id="pwl-w6-srf"/>
+                        <outlet property="roomLabel" destination="Lkr-3C-IcW" id="9le-iN-eSI"/>
+                        <outlet property="slideshow" destination="twk-7K-DgT" id="Ru7-7E-0qr"/>
                         <outlet property="stackView" destination="Dvf-AI-gSD" id="lQB-Pe-CSv"/>
                     </connections>
                 </viewController>

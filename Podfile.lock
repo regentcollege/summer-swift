@@ -68,6 +68,12 @@ PODS:
     - gRPC-Core (= 1.11.0)
     - gRPC-RxLibrary (= 1.11.0)
   - GTMSessionFetcher/Core (1.1.15)
+  - ImageSlideshow (1.5.3):
+    - ImageSlideshow/Core (= 1.5.3)
+  - ImageSlideshow/Core (1.5.3)
+  - ImageSlideshow/Kingfisher (1.5.3):
+    - ImageSlideshow/Core
+    - Kingfisher (> 3.0)
   - Kingfisher (4.7.0)
   - leveldb-library (1.20)
   - ModelMapper (8.0.0)
@@ -91,6 +97,8 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Firestore
+  - ImageSlideshow
+  - ImageSlideshow/Kingfisher
   - Kingfisher
   - ModelMapper
   - PlayerKit
@@ -116,6 +124,7 @@ SPEC CHECKSUMS:
   gRPC-ProtoRPC: bb5fddf3424aa4fad74d76736578a79fe40e244e
   gRPC-RxLibrary: 26d53d1b1f306befd4ad4e15bd6de27839a82481
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
+  ImageSlideshow: 24a1184909f589379ba2527ebcc77996881bb1f2
   Kingfisher: da6b005aa96d37698e3e4f1ccfe96a5b9bbf27d6
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   ModelMapper: a258c5f8e1422e0e826c8265a3e89ae1b329c3a6
@@ -126,6 +135,6 @@ SPEC CHECKSUMS:
   SwinjectStoryboard: 92e75763c3299cdf627bef98a5180dc894864336
   SwipeCellKit: 8ae09401e1137566b187980d824310129233c959
 
-PODFILE CHECKSUM: 9e4d933e4e797ef44c3b4566e9c8b7cdefab48e8
+PODFILE CHECKSUM: a65e64a0ccfb6d9c2a1d49f029c789da2b861de8
 
 COCOAPODS: 1.4.0.beta.2
