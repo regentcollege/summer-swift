@@ -436,8 +436,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLA-dk-sis">
-                                <rect key="frame" x="8" y="109" width="359" height="328.5"/>
-                                <string key="text">The “Regent Student” wifi is the most reliable network. Login using your Regent Login, the same you use for REGIS and Moodle. REGIS username and password. If you don’t remember your login information, you may email helpdesk@regent-college.edu or call them at 604-221-3372.
+                                <rect key="frame" x="8" y="109" width="359" height="306.5"/>
+                                <string key="text">The “Regent Student” wifi is the most reliable network. Login using your Regent Login, the same you use for REGIS and Moodle. If you don’t remember your login information, you may email helpdesk@regent-college.edu or call them at 604-221-3372.
 
 “UBC Visitor” is also available, but is much slower than “Regent Student.” Login using your email address.
 
