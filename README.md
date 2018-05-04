@@ -39,6 +39,7 @@
 - Rich text with HTML with [Atributika][atributika-url]
 - Swipeable table cells with [SwipeCellKit][swipecellkit-url]
 - Async images with [Kingfisher][kingfisher-url]
+- Directions to rooms using [ImageSlideshow][imageslideshow-url]
 - Responsive interface for iPad/iPhone with [SplitViews][splitview-url]
 
 ### MVC/MVVM
@@ -88,3 +89,4 @@ Distributed under the MIT license. See [LICENSE](LICENSE) for more information.
 [kingfisher-url]: https://github.com/onevcat/Kingfisher
 [atributika-url]: https://github.com/psharanda/Atributika
 [swipecellkit-url]: https://github.com/SwipeCellKit/SwipeCellKit
+[imageslideshow-url]: https://github.com/zvonicek/ImageSlideshow
