@@ -123,7 +123,7 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
                 }
             }
             
-            if(event.title.lowercased().contains("evening")) {
+            if(event.isEPL) {
                 var existingItems = eventCategories["EPL"] ?? [EventViewModel]()
                 existingItems.append(event)
                 eventCategories["EPL"] = existingItems

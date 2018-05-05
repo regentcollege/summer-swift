@@ -12,6 +12,7 @@ class EventViewModel {
     let season: Seasons
     var lecturerId: String?
     var groupScheduleByDay: Bool = false
+    var isEPL: Bool = false
     
     @objc var startDate: Date?
     @objc var endDate: Date?
@@ -22,6 +23,9 @@ class EventViewModel {
             self.title = event.title
             if let groupScheduleByDay = event.groupScheduleByDay {
                 self.groupScheduleByDay = groupScheduleByDay
+            }
+            if let isEPL = event.isEPL {
+                self.isEPL = isEPL
             }
             if let description = event.description {
                 self.description = description
