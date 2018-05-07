@@ -22,7 +22,7 @@ class CourseDetailViewController: UIViewController {
         }
     }
     var lecturer: LecturerViewModel!
-    var room: RoomViewModel?
+    var room: RoomViewModel!
     
     override func viewDidLoad() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(share(sender:)))
@@ -55,17 +55,18 @@ class CourseDetailViewController: UIViewController {
             detailChevronImage.isHidden = true
         }
         
-        if let room = room {
-            roomLabel.text = room.title
+        roomLabel.text = room.title
+        if !room.hasDetail && course.room != nil {
+            roomLabel.text = course.room
+        }
+        
+        if let directionImageUrls = room.directionImageUrls, directionImageUrls.count > 0 {
+            directionsButton.isHidden = false
             
-            if let directionImageUrls = room.directionImageUrls, directionImageUrls.count > 0 {
-                directionsButton.isHidden = false
-                
-                let kingfisher = directionImageUrls.map { KingfisherSource(url: $0) }
-                slideshow.setImageInputs(kingfisher)
-                
-                slideshow.slideshowInterval = 0
-            }
+            let kingfisher = directionImageUrls.map { KingfisherSource(url: $0) }
+            slideshow.setImageInputs(kingfisher)
+            
+            slideshow.slideshowInterval = 0
         }
         
         courseDescriptionTitleLabel.text = course.title

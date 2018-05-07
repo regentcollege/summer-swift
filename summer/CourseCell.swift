@@ -7,8 +7,9 @@ class CourseCell: UITableViewCell {
     @IBOutlet var courseTimeLabel: UILabel!
     @IBOutlet var lecturerNameLabel: UILabel!
     @IBOutlet var lecturerImageView: UIImageView!
+    @IBOutlet var roomLabel: UILabel!
     
-    func configureWith(course: CourseViewModel, lecturer: LecturerViewModel) {
+    func configureWith(course: CourseViewModel, lecturer: LecturerViewModel, room: RoomViewModel) {
         courseTitleLabel?.text = course.title
         lecturerNameLabel?.text = lecturer.name
         lecturerNameLabel?.textColor = Settings.Color.blue
@@ -22,5 +23,10 @@ class CourseCell: UITableViewCell {
         
         courseDateLabel.text = course.dates
         courseTimeLabel.text = course.meetingTime
+        
+        roomLabel.text = room.title
+        if !room.hasDetail && course.room != nil {
+            roomLabel.text = course.room
+        }
     }
 }

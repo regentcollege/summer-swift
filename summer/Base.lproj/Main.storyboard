@@ -42,7 +42,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oEV-JX-WtA">
                                 <rect key="frame" x="0.0" y="108" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="separatorInset" minX="113" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="center" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CourseCell" rowHeight="160" id="0qj-SB-JbN" customClass="CourseCell" customModule="summer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="160"/>
@@ -65,30 +64,39 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lecturerNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hX-OH-GmR">
-                                                    <rect key="frame" x="131.5" y="59" width="153" height="20.5"/>
+                                                    <rect key="frame" x="131.5" y="49" width="153" height="20.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <color key="textColor" red="0.40631071891191706" green="0.40631071891191706" blue="0.40631071891191706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="courseDateLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1dp-Cp-mUF" userLabel="Course Date Label">
-                                                    <rect key="frame" x="131.5" y="83.5" width="130" height="20.5"/>
+                                                    <rect key="frame" x="131.5" y="73.5" width="130" height="20.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.40784313725490196" green="0.40784313725490196" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="courseTimeLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9No-5I-vA2" userLabel="Course Time Label">
-                                                    <rect key="frame" x="131.5" y="107.5" width="130" height="21"/>
+                                                    <rect key="frame" x="131.5" y="97.5" width="130" height="21"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.40631071889999998" green="0.40631071889999998" blue="0.40631071889999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="roomLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WCM-aU-Acc">
+                                                    <rect key="frame" x="131" y="122.5" width="123" height="21"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <color key="textColor" red="0.40784313729999999" green="0.40784313729999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="9No-5I-vA2" secondAttribute="trailing" constant="88" id="0dW-od-LsN"/>
+                                                <constraint firstItem="WCM-aU-Acc" firstAttribute="leading" secondItem="6hX-OH-GmR" secondAttribute="leading" id="JKI-A0-7ua"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="3x5-im-hXE" secondAttribute="trailing" constant="8" id="KJX-pb-b2X"/>
                                                 <constraint firstAttribute="bottom" secondItem="sXF-K2-2cE" secondAttribute="bottom" constant="8" id="QLI-Vo-yOb"/>
                                                 <constraint firstItem="3x5-im-hXE" firstAttribute="top" secondItem="foq-h2-QZu" secondAttribute="topMargin" constant="2" id="SNl-Kz-P94"/>
                                                 <constraint firstItem="9No-5I-vA2" firstAttribute="leading" secondItem="6hX-OH-GmR" secondAttribute="leading" id="WIP-mM-a0O"/>
+                                                <constraint firstItem="WCM-aU-Acc" firstAttribute="top" secondItem="9No-5I-vA2" secondAttribute="bottom" constant="4" id="WQP-Nd-ik7"/>
+                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="WCM-aU-Acc" secondAttribute="trailing" constant="88" id="Wfq-1d-wi8"/>
                                                 <constraint firstItem="sXF-K2-2cE" firstAttribute="top" secondItem="3x5-im-hXE" secondAttribute="bottom" constant="8" id="YBy-10-Dz4"/>
                                                 <constraint firstItem="1dp-Cp-mUF" firstAttribute="leading" secondItem="6hX-OH-GmR" secondAttribute="leading" id="Zej-Xx-uB5"/>
                                                 <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="1dp-Cp-mUF" secondAttribute="trailing" constant="88" id="bxK-Eq-7OR"/>
@@ -98,7 +106,7 @@
                                                 <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="6hX-OH-GmR" secondAttribute="trailing" constant="127" id="mBc-J5-ZTc"/>
                                                 <constraint firstItem="1dp-Cp-mUF" firstAttribute="top" secondItem="6hX-OH-GmR" secondAttribute="bottom" constant="4" id="qjc-Bk-XbI"/>
                                                 <constraint firstItem="sXF-K2-2cE" firstAttribute="leading" secondItem="3x5-im-hXE" secondAttribute="leading" id="wGy-Wn-1Zn"/>
-                                                <constraint firstItem="6hX-OH-GmR" firstAttribute="top" secondItem="sXF-K2-2cE" secondAttribute="top" constant="20" id="xzR-SS-Ddw"/>
+                                                <constraint firstItem="6hX-OH-GmR" firstAttribute="top" secondItem="sXF-K2-2cE" secondAttribute="top" constant="10" id="xzR-SS-Ddw"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -107,6 +115,7 @@
                                             <outlet property="courseTitleLabel" destination="3x5-im-hXE" id="dqp-g2-xT9"/>
                                             <outlet property="lecturerImageView" destination="sXF-K2-2cE" id="YqS-nL-5DQ"/>
                                             <outlet property="lecturerNameLabel" destination="6hX-OH-GmR" id="tFx-6M-eyZ"/>
+                                            <outlet property="roomLabel" destination="WCM-aU-Acc" id="HXI-8G-vuY"/>
                                             <segue destination="Jpy-8J-yg9" kind="showDetail" identifier="showCourse" trigger="accessoryAction" id="q0f-dx-IGf"/>
                                         </connections>
                                     </tableViewCell>

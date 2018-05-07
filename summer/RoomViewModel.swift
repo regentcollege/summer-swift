@@ -4,6 +4,7 @@ class RoomViewModel {
     var id: String?
     let title: String
     var directionImageUrls: [URL]?
+    let hasDetail: Bool
     
     init(room: Room?) {
         if let room = room {
@@ -18,9 +19,11 @@ class RoomViewModel {
                 }
                 self.directionImageUrls = directionImageUrls
             }
+            hasDetail = true
         }
         else {
             title = "Room TBA"
+            hasDetail = false
         }
     }
 }

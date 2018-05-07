@@ -89,7 +89,7 @@ extension CoursesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell", for: indexPath) as? CourseCell {
             let course = coursesBySegment[indexPath.row]
-            cell.configureWith(course: course, lecturer: documentStore.getLecturerBy(id: course.lecturerId))
+            cell.configureWith(course: course, lecturer: documentStore.getLecturerBy(id: course.lecturerId), room: documentStore.getRoomBy(id: course.roomId))
             
             if !isCollapsedView {
                 cell.accessoryType = .none
