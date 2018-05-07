@@ -77,6 +77,13 @@ class DocumentStore {
         return courses.filter { $0.season == season }.map { CourseViewModel(course: $0) }
     }
     
+    func getCoursesHappening(now: Date) -> [CourseViewModel] {
+        let coursesWithDates = courses.filter { $0.startDate != nil && $0.endDate != nil }
+        return coursesWithDates.filter { $0.startDate!.compare(.isSameDay(as: now)) ||
+            $0.endDate!.compare(.isSameDay(as: now)) ||
+            $0.startDate!.compare(.isEarlier(than: now)) && $0.endDate!.compare(.isLater(than: now)) }.map { CourseViewModel(course: $0) }
+    }
+    
     func getNextCourse(from: Date) -> CourseViewModel? {
         let coursesWithDates = courses.filter { $0.startDate != nil }
         let nextCourses = coursesWithDates.filter { $0.startDate!.compare(.isSameDay(as: from)) ||

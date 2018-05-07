@@ -1,6 +1,7 @@
 import Foundation
 
 class CourseViewModel {
+    var id: String
     let name: String
     let title: String
     let description: String
@@ -15,6 +16,7 @@ class CourseViewModel {
     
     init(course: Course?) {
         if let course = course {
+            self.id = course.id
             self.name = course.name
             self.title = course.title
             if let description = course.description {
@@ -55,6 +57,7 @@ class CourseViewModel {
             }
         }
         else {
+            self.id = UUID().uuidString
             self.name = "TBD"
             self.title = "TBD"
             self.description = "Stay tuned!"

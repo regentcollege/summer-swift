@@ -12,6 +12,12 @@ class TodayViewController: UIViewController, DocumentStoreDelegate, EventCellDel
         return documentStore.getEventsHappening(now: Settings.currentDate)
     }
     
+    var coursesForToday: [CourseViewModel] {
+        return documentStore.getCoursesHappening(now: Settings.currentDate)
+    }
+    
+    var eventsCoursesForTodayIndex = [AnyObject]()
+    
     var nextEvent: EventViewModel? {
         return documentStore.getNextEvent(from: Settings.currentDate)
     }
@@ -35,6 +41,8 @@ class TodayViewController: UIViewController, DocumentStoreDelegate, EventCellDel
         
         documentStore.delegate = self
         
+        arrangeEventsAndCourses()
+        
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -52,6 +60,7 @@ class TodayViewController: UIViewController, DocumentStoreDelegate, EventCellDel
     }
     
     func reloadTableForEventCellChange() {
+        self.arrangeEventsAndCourses()
         tableView.reloadData()
     }
     
@@ -67,19 +76,24 @@ class TodayViewController: UIViewController, DocumentStoreDelegate, EventCellDel
         
         coordinator.animate(alongsideTransition: nil, completion: { _ in
             // if we collapse we need to recalculate which cells are shown
+            self.arrangeEventsAndCourses()
             self.tableView.reloadData()
             
             // if we begin in portrait collapsed and rotate to not collapsed there is nothing selected
             if !self.hasSelectedCell && !self.isCollapsedView && (UIDevice.current.orientation == UIDeviceOrientation.landscapeLeft || UIDevice.current.orientation == UIDeviceOrientation.landscapeRight) {
                 let initialIndexPath = IndexPath(row: 0, section: 0)
                 self.tableView.selectRow(at: initialIndexPath, animated: true, scrollPosition:UITableViewScrollPosition.none)
-                self.performSegue(withIdentifier: "showEvent", sender: initialIndexPath)
+                if self.eventsCoursesForTodayIndex[0] is EventViewModel {
+                    self.performSegue(withIdentifier: "showEvent", sender: initialIndexPath)
+                }
+                self.performSegue(withIdentifier: "showCourse", sender: initialIndexPath)
             }
         })
     }
     
     func documentsDidUpdate() {
         DispatchQueue.main.async {
+            self.arrangeEventsAndCourses()
             self.tableView.reloadData()
             
             self.styleTable()
@@ -87,7 +101,7 @@ class TodayViewController: UIViewController, DocumentStoreDelegate, EventCellDel
     }
     
     func styleTable() {
-        if documentStore.hasLoadedEvents && eventsForToday.count == 0 {
+        if documentStore.hasLoadedEvents && eventsForToday.count == 0 && coursesForToday.count == 0 {
             self.tableView.backgroundColor = UIColor.black
             self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
             self.tableView.isScrollEnabled = false
@@ -102,14 +116,17 @@ class TodayViewController: UIViewController, DocumentStoreDelegate, EventCellDel
         if documentStore.hasLoadedEvents, !isCollapsedView {
             let initialIndexPath = IndexPath(row: 0, section: 0)
             self.tableView.selectRow(at: initialIndexPath, animated: true, scrollPosition:UITableViewScrollPosition.none)
-            if eventsForToday.count == 0 {
+            if eventsForToday.count == 0 && coursesForToday.count == 0 {
                 self.performSegue(withIdentifier: "showPromoDetail", sender: initialIndexPath)
                 
                 // the detail view for the promo cell is designed for full screen
                 splitViewController?.preferredDisplayMode = .primaryHidden
             }
             else {
-                self.performSegue(withIdentifier: "showEvent", sender: initialIndexPath)
+                if eventsCoursesForTodayIndex[0] is EventViewModel {
+                    self.performSegue(withIdentifier: "showEvent", sender: initialIndexPath)
+                }
+                self.performSegue(withIdentifier: "showCourse", sender: initialIndexPath)
             }
         }
     }
@@ -121,6 +138,15 @@ class TodayViewController: UIViewController, DocumentStoreDelegate, EventCellDel
             if let promoDetailViewController = segue.destination as? PromoDetailViewController {
                 promoDetailViewController.teaserTrailer = createTeaserTrailer(nextEvent: nextEvent, nextCourse: nextCourse)
             }
+        case "showCourse"?:
+            if let section = tableView.indexPathForSelectedRow?.section,
+                let navViewController = segue.destination as? UINavigationController,
+                let courseDetailViewController = navViewController.topViewController as? CourseDetailViewController {
+                let course = eventsCoursesForTodayIndex[section] as! CourseViewModel
+                courseDetailViewController.course = course
+                courseDetailViewController.lecturer = documentStore.getLecturerBy(id: course.lecturerId)
+                courseDetailViewController.room = documentStore.getRoomBy(id: course.roomId)
+            }
         case "showEvent"?:
             // eventdetail will steal the documentstore delegate
             // if meaningful updates to the todayview are needed you'll
@@ -128,13 +154,49 @@ class TodayViewController: UIViewController, DocumentStoreDelegate, EventCellDel
             if let section = tableView.indexPathForSelectedRow?.section,
                 let navViewController = segue.destination as? UINavigationController,
                 let eventDetailViewController = navViewController.topViewController as? EventDetailViewController {
-                let event = eventsForToday[section]
+                let event = eventsCoursesForTodayIndex[section] as! EventViewModel
                 eventDetailViewController.event = event
                 eventDetailViewController.lecturer = documentStore.getLecturerBy(id: event.lecturerId)
             }
         default:
             preconditionFailure("Unexpected segue identifer")
         }
+    }
+    
+    func arrangeEventsAndCourses() {
+        eventsCoursesForTodayIndex.removeAll()
+        
+        let eventDates = eventsForToday.sorted(by: { $0.startDate! < $1.startDate! || ($0.startDate! == $1.startDate! && $0.endDate! < $1.endDate!)})
+        
+        let courseDates = coursesForToday.sorted(by: { $0.startDate! < $1.startDate! || ($0.startDate! == $1.startDate! && $0.endDate! < $1.endDate!)})
+        
+        let eventsCourses = eventDates as [AnyObject] + courseDates as [AnyObject]
+        
+        eventsCoursesForTodayIndex = eventsCourses.sorted(by: { (dictOne, dictTwo) -> Bool in
+            var d1Start = Date()
+            var d1End = Date()
+            var d2Start = Date()
+            var d2End = Date()
+            
+            if let event = dictOne as? EventViewModel {
+                d1Start = event.startDate!
+                d1End = event.endDate!
+            }
+            else if let course = dictOne as? CourseViewModel {
+                d1Start = course.startDate!
+                d1End = course.endDate!
+            }
+            if let event = dictTwo as? EventViewModel {
+                d2Start = event.startDate!
+                d2End = event.endDate!
+            }
+            else if let course = dictTwo as? CourseViewModel {
+                d2Start = course.startDate!
+                d2End = course.endDate!
+            }
+            
+            return d1Start < d2Start || (d1Start == d2Start && d1End < d2End)
+        })
     }
     
     func createTeaserTrailer(nextEvent: EventViewModel?, nextCourse: CourseViewModel?) -> String {
@@ -183,29 +245,31 @@ extension TodayViewController: UITableViewDataSource {
             return 0
         }
         
-        if eventsForToday.count == 0 || !isCollapsedView {
+        if (eventsForToday.count == 0 && coursesForToday.count == 0) || !isCollapsedView {
             return 1
         }
 
-        // the event description is at least the first cell
-        guard let schedule = getScheduleFor(event: eventsForToday[section]), schedule.count > 0 else {
-            return 1
+        if eventsCoursesForTodayIndex[section] is EventViewModel {
+            guard let schedule = getScheduleFor(event: eventsForToday[section]), schedule.count > 0 else {
+                return 1
+            }
+            return schedule.count + 1
         }
         
-        return schedule.count + 1
+        // course sections only have one row
+        return 1
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if eventsForToday.count == 0 {
+        if eventsForToday.count == 0 && coursesForToday.count == 0 {
             return 1
         }
         
-        // todo: must count the number of events with schedule today
-        return eventsForToday.count
+        return eventsForToday.count + coursesForToday.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if eventsForToday.count == 0 {
+        if eventsForToday.count == 0 && coursesForToday.count == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "PromoCell", for: indexPath) as? PromoCell {
                 cell.configureWith(teaserTrailer: createTeaserTrailer(nextEvent: nextEvent, nextCourse: nextCourse))
                 return cell
@@ -214,11 +278,17 @@ extension TodayViewController: UITableViewDataSource {
         }
         
         if indexPath.row == 0 {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as? EventCell {
-                let event = eventsForToday[indexPath.section]
-                
-                cell.configureWith(event: event, lecturer: documentStore.getLecturerBy(id: event.lecturerId))
-                return cell
+            if let event = eventsCoursesForTodayIndex[indexPath.section] as? EventViewModel {
+                if let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as? EventCell {
+                    cell.configureWith(event: event, lecturer: documentStore.getLecturerBy(id: event.lecturerId))
+                    return cell
+                }
+            }
+            else if let course = eventsCoursesForTodayIndex[indexPath.section] as? CourseViewModel {
+                if let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell", for: indexPath) as? CourseCell {
+                    cell.configureWith(course: course, lecturer: documentStore.getLecturerBy(id: course.lecturerId), room: documentStore.getRoomBy(id: course.roomId))
+                    return cell
+                }
             }
         }
         
@@ -234,7 +304,7 @@ extension TodayViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        if eventsForToday.count == 0 || indexPath.row != 0 {
+        if (eventsForToday.count == 0 && coursesForToday.count == 0) || indexPath.row != 0 {
             return nil
         }
         return indexPath
@@ -251,11 +321,16 @@ extension TodayViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension TodayViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if eventsForToday.count == 0 {
+        if eventsForToday.count == 0 && coursesForToday.count == 0 {
             performSegue(withIdentifier: "showPromoDetail", sender: TodayViewController())
         }
         else if indexPath.row == 0 {
-            performSegue(withIdentifier: "showEvent", sender: EventsViewController())
+            if eventsCoursesForTodayIndex[indexPath.section] is EventViewModel {
+                performSegue(withIdentifier: "showEvent", sender: EventsViewController())
+            }
+            else if eventsCoursesForTodayIndex[indexPath.section] is CourseViewModel {
+                performSegue(withIdentifier: "showCourse", sender: EventsViewController())
+            }
         }
         if isCollapsedView {
             tableView.deselectRow(at: indexPath, animated: true)

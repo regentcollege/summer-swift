@@ -1214,8 +1214,83 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                             <outlet property="teaserTrailerLabel" destination="9XE-D1-gDx" id="mTs-JC-OMt"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="center" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CourseCell" rowHeight="160" id="TEB-gJ-YDw" customClass="CourseCell" customModule="summer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="544" width="375" height="160"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TEB-gJ-YDw" id="Rwj-Tg-q68">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="159.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="courseTitleLabel" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="RPk-sh-MIT">
+                                                    <rect key="frame" x="16" y="10" width="317" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qYA-M8-wpf">
+                                                    <rect key="frame" x="16" y="39" width="90" height="112.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="ExK-D8-iex"/>
+                                                        <constraint firstAttribute="height" constant="112.5" id="fZe-GU-xPJ"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lecturerNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwF-L0-h9L">
+                                                    <rect key="frame" x="124.5" y="49" width="153" height="20.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <color key="textColor" red="0.40631071889999998" green="0.40631071889999998" blue="0.40631071889999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="courseDateLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6al-lV-3OM" userLabel="Course Date Label">
+                                                    <rect key="frame" x="124.5" y="73.5" width="136.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <color key="textColor" red="0.40784313729999999" green="0.40784313729999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="courseTimeLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fL-VL-S33" userLabel="Course Time Label">
+                                                    <rect key="frame" x="124.5" y="97.5" width="136.5" height="21"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <color key="textColor" red="0.40631071889999998" green="0.40631071889999998" blue="0.40631071889999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="roomLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ep5-GE-jwS">
+                                                    <rect key="frame" x="124" y="122.5" width="137" height="21"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <color key="textColor" red="0.40784313729999999" green="0.40784313729999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="RPk-sh-MIT" firstAttribute="leading" secondItem="Rwj-Tg-q68" secondAttribute="leadingMargin" constant="8" id="36x-hL-4Y4"/>
+                                                <constraint firstItem="RPk-sh-MIT" firstAttribute="top" secondItem="Rwj-Tg-q68" secondAttribute="topMargin" constant="2" id="8ps-Ay-81Y"/>
+                                                <constraint firstItem="6al-lV-3OM" firstAttribute="leading" secondItem="hwF-L0-h9L" secondAttribute="leading" id="Bph-32-icN"/>
+                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="hwF-L0-h9L" secondAttribute="trailing" constant="127" id="DX4-fr-jbU"/>
+                                                <constraint firstAttribute="bottom" secondItem="qYA-M8-wpf" secondAttribute="bottom" constant="8" id="IJo-pz-eVj"/>
+                                                <constraint firstItem="Ep5-GE-jwS" firstAttribute="leading" secondItem="hwF-L0-h9L" secondAttribute="leading" id="ITG-Bj-oGh"/>
+                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="6al-lV-3OM" secondAttribute="trailing" constant="88" id="KMr-9n-wX0"/>
+                                                <constraint firstItem="qYA-M8-wpf" firstAttribute="leading" secondItem="RPk-sh-MIT" secondAttribute="leading" id="Lv4-Kk-DwP"/>
+                                                <constraint firstItem="qYA-M8-wpf" firstAttribute="top" secondItem="RPk-sh-MIT" secondAttribute="bottom" constant="8" id="Ozi-dC-fAo"/>
+                                                <constraint firstItem="6al-lV-3OM" firstAttribute="top" secondItem="hwF-L0-h9L" secondAttribute="bottom" constant="4" id="U97-T1-4k9"/>
+                                                <constraint firstItem="hwF-L0-h9L" firstAttribute="leading" secondItem="qYA-M8-wpf" secondAttribute="trailing" constant="18.5" id="bcK-ga-8Kt"/>
+                                                <constraint firstItem="hwF-L0-h9L" firstAttribute="top" secondItem="qYA-M8-wpf" secondAttribute="top" constant="10" id="fGo-fL-NIO"/>
+                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Ep5-GE-jwS" secondAttribute="trailing" constant="88" id="l2M-06-PVZ"/>
+                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="8fL-VL-S33" secondAttribute="trailing" constant="88" id="m9X-zz-Ni1"/>
+                                                <constraint firstItem="8fL-VL-S33" firstAttribute="leading" secondItem="hwF-L0-h9L" secondAttribute="leading" id="nXR-xn-v9a"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="RPk-sh-MIT" secondAttribute="trailing" constant="8" id="qL9-2A-bG6"/>
+                                                <constraint firstItem="Ep5-GE-jwS" firstAttribute="top" secondItem="8fL-VL-S33" secondAttribute="bottom" constant="4" id="skv-kO-yS8"/>
+                                                <constraint firstItem="8fL-VL-S33" firstAttribute="top" secondItem="6al-lV-3OM" secondAttribute="bottom" constant="4" id="tsC-Fr-njp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="courseDateLabel" destination="6al-lV-3OM" id="Fx6-E5-VCi"/>
+                                            <outlet property="courseTimeLabel" destination="8fL-VL-S33" id="LAz-l9-F2x"/>
+                                            <outlet property="courseTitleLabel" destination="RPk-sh-MIT" id="fMZ-Qo-FOr"/>
+                                            <outlet property="lecturerImageView" destination="qYA-M8-wpf" id="5Wo-73-mt3"/>
+                                            <outlet property="lecturerNameLabel" destination="hwF-L0-h9L" id="mnF-9z-idA"/>
+                                            <outlet property="roomLabel" destination="Ep5-GE-jwS" id="9cJ-3t-zKa"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventCell" rowHeight="213" id="Wj4-tV-ZKu" customClass="EventCell" customModule="summer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="544" width="375" height="213"/>
+                                        <rect key="frame" x="0.0" y="704" width="375" height="213"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wj4-tV-ZKu" id="Nd0-4o-CG7">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="212.5"/>
@@ -1263,7 +1338,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventScheduleCell" rowHeight="105" id="grF-8i-Bkf" customClass="EventScheduleCell" customModule="summer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="757" width="375" height="105"/>
+                                        <rect key="frame" x="0.0" y="917" width="375" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="grF-8i-Bkf" id="fJ0-SI-10W">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="104.5"/>
@@ -1332,6 +1407,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                     <connections>
                         <outlet property="tableView" destination="rpy-DO-CgS" id="UkK-aY-IZu"/>
                         <segue destination="0OR-rs-8rl" kind="showDetail" identifier="showPromoDetail" id="U79-0G-7AJ"/>
+                        <segue destination="Jpy-8J-yg9" kind="showDetail" identifier="showCourse" id="Yjm-Hp-02D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3aP-gd-pQ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1508,7 +1584,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="J2X-6V-7Uv"/>
-        <segue reference="q0f-dx-IGf"/>
+        <segue reference="Yjm-Hp-02D"/>
         <segue reference="Feh-8Y-KsY"/>
     </inferredMetricsTieBreakers>
 </document>
