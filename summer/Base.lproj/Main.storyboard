@@ -166,10 +166,10 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W4F-51-1U7">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="204.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="212.5"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Dvf-AI-gSD">
-                                                <rect key="frame" x="8" y="0.0" width="359" height="204.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Dvf-AI-gSD">
+                                                <rect key="frame" x="8" y="0.0" width="359" height="212.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="MtU-D1-Ukg">
                                                         <rect key="frame" x="0.0" y="0.0" width="359" height="112.5"/>
@@ -213,25 +213,25 @@
                                                         </connections>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="courseDescriptionTitleLabel" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aov-go-zRW">
-                                                        <rect key="frame" x="0.0" y="114.5" width="247" height="22.5"/>
+                                                        <rect key="frame" x="0.0" y="116.5" width="247" height="22.5"/>
                                                         <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="courseDateLabel" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sB-gd-0qy" userLabel="Course Date Label">
-                                                        <rect key="frame" x="0.0" y="139" width="135.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="143" width="135.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="courseTimeLabel" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3t-yh-zGY" userLabel="Course Time Label">
-                                                        <rect key="frame" x="0.0" y="161.5" width="136" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="167.5" width="136" height="20.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="2Uh-rg-UgH">
-                                                        <rect key="frame" x="0.0" y="184" width="85" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="192" width="85" height="20.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="roomLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lkr-3C-IcW" userLabel="Room Label">
                                                                 <rect key="frame" x="0.0" y="0.0" width="85" height="20.5"/>
@@ -240,7 +240,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YxJ-ew-w6r" userLabel="Directions Button">
-                                                                <rect key="frame" x="-8" y="0.0" width="0.0" height="22"/>
+                                                                <rect key="frame" x="85" y="0.0" width="0.0" height="22"/>
                                                                 <connections>
                                                                     <action selector="toggleDirections:" destination="BPe-f0-hhX" eventType="touchUpInside" id="3Mf-ka-M9c"/>
                                                                 </connections>
@@ -248,7 +248,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <view hidden="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="twk-7K-DgT" customClass="ImageSlideshow" customModule="ImageSlideshow">
-                                                        <rect key="frame" x="0.0" y="204.5" width="240" height="250"/>
+                                                        <rect key="frame" x="0.0" y="212.5" width="240" height="250"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="240" id="EOa-0d-O0A"/>
