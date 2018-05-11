@@ -9,6 +9,7 @@ class EventViewModel {
     var dateDescriptionFullMonth: String?
     var url: URL?
     var imageUrl: URL?
+    var room: String?
     let season: Seasons
     var lecturerId: String?
     var groupScheduleByDay: Bool = false
@@ -54,6 +55,7 @@ class EventViewModel {
                 self.dateDescriptionFullMonth = format(date: startDate, fullMonth: true)
             }
             self.lecturerId = event.lecturerId
+            self.room = event.room
         }
         else {
             self.id = UUID().uuidString
@@ -80,16 +82,20 @@ class EventViewModel {
             return "\(startDate.toString(format: .custom("h:mma"))) to \(endDate.toString(format: .custom("h:mma")))"
         }
         if startDate.compare(.isSameDay(as: endDate)) {
-            //TODO same AM/PM, same hour, without minutes
-            return "\(startDate.toString(format: .custom("MMM d"))) at \(startDate.toString(format: .custom("h:mma"))) to \(endDate.toString(format: .custom("h:mma")))"
+            return "\(startDate.toString(format: .custom("MMM d"))), \(startDate.toString(format: .custom("h:mma"))) to \(endDate.toString(format: .custom("h:mma")))"
         }
-        //TODO different month
-        //return "\(startDate.toString(format: .custom("EEEE, MMM d"))) at \(startDate.toString(format: .custom("h:mma"))) - \(endDate.toString(format: .custom("EEEE, MMM d"))) at \(endDate.toString(format: .custom("h:mma")))"
+
         var startDateFormatted = startDate.toString(format: .custom("MMM d"))
         if fullMonth {
             startDateFormatted = startDate.toString(format: .custom("MMMM d"))
         }
-        let endDateFormatted = endDate.toString(format: .custom("d"))
+        var endDateFormatted = endDate.toString(format: .custom("d"))
+        if !startDate.compare(.isSameMonth(as: endDate)) {
+            endDateFormatted = endDate.toString(format: .custom("MMM d"))
+            if fullMonth {
+                endDateFormatted = endDate.toString(format: .custom("MMMM d"))
+            }
+        }
         let startTime = startDate.toString(format: .custom("h:mma"))
         let endTime = endDate.toString(format: .custom("h:mma"))
         return startDateFormatted + "-" + endDateFormatted + ", " + startTime + " to " + endTime

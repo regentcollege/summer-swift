@@ -249,7 +249,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YxJ-ew-w6r" userLabel="Directions Button">
-                                                                <rect key="frame" x="85" y="0.0" width="0.0" height="22"/>
+                                                                <rect key="frame" x="-8" y="0.0" width="0.0" height="22"/>
                                                                 <connections>
                                                                     <action selector="toggleDirections:" destination="BPe-f0-hhX" eventType="touchUpInside" id="3Mf-ka-M9c"/>
                                                                 </connections>
@@ -861,15 +861,15 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventCell" rowHeight="213" id="EiM-bq-Z8K" customClass="EventCell" customModule="summer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="213"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventCell" rowHeight="230" id="EiM-bq-Z8K" customClass="EventCell" customModule="summer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="230"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EiM-bq-Z8K" id="1T5-HH-VXY">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="212.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="229.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qR6-R6-Wwi">
-                                                    <rect key="frame" x="16" y="8" width="343" height="196.5"/>
+                                                    <rect key="frame" x="16" y="8" width="343" height="213.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="eventTitleLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YjQ-ts-GZp">
                                                             <rect key="frame" x="0.0" y="0.0" width="343" height="23.5"/>
@@ -878,7 +878,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eventDateLabel" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHJ-Ea-fxf">
-                                                            <rect key="frame" x="0.0" y="35.5" width="343" height="19"/>
+                                                            <rect key="frame" x="0.0" y="31.5" width="343" height="19"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="19" id="vZZ-ux-wOc"/>
                                                             </constraints>
@@ -886,8 +886,14 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                                             <color key="textColor" red="0.40784313729999999" green="0.40784313729999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Room Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwC-Q9-S4x">
+                                                            <rect key="frame" x="0.0" y="58.5" width="343" height="17"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                            <color key="textColor" red="0.40784313729999999" green="0.40784313729999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="CKF-3W-yci" userLabel="Event Image View">
-                                                            <rect key="frame" x="0.0" y="66.5" width="343" height="130"/>
+                                                            <rect key="frame" x="0.0" y="83.5" width="343" height="130"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="130" id="0jR-pb-fGu">
                                                                     <variation key="widthClass=regular" constant="300"/>
@@ -907,12 +913,13 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                         <connections>
                                             <outlet property="eventDateLabel" destination="nHJ-Ea-fxf" id="cOi-NL-ZwC"/>
                                             <outlet property="eventImageView" destination="CKF-3W-yci" id="9ID-tx-SuD"/>
+                                            <outlet property="eventRoomLabel" destination="dwC-Q9-S4x" id="Bq3-P6-V7g"/>
                                             <outlet property="eventTitleLabel" destination="YjQ-ts-GZp" id="obA-wR-fXs"/>
                                             <outlet property="stackView" destination="qR6-R6-Wwi" id="eeq-bZ-sI4"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventScheduleCell" rowHeight="105" id="23o-8z-jRL" customClass="EventScheduleCell" customModule="summer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="241" width="375" height="105"/>
+                                        <rect key="frame" x="0.0" y="258" width="375" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="23o-8z-jRL" id="GCw-fh-Ui1">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="104.5"/>

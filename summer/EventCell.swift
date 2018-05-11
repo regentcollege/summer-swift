@@ -9,6 +9,7 @@ class EventCell: UITableViewCell {
     @IBOutlet var eventTitleLabel: UILabel!
     @IBOutlet var eventImageView: UIImageView!
     @IBOutlet var eventDateLabel: UILabel!
+    @IBOutlet var eventRoomLabel: UILabel!
     @IBOutlet var stackView: UIStackView!
     
     var delegate: EventCellDelegate?
@@ -18,6 +19,10 @@ class EventCell: UITableViewCell {
         eventTitleLabel?.text = event.title
         eventDateLabel?.text = event.dateDescription
         eventDateLabel?.textColor = Settings.Color.blue
+        
+        if let room = event.room {
+            eventRoomLabel?.text = room
+        }
         
         if let imageUrl = event.imageUrl {
             eventImageView.kf.setImage(with: imageUrl)

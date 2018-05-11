@@ -86,7 +86,9 @@ class TodayViewController: UIViewController, DocumentStoreDelegate, EventCellDel
                 if self.eventsCoursesForTodayIndex[0] is EventViewModel {
                     self.performSegue(withIdentifier: "showEvent", sender: initialIndexPath)
                 }
-                self.performSegue(withIdentifier: "showCourse", sender: initialIndexPath)
+                else if self.eventsCoursesForTodayIndex[0] is CourseViewModel {
+                    self.performSegue(withIdentifier: "showCourse", sender: initialIndexPath)
+                }
             }
         })
     }
@@ -126,7 +128,9 @@ class TodayViewController: UIViewController, DocumentStoreDelegate, EventCellDel
                 if eventsCoursesForTodayIndex[0] is EventViewModel {
                     self.performSegue(withIdentifier: "showEvent", sender: initialIndexPath)
                 }
-                self.performSegue(withIdentifier: "showCourse", sender: initialIndexPath)
+                else if eventsCoursesForTodayIndex[0] is CourseViewModel {
+                    self.performSegue(withIdentifier: "showCourse", sender: initialIndexPath)
+                }
             }
         }
     }
@@ -142,7 +146,9 @@ class TodayViewController: UIViewController, DocumentStoreDelegate, EventCellDel
             if let section = tableView.indexPathForSelectedRow?.section,
                 let navViewController = segue.destination as? UINavigationController,
                 let courseDetailViewController = navViewController.topViewController as? CourseDetailViewController {
-                let course = eventsCoursesForTodayIndex[section] as! CourseViewModel
+                guard let course = eventsCoursesForTodayIndex[section] as? CourseViewModel else {
+                    preconditionFailure("Unexpected segue identifer")
+                }
                 courseDetailViewController.course = course
                 courseDetailViewController.lecturer = documentStore.getLecturerBy(id: course.lecturerId)
                 courseDetailViewController.room = documentStore.getRoomBy(id: course.roomId)
@@ -154,7 +160,9 @@ class TodayViewController: UIViewController, DocumentStoreDelegate, EventCellDel
             if let section = tableView.indexPathForSelectedRow?.section,
                 let navViewController = segue.destination as? UINavigationController,
                 let eventDetailViewController = navViewController.topViewController as? EventDetailViewController {
-                let event = eventsCoursesForTodayIndex[section] as! EventViewModel
+                guard let event = eventsCoursesForTodayIndex[section] as? EventViewModel else {
+                    preconditionFailure("Unexpected segue identifer")
+                }
                 eventDetailViewController.event = event
                 eventDetailViewController.lecturer = documentStore.getLecturerBy(id: event.lecturerId)
             }

@@ -97,6 +97,11 @@ class EventDetailViewController: UIViewController, DocumentStoreDelegate, EventC
         if event.url != nil {
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(share(sender:)))
         }
+        
+        if schedule?.count == 0 {
+            self.tableView.separatorStyle = .none
+            self.tableView.tableFooterView = UIView()
+        }
     }
     
     @objc func share(sender:UIView){
@@ -166,7 +171,7 @@ extension EventDetailViewController: UITableViewDataSource {
         if indexPath == IndexPath(item: 0, section: 0) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as? EventCell {
                 var limitEventDescription = true
-                if schedule?.count == 0 {
+                if schedule?.count == 0 || event.description.count < 700 {
                     limitEventDescription = false
                 }
                 cell.configureWith(event: event, lecturer: documentStore.getLecturerBy(id: event.lecturerId), showEventDescription: true, limitEventDescription: limitEventDescription)
