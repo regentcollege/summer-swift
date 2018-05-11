@@ -17,7 +17,7 @@ class EventViewModel {
     @objc var startDate: Date?
     @objc var endDate: Date?
     
-    init(event: Event?) {
+    init(event: Event?, showTimeOnly: Bool = false) {
         if let event = event {
             self.id = event.id
             self.title = event.title
@@ -46,8 +46,8 @@ class EventViewModel {
             if let startDate = event.startDate, let endDate = event.endDate {
                 self.startDate = startDate
                 self.endDate = endDate
-                self.dateDescription = format(startDate: startDate, endDate: endDate)
-                self.dateDescriptionFullMonth = format(startDate: startDate, endDate: endDate, fullMonth: true)
+                self.dateDescription = format(startDate: startDate, endDate: endDate, showTimeOnly: showTimeOnly)
+                self.dateDescriptionFullMonth = format(startDate: startDate, endDate: endDate, fullMonth: true, showTimeOnly: showTimeOnly)
             } else if let startDate = event.startDate {
                 self.startDate = startDate
                 self.dateDescription = format(date: startDate)
@@ -64,7 +64,10 @@ class EventViewModel {
         }
     }
     
-    private func format(date: Date, fullMonth: Bool = false) -> String {
+    private func format(date: Date, fullMonth: Bool = false, showTimeOnly: Bool = false) -> String {
+        if showTimeOnly {
+            return date.toString(format: .custom("h:mma"))
+        }
         if fullMonth {
             return date.toString(format: .custom("EEEE, MMMM d")) + " at " + date.toString(format: .custom("h:mma"))
         }
@@ -72,7 +75,10 @@ class EventViewModel {
         return date.toString(format: .custom("EEEE, MMM d")) + " at " + date.toString(format: .custom("h:mma"))
     }
     
-    private func format(startDate: Date, endDate: Date, fullMonth: Bool = false) -> String {
+    private func format(startDate: Date, endDate: Date, fullMonth: Bool = false, showTimeOnly: Bool = false) -> String {
+        if showTimeOnly {
+            return "\(startDate.toString(format: .custom("h:mma"))) to \(endDate.toString(format: .custom("h:mma")))"
+        }
         if startDate.compare(.isSameDay(as: endDate)) {
             //TODO same AM/PM, same hour, without minutes
             return "\(startDate.toString(format: .custom("MMM d"))) at \(startDate.toString(format: .custom("h:mma"))) to \(endDate.toString(format: .custom("h:mma")))"

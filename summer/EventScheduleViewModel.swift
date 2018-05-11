@@ -11,7 +11,7 @@ class EventScheduleViewModel {
     @objc var start: Date?
     @objc var end: Date?
     
-    init(schedule: EventSchedule?, showTimeOnly: Bool) {
+    init(schedule: EventSchedule?, showTimeOnly: Bool = false) {
         if let schedule = schedule {
             self.id = schedule.id
             self.title = schedule.title

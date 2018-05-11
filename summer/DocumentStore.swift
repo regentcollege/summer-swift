@@ -54,7 +54,7 @@ class DocumentStore {
         let eventsWithDates = events.filter { $0.startDate != nil && $0.endDate != nil }
         return eventsWithDates.filter { $0.startDate!.compare(.isSameDay(as: now)) ||
             $0.endDate!.compare(.isSameDay(as: now)) ||
-            $0.startDate!.compare(.isEarlier(than: now)) && $0.endDate!.compare(.isLater(than: now)) }.map { EventViewModel(event: $0) }
+            $0.startDate!.compare(.isEarlier(than: now)) && $0.endDate!.compare(.isLater(than: now)) }.map { EventViewModel(event: $0, showTimeOnly: true) }
     }
     
     func getNextEvent(from: Date) -> EventViewModel? {
