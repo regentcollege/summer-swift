@@ -50,11 +50,20 @@ class DocumentStore {
             $0.start!.compare(.isEarlier(than: now)) && $0.end!.compare(.isLater(than: now)) }.map { EventScheduleViewModel(schedule: $0, showTimeOnly: showTimeOnly) }
     }
     
+    //todo could return a tuple with schedule as well
     func getEventsHappening(now: Date) -> [EventViewModel] {
         let eventsWithDates = events.filter { $0.startDate != nil && $0.endDate != nil }
-        return eventsWithDates.filter { $0.startDate!.compare(.isSameDay(as: now)) ||
+        let eventViewModels = eventsWithDates.filter { $0.startDate!.compare(.isSameDay(as: now)) ||
             $0.endDate!.compare(.isSameDay(as: now)) ||
             $0.startDate!.compare(.isEarlier(than: now)) && $0.endDate!.compare(.isLater(than: now)) }.map { EventViewModel(event: $0, showTimeOnly: true) }
+        
+        var eventsToReturn = [EventViewModel]()
+        for event in eventViewModels {
+            if let schedule = getEventScheduleHappening(now: now, id: event.id), schedule.count > 0 {
+                eventsToReturn.append(event)
+            }
+        }
+        return eventsToReturn
     }
     
     func getNextEvent(from: Date) -> EventViewModel? {
@@ -205,7 +214,7 @@ class DocumentStore {
     private func loadData() {
         db.collection("meta").document("settings").getDocument { (document, error) in
             if let document = document, document.exists, let data = document.data() {
-                Settings.currentDate = Date()
+                Settings.currentDate = Date(fromString: "2018-05-14", format: .isoDate)!
                 
                 if let currentTimestamp = data["currentDate"] as? Timestamp {
                     Settings.currentDate = currentTimestamp.dateValue()

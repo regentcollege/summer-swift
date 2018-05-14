@@ -3,7 +3,7 @@ import AFDateHelper
 
 class EventViewModel {
     var id: String
-    let title: String
+    var title: String
     let description: String
     var dateDescription: String?
     var dateDescriptionFullMonth: String?
@@ -14,6 +14,7 @@ class EventViewModel {
     var lecturerId: String?
     var groupScheduleByDay: Bool = false
     var isEPL: Bool = false
+    var isRecurring: Bool = false
     
     @objc var startDate: Date?
     @objc var endDate: Date?
@@ -27,6 +28,9 @@ class EventViewModel {
             }
             if let isEPL = event.isEPL {
                 self.isEPL = isEPL
+            }
+            if let isRecurring = event.isRecurring {
+                self.isRecurring = isRecurring
             }
             if let description = event.description {
                 self.description = description

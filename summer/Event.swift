@@ -11,6 +11,7 @@ struct Event: Mappable {
     let season: Seasons?
     let groupScheduleByDay: Bool?
     let isEPL: Bool?
+    let isRecurring: Bool?
     
     var startDate: Date?
     var endDate: Date?
@@ -26,6 +27,7 @@ struct Event: Mappable {
         season = map.optionalFrom("season")
         groupScheduleByDay = map.optionalFrom("groupScheduleByDay")
         isEPL = map.optionalFrom("isEPL")
+        isRecurring = map.optionalFrom("isRecurring")
         
         startDate = map.optionalFrom("startDate", transformation: extractDate)
         endDate = map.optionalFrom("endDate", transformation: extractDate)

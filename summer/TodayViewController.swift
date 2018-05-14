@@ -26,8 +26,8 @@ class TodayViewController: UIViewController, DocumentStoreDelegate, EventCellDel
         return documentStore.getNextCourse(from: Settings.currentDate)
     }
     
-    func getScheduleFor(event: EventViewModel) -> [EventScheduleViewModel]? {
-        return documentStore.getEventScheduleHappening(now: Settings.currentDate, id: event.id, showTimeOnly: true)
+    func getScheduleFor(eventId: String) -> [EventScheduleViewModel]? {
+        return documentStore.getEventScheduleHappening(now: Settings.currentDate, id: eventId, showTimeOnly: true)
     }
     
     var isCollapsedView: Bool {
@@ -258,7 +258,12 @@ extension TodayViewController: UITableViewDataSource {
         }
 
         if eventsCoursesForTodayIndex[section] is EventViewModel {
-            guard let schedule = getScheduleFor(event: eventsForToday[section]), schedule.count > 0 else {
+            let event = eventsCoursesForTodayIndex[section] as! EventViewModel
+            guard let schedule = getScheduleFor(eventId: event.id), schedule.count > 0 else {
+                return 1
+                }
+            
+            if event.isRecurring && schedule.count == 1 {
                 return 1
             }
             return schedule.count + 1
@@ -287,6 +292,10 @@ extension TodayViewController: UITableViewDataSource {
         
         if indexPath.row == 0 {
             if let event = eventsCoursesForTodayIndex[indexPath.section] as? EventViewModel {
+                // recurring events have one session per day, so no need to show the schedule cell
+                if event.isRecurring, let scheduleForCell = self.getScheduleFor(eventId: event.id), scheduleForCell.count == 1 {
+                    event.title = scheduleForCell[0].title
+                }
                 if let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as? EventCell {
                     cell.configureWith(event: event, lecturer: documentStore.getLecturerBy(id: event.lecturerId))
                     return cell
@@ -300,8 +309,10 @@ extension TodayViewController: UITableViewDataSource {
             }
         }
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "EventScheduleCell", for: indexPath) as? EventScheduleCell, let schedule = getScheduleFor(event: eventsForToday[0]) {
-            
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "EventScheduleCell", for: indexPath) as? EventScheduleCell {
+            guard let event = eventsCoursesForTodayIndex[indexPath.section] as? EventViewModel, let schedule = getScheduleFor(eventId: event.id) else {
+                return UITableViewCell()
+            }
             let scheduleForCell = schedule[indexPath.row - 1]
             cell.configureWith(schedule: scheduleForCell)
             cell.delegate = self
@@ -351,6 +362,7 @@ extension TodayViewController: UITableViewDelegate {
 extension TodayViewController: SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else { return nil }
+        guard let event = eventsCoursesForTodayIndex[indexPath.section] as? EventViewModel else { return nil }
         
         let calendarAction = SwipeAction(style: .default, title: "Add to Calendar") { action, indexPath in
             let eventStore = EKEventStore()
@@ -366,7 +378,7 @@ extension TodayViewController: SwipeTableViewCellDelegate {
                     
                     let eventToAdd = EKEvent(eventStore: eventStore)
                     
-                    let scheduleForCell = self.getScheduleFor(event: self.eventsForToday[0])![indexPath.row]
+                    let scheduleForCell = self.getScheduleFor(eventId: event.id)![indexPath.row]
                     
                     eventToAdd.title = self.eventsForToday[0].title + " " + scheduleForCell.title
                     eventToAdd.startDate = scheduleForCell.start

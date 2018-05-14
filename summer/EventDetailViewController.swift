@@ -231,13 +231,6 @@ extension EventDetailViewController: SwipeTableViewCellDelegate {
             
             eventStore.requestAccess( to: EKEntityType.event, completion:{(granted, error) in
                 if granted && error == nil, let eventCalendar = eventStore.defaultCalendarForNewEvents {
-                    let alert = UIAlertController(title: "Confirm", message: "Add to your default calendar " + eventCalendar.title + "?", preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
-                        return
-                    }))
-                    self.present(alert, animated: true, completion: nil)
-                    
                     let eventToAdd = EKEvent(eventStore: eventStore)
                     
                     var scheduleForCell: EventScheduleViewModel!
@@ -245,23 +238,33 @@ extension EventDetailViewController: SwipeTableViewCellDelegate {
                         scheduleForCell = self.getSessionBy(section: indexPath.section, row: indexPath.row)
                     }
                     else {
-                        scheduleForCell = self.schedule![indexPath.row]
+                        scheduleForCell = self.schedule![indexPath.row - 1]
                     }
                     
-                    eventToAdd.title = self.event.title + " " + scheduleForCell.title
+                    eventToAdd.title = self.event.title
+                    if !self.event.isRecurring && self.event.title != scheduleForCell.title {
+                        eventToAdd.title = eventToAdd.title + " " + scheduleForCell.title
+                    }
                     eventToAdd.startDate = scheduleForCell.start
                     eventToAdd.endDate = scheduleForCell.end
                     eventToAdd.calendar = eventStore.defaultCalendarForNewEvents
                     
-                    do {
-                        try eventStore.save(eventToAdd, span: .thisEvent)
-                        let alert = UIAlertController(title: "Added", message: "Added to your default calendar for new events: " + eventToAdd.calendar.title, preferredStyle: UIAlertControllerStyle.alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
-                    }
-                    catch let error as NSError {
-                        print("json error: \(error.localizedDescription)")
-                    }
+                    let alert = UIAlertController(title: "Confirm", message: "Add to your default calendar " + eventCalendar.title + "?", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) -> Void in
+                        do {
+                            try eventStore.save(eventToAdd, span: .thisEvent)
+                            let alert = UIAlertController(title: "Added", message: "Added to your default calendar for new events: " + eventToAdd.calendar.title, preferredStyle: UIAlertControllerStyle.alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                        catch let error as NSError {
+                            print("json error: \(error.localizedDescription)")
+                        }
+                    }))
+                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
+                        return
+                    }))
+                    self.present(alert, animated: true, completion: nil)
                 }
             })
         }
