@@ -212,25 +212,6 @@ class DocumentStore {
     }
     
     private func loadData() {
-        db.collection("meta").document("settings").getDocument { (document, error) in
-            if let document = document, document.exists, let data = document.data() {
-                Settings.currentDate = Date(fromString: "2018-05-14", format: .isoDate)!
-                
-                if let currentTimestamp = data["currentDate"] as? Timestamp {
-                    Settings.currentDate = currentTimestamp.dateValue()
-                }
-                if let dateString = data["currentDate"] as? String,
-                    !dateString.isEmpty,
-                    let extractedDate = Date(fromString: dateString, format: .isoDate)
-                {
-                    Settings.currentDate = extractedDate
-                }
-                
-                self.delegate?.documentsDidUpdate()
-            } else {
-                print("No settings")
-            }
-        }
         db.collection("events").getDocuments() {
             querySnapshot, error in
             if let error = error {
@@ -322,27 +303,6 @@ class DocumentStore {
     }
     
     private func checkForUpdates() {
-        db.collection("meta").document("settings")
-            .addSnapshotListener { documentSnapshot, error in
-                guard let document = documentSnapshot, let data = document.data() else {
-                    print("Error fetching document: \(error!)")
-                    return
-                }
-                
-                Settings.currentDate = Date()
-                
-                if let currentDate = data["currentDate"] as? Date {
-                    Settings.currentDate = currentDate
-                }
-                if let dateString = data["currentDate"] as? String,
-                    !dateString.isEmpty,
-                    let extractedDate = Date(fromString: dateString, format: .isoDate)
-                {
-                    Settings.currentDate = extractedDate
-                }
-                
-                self.delegate?.documentsDidUpdate()
-        }
         db.collection("events").addSnapshotListener {
             querySnapshot, error in
             

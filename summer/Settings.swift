@@ -40,5 +40,7 @@ class Settings {
         static let purple = "64006b".hexColor
     }
     
-    static var currentDate = Date()
+    static var currentDate: Date {
+        return Date()
+    }
 }
