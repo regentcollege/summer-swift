@@ -203,7 +203,12 @@ class TodayViewController: UIViewController, DocumentStoreDelegate, EventCellDel
                 d2End = course.endDate!
             }
             
-            return d1Start < d2Start || (d1Start == d2Start && d1End < d2End)
+            // we only want to sort by time today
+            // as events and courses could have started yesterday and simply span through today
+            let d1Adjusted = Date().adjust(hour: d1Start.component(.hour), minute: d1Start.component(.minute), second: d1Start.component(.second))
+            let d2Adjusted = Date().adjust(hour: d2Start.component(.hour), minute: d2Start.component(.minute), second: d2Start.component(.second))
+
+            return d1Adjusted < d2Adjusted || (d1Adjusted == d2Adjusted && d1End < d2End)
         })
     }
     
