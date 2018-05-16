@@ -61,20 +61,6 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
     override func viewWillAppear(_ animated: Bool) {
         let eventIndexToShow = IndexPath(row: 0, section: 0)
         
-        // this isn't working
-        /*var sectionPosition = 0
-        for event in events {
-            if let startDate = event.startDate {
-                if(Settings.currentDate.compare(.isSameDay(as: startDate)) || Settings.currentDate.compare(.isEarlier(than: startDate))) {
-                    eventIndexToShow = IndexPath(row: 0, section: sectionPosition)
-                    break
-                }
-            }
-            sectionPosition += 1
-        }
-        self.tableView.scrollToRow(at: eventIndexToShow, at: .top, animated: false)
-        */
-        
         if !isCollapsedView {
             self.tableView.selectRow(at: eventIndexToShow, animated: true, scrollPosition:UITableViewScrollPosition.none)
             self.performSegue(withIdentifier: "showEvent", sender: eventIndexToShow)

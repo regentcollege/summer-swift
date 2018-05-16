@@ -58,8 +58,13 @@ class DocumentStore {
             $0.startDate!.compare(.isEarlier(than: now)) && $0.endDate!.compare(.isLater(than: now)) }.map { EventViewModel(event: $0, showTimeOnly: true) }
         
         var eventsToReturn = [EventViewModel]()
+        // events that span multiple days but don't have anything scheduled for this particular day aren't returned
         for event in eventViewModels {
             if let schedule = getEventScheduleHappening(now: now, id: event.id), schedule.count > 0 {
+                eventsToReturn.append(event)
+            }
+            else if let schedule = getEventScheduleBy(id: event.id), schedule.count == 0 {
+                // however events that don't have any schedule at all can be included
                 eventsToReturn.append(event)
             }
         }
