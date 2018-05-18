@@ -76,7 +76,7 @@ Cam Tucker – ctucker@regent-college.edu
 
 Distributed under the MIT license. See [LICENSE](LICENSE) for more information.
 
-[swift-image]:https://img.shields.io/badge/swift-4.0-orange.svg
+[swift-image]:https://img.shields.io/badge/swift-4.1-orange.svg
 [swift-url]: https://swift.org/
 [license-image]: https://img.shields.io/badge/License-MIT-blue.svg
 [firestore-url]: https://firebase.google.com/products/firestore/
