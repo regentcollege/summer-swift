@@ -25,9 +25,9 @@ extension AboutDetailViewController: UITableViewDelegate {
         if indexPath.row == 0 {
             UIApplication.shared.open(URL(string: "https://github.com/RegentCollege/summer-swift")!)
         }
-        if indexPath.row == 1 {
-            UIApplication.shared.open(URL(string: "https://regentcollege.uservoice.com/forums/907291-summer-mobile-app")!)
-        }
+        //if indexPath.row == 1 {
+        //    UIApplication.shared.open(URL(string: "https://regentcollege.uservoice.com/forums/907291-summer-mobile-app")!)
+        //}
         detailTableViewController?.tableView.deselectRow(at: indexPath, animated: true)
     }
 }

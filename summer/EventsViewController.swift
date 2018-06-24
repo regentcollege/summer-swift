@@ -7,7 +7,7 @@ class EventsViewController: UIViewController, DocumentStoreDelegate {
     var documentStore: DocumentStore!
     
     var events: [EventViewModel] {
-        return documentStore.getEvents()
+        return documentStore.getEventsHappeningAfter(now: Settings.currentDate)
     }
     
     var eventsFiltered = [EventViewModel]()

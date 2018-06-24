@@ -19,6 +19,7 @@ struct Course: Mappable {
     let term: String?
     let reportingTerm: String?
     let season: Seasons?
+    let isWeekend: Bool?
     
     // extending Mappable to let us extract dates requires mutable var
     var startDate: Date?
@@ -38,6 +39,7 @@ struct Course: Mappable {
         term = map.optionalFrom("term")
         reportingTerm = map.optionalFrom("reportingTerm")
         season = map.optionalFrom("season")
+        isWeekend = map.optionalFrom("isWeekend")
         startDate = map.optionalFrom("startDate", transformation: extractDate)
         endDate = map.optionalFrom("endDate", transformation: extractDate)
     }

@@ -1,48 +1,48 @@
 PODS:
   - AFDateHelper (4.2.7)
-  - Atributika (4.4.2)
-  - BoringSSL (10.0.2):
-    - BoringSSL/Implementation (= 10.0.2)
-    - BoringSSL/Interface (= 10.0.2)
-  - BoringSSL/Implementation (10.0.2):
-    - BoringSSL/Interface (= 10.0.2)
-  - BoringSSL/Interface (10.0.2)
+  - Atributika (4.4.3)
+  - BoringSSL (10.0.5):
+    - BoringSSL/Implementation (= 10.0.5)
+    - BoringSSL/Interface (= 10.0.5)
+  - BoringSSL/Implementation (10.0.5):
+    - BoringSSL/Interface (= 10.0.5)
+  - BoringSSL/Interface (10.0.5)
   - Crashlytics (3.9.3):
     - Fabric (~> 1.7.2)
-  - Fabric (1.7.6)
-  - Firebase/Auth (5.0.1):
+  - Fabric (1.7.7)
+  - Firebase/Auth (5.3.0):
     - Firebase/CoreOnly
-    - FirebaseAuth (= 5.0.0)
-  - Firebase/Core (5.0.1):
+    - FirebaseAuth (= 5.0.1)
+  - Firebase/Core (5.3.0):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (= 5.0.0)
-  - Firebase/CoreOnly (5.0.1):
-    - FirebaseCore (= 5.0.1)
-  - Firebase/Firestore (5.0.1):
+    - FirebaseAnalytics (= 5.0.1)
+  - Firebase/CoreOnly (5.3.0):
+    - FirebaseCore (= 5.0.4)
+  - Firebase/Firestore (5.3.0):
     - Firebase/CoreOnly
-    - FirebaseFirestore (= 0.12.1)
-  - FirebaseAnalytics (5.0.0):
+    - FirebaseFirestore (= 0.12.4)
+  - FirebaseAnalytics (5.0.1):
     - FirebaseCore (~> 5.0)
     - FirebaseInstanceID (~> 3.0)
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
     - nanopb (~> 0.3)
-  - FirebaseAuth (5.0.0):
+  - FirebaseAuth (5.0.1):
     - FirebaseCore (~> 5.0)
     - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseCore (5.0.1):
+  - FirebaseCore (5.0.4):
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-  - FirebaseFirestore (0.12.1):
+  - FirebaseFirestore (0.12.4):
     - FirebaseCore (~> 5.0)
-    - FirebaseFirestore/abseil-cpp (= 0.12.1)
+    - FirebaseFirestore/abseil-cpp (= 0.12.4)
     - gRPC-ProtoRPC (~> 1.0)
     - leveldb-library (~> 1.18)
     - Protobuf (~> 3.1)
-  - FirebaseFirestore/abseil-cpp (0.12.1):
+  - FirebaseFirestore/abseil-cpp (0.12.4):
     - FirebaseCore (~> 5.0)
     - gRPC-ProtoRPC (~> 1.0)
     - leveldb-library (~> 1.18)
     - Protobuf (~> 3.1)
-  - FirebaseInstanceID (3.0.0):
+  - FirebaseInstanceID (3.1.1):
     - FirebaseCore (~> 5.0)
   - GoogleToolboxForMac/Defines (2.1.4)
   - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
@@ -67,10 +67,10 @@ PODS:
     - gRPC-Core (= 1.12.0)
     - gRPC-RxLibrary (= 1.12.0)
   - GTMSessionFetcher/Core (1.1.15)
-  - ImageSlideshow (1.5.3):
-    - ImageSlideshow/Core (= 1.5.3)
-  - ImageSlideshow/Core (1.5.3)
-  - ImageSlideshow/Kingfisher (1.5.3):
+  - ImageSlideshow (1.6.1):
+    - ImageSlideshow/Core (= 1.6.1)
+  - ImageSlideshow/Core (1.6.1)
+  - ImageSlideshow/Kingfisher (1.6.1):
     - ImageSlideshow/Core
     - Kingfisher (> 3.0)
   - Kingfisher (4.8.0)
@@ -82,11 +82,11 @@ PODS:
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
   - PlayerKit (1.2.0)
-  - Protobuf (3.5.0)
+  - Protobuf (3.6.0)
   - Swinject (2.1.1)
   - SwinjectStoryboard (1.1.2):
     - Swinject (~> 2.1)
-  - SwipeCellKit (2.2.0)
+  - SwipeCellKit (2.4.3)
 
 DEPENDENCIES:
   - AFDateHelper
@@ -137,33 +137,33 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFDateHelper: 4ad66fb19503041fbba8a3018cb7ef9c71b2ff88
-  Atributika: 61cf7794646bd033cd19aad1b8f7e1cae8daa877
-  BoringSSL: 60dd24df4af296bf41d78e5841dbb95d75f88c0d
+  Atributika: c2ecee6c96af80c29d6ed1606e70fa137e51790f
+  BoringSSL: cf3f1793eb6e3c445c4d150456341f149c268a35
   Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
-  Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
-  Firebase: d6861c2059d8c32d1e6dd8932e22ada346d90a3a
-  FirebaseAnalytics: 19812b49fa5f283dd6b23edf8a14b5d477029ab8
-  FirebaseAuth: acbeef02fe7c3a26624e309849f3fe30c84115af
-  FirebaseCore: cafc814b2d84fc8733f09e653041cc2165332ad7
-  FirebaseFirestore: f686b8e83f3cf8bbc37db6e98e01029a14f01f55
-  FirebaseInstanceID: 83e0040351565df711a5db3d8ebe5ea21aca998a
+  Fabric: bda89e242bce1b7b8ab264248cf3407774ce0095
+  Firebase: 68afeeb05461db02d7c9e3215cda28068670f4aa
+  FirebaseAnalytics: b3628aea54c50464c32c393fb2ea032566e7ecc2
+  FirebaseAuth: 463b8ce33bd5d05f706dcd4615499e3212b4132b
+  FirebaseCore: 62f1b792a49bb9e8b4073f24606d2c93ffc352f0
+  FirebaseFirestore: 53f6fe858494c39dbfd5237655e0641152a88c89
+  FirebaseInstanceID: f3f0657372592ecdfdfe2cac604a5a75758376a6
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   gRPC: 9362451032695e2dfb7bafcd3740e3a27939e4ff
   gRPC-Core: 9696b220565b283e021cf2722d473a4a74b7622a
   gRPC-ProtoRPC: a1bd56fb1991a8dae4581250d7259eddabb66779
   gRPC-RxLibrary: 1ed5314e8b38cd6e55c9bfa048387136ae925ce9
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
-  ImageSlideshow: 24a1184909f589379ba2527ebcc77996881bb1f2
+  ImageSlideshow: f0f33e1a20668e83d77f5fb7729e4ae4437c0759
   Kingfisher: 976d828df2b24834c6a3f2fc4d82cdbd26552be1
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   ModelMapper: a258c5f8e1422e0e826c8265a3e89ae1b329c3a6
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   PlayerKit: a1fd44e0d2277ac5e2e6cb1fae38e86c872abb5b
-  Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
+  Protobuf: 0fc0ad8bec688b2a3017a139953e01374fedbd5f
   Swinject: afea49fd95f392b41171669f165842879c48fad6
   SwinjectStoryboard: 92e75763c3299cdf627bef98a5180dc894864336
-  SwipeCellKit: 8ae09401e1137566b187980d824310129233c959
+  SwipeCellKit: cee9906e6d3a36e22ad1a852fba7f8fa0839d113
 
 PODFILE CHECKSUM: a65e64a0ccfb6d9c2a1d49f029c789da2b861de8
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3

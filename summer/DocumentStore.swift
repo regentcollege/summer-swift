@@ -40,6 +40,15 @@ class DocumentStore {
         return schedule.map { EventScheduleViewModel(schedule: $0, showTimeOnly: showTimeOnly) }
     }
     
+    func getEventScheduleHappeningAfter(id: String, now: Date, showTimeOnly: Bool = false) -> [EventScheduleViewModel]? {
+        guard let schedule = eventSchedule[id] else {
+            return nil
+        }
+        let scheduleWithDates = schedule.filter { $0.start != nil && $0.end != nil }
+        return scheduleWithDates.filter { $0.start!.compare(.isSameDay(as: now)) ||
+            $0.end!.compare(.isSameDay(as: now)) || $0.end!.compare(.isLater(than: now)) }.map { EventScheduleViewModel(schedule: $0, showTimeOnly: showTimeOnly) }
+    }
+    
     func getEventScheduleHappening(now: Date, id: String, showTimeOnly: Bool = false) -> [EventScheduleViewModel]? {
         guard let schedule = eventSchedule[id] else {
             return nil
@@ -71,6 +80,14 @@ class DocumentStore {
         return eventsToReturn
     }
     
+    func getEventsHappeningAfter(now: Date) -> [EventViewModel] {
+        let eventsWithDates = events.filter { $0.startDate != nil && $0.endDate != nil }
+        let eventViewModels = eventsWithDates.filter { $0.startDate!.compare(.isSameDay(as: now)) ||
+            $0.endDate!.compare(.isSameDay(as: now)) || $0.endDate!.compare(.isLater(than: now)) }.map { EventViewModel(event: $0) }
+        
+        return eventViewModels
+    }
+    
     func getNextEvent(from: Date) -> EventViewModel? {
         let eventsWithDates = events.filter { $0.startDate != nil }
         let nextEvents = eventsWithDates.filter { $0.startDate!.compare(.isSameDay(as: from)) ||
@@ -92,7 +109,12 @@ class DocumentStore {
     }
     
     func getCoursesHappening(now: Date) -> [CourseViewModel] {
-        let coursesWithDates = courses.filter { $0.startDate != nil && $0.endDate != nil }
+        var coursesWithDates = courses.filter { $0.startDate != nil && $0.endDate != nil }
+        
+        if now.compare(.isWeekend) {
+            coursesWithDates = coursesWithDates.filter { $0.isWeekend != nil && $0.isWeekend! }
+        }
+        
         return coursesWithDates.filter { $0.startDate!.compare(.isSameDay(as: now)) ||
             $0.endDate!.compare(.isSameDay(as: now)) ||
             $0.startDate!.compare(.isEarlier(than: now)) && $0.endDate!.compare(.isLater(than: now)) }.map { CourseViewModel(course: $0) }

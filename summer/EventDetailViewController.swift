@@ -17,9 +17,9 @@ class EventDetailViewController: UIViewController, DocumentStoreDelegate, EventC
     
     var schedule: [EventScheduleViewModel]? {
         if event.groupScheduleByDay {
-            return documentStore.getEventScheduleBy(id: event.id, showTimeOnly: true)
+            return documentStore.getEventScheduleHappeningAfter(id: event.id, now: Settings.currentDate, showTimeOnly: true)
         }
-        return documentStore.getEventScheduleBy(id: event.id)
+        return documentStore.getEventScheduleHappeningAfter(id: event.id, now: Settings.currentDate)
     }
     
     var lecturer: LecturerViewModel?

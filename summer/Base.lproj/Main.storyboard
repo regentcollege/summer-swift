@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oAz-NB-zwm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oAz-NB-zwm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -125,7 +125,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <items>
                                     <barButtonItem title="Item" style="plain" id="SJS-b9-6do">
-                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="0sA-83-NXE">
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" id="0sA-83-NXE">
                                             <rect key="frame" x="16" y="7" width="343" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
@@ -249,7 +249,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YxJ-ew-w6r" userLabel="Directions Button">
-                                                                <rect key="frame" x="-8" y="0.0" width="0.0" height="22"/>
+                                                                <rect key="frame" x="85" y="0.0" width="0.0" height="22"/>
                                                                 <connections>
                                                                     <action selector="toggleDirections:" destination="BPe-f0-hhX" eventType="touchUpInside" id="3Mf-ka-M9c"/>
                                                                 </connections>
@@ -513,7 +513,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="75" id="MUb-U0-uh2">
+                                    <tableViewCell hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="75" id="MUb-U0-uh2">
                                         <rect key="frame" x="0.0" y="75" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MUb-U0-uh2" id="4Sl-l6-j5d">
@@ -926,28 +926,28 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HYA-Ch-xsd">
-                                                    <rect key="frame" x="0.0" y="10" width="375" height="84.5"/>
+                                                    <rect key="frame" x="8" y="10" width="359" height="84.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="eventScheduleTitleLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlR-Ri-aDc">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="23.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="359" height="23.5"/>
                                                             <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eventScheduleSubtitleLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWT-Jj-oXU">
-                                                            <rect key="frame" x="0.0" y="23.5" width="375" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="23.5" width="359" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                                             <color key="textColor" red="0.40784313729999999" green="0.40784313729999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eventScheduleSpeakerLabel" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="je2-Oq-3a9">
-                                                            <rect key="frame" x="0.0" y="44" width="375" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="44" width="359" height="20.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                             <color key="textColor" red="0.40784313729999999" green="0.40784313729999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eventScheduleDateLabel" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3u-TY-kWl">
-                                                            <rect key="frame" x="0.0" y="64.5" width="375" height="20"/>
+                                                            <rect key="frame" x="0.0" y="64.5" width="359" height="20"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                             <color key="textColor" red="0.40784313729999999" green="0.40784313729999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -956,15 +956,12 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="HYA-Ch-xsd" firstAttribute="leading" secondItem="GCw-fh-Ui1" secondAttribute="leading" id="2GN-UU-9vz"/>
-                                                <constraint firstAttribute="trailing" secondItem="HYA-Ch-xsd" secondAttribute="trailing" id="74a-i4-aic"/>
+                                                <constraint firstItem="HYA-Ch-xsd" firstAttribute="leading" secondItem="GCw-fh-Ui1" secondAttribute="leading" constant="8" id="2GN-UU-9vz"/>
+                                                <constraint firstAttribute="trailing" secondItem="HYA-Ch-xsd" secondAttribute="trailing" constant="8" id="74a-i4-aic"/>
                                                 <constraint firstAttribute="bottom" secondItem="HYA-Ch-xsd" secondAttribute="bottom" constant="10" id="Brm-KJ-c5l"/>
                                                 <constraint firstItem="HYA-Ch-xsd" firstAttribute="top" secondItem="GCw-fh-Ui1" secondAttribute="top" constant="10" id="H26-3d-816"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <constraints>
-                                            <constraint firstItem="HYA-Ch-xsd" firstAttribute="width" secondItem="23o-8z-jRL" secondAttribute="width" id="RGR-65-QE1"/>
-                                        </constraints>
                                         <connections>
                                             <outlet property="eventScheduleDateLabel" destination="N3u-TY-kWl" id="vSX-Oz-VgC"/>
                                             <outlet property="eventScheduleSpeakerLabel" destination="je2-Oq-3a9" id="kt3-3d-cBs"/>
@@ -1588,7 +1585,7 @@ For issues with wifi, contact the helpdesk, speak with the info desk, reception,
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="J2X-6V-7Uv"/>
-        <segue reference="q0f-dx-IGf"/>
-        <segue reference="Feh-8Y-KsY"/>
+        <segue reference="Yjm-Hp-02D"/>
+        <segue reference="R96-hv-mFX"/>
     </inferredMetricsTieBreakers>
 </document>

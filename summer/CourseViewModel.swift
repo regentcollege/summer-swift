@@ -13,6 +13,7 @@ class CourseViewModel {
     var meetingTime: String
     var room: String?
     var roomId: String?
+    var isWeekend: Bool = false
     
     init(course: Course?) {
         if let course = course {
@@ -54,6 +55,9 @@ class CourseViewModel {
             self.meetingTime = ""
             if let meetingTime = course.meetingTime {
                 self.meetingTime = meetingTime
+            }
+            if let isWeekend = course.isWeekend {
+                self.isWeekend = isWeekend
             }
         }
         else {
